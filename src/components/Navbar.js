@@ -51,11 +51,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) setScreenSize('mobile');
-      else if (width < 1024) setScreenSize('tablet');
-      else setScreenSize('desktop');
-    };
+    const width = window.innerWidth;
+    if (width < 768) setScreenSize('mobile');
+    else if (width < 1024) setScreenSize('tablet');
+    else setScreenSize('desktop');
+  };
 
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -275,7 +275,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMobileMenuOpen && !event.target.closest('.mobile-menu')) {
+      if (isMobileMenuOpen && 
+          !event.target.closest('.mobile-menu') && 
+          !event.target.closest('.mobile-menu-toggle')) {
         setIsMobileMenuOpen(false);
       }
       if (isLanguageDropdownOpen && !event.target.closest('.language-dropdown')) {
@@ -499,7 +501,7 @@ const Navbar = () => {
             {/* Mobile Menu Toggle */}
             {screenSize === 'mobile' && (
               <button
-                className="p-1.5 rounded-md text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-colors"
+                className="p-1.5 rounded-md text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-colors mobile-menu-toggle"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
@@ -708,10 +710,7 @@ const Navbar = () => {
           }
           
           /* Top bar adjustments */
-          .w-full {
-            max-width: 100vw;
-            overflow-x: hidden;
-          }
+          /* Removed dangerous .w-full selector that caused clipping */
           
           /* Font size adjustments for very small screens */
           .text-[10px] {
