@@ -2420,16 +2420,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div 
-                    className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6"
-                  >
-                    <p className="text-white font-medium text-lg">
-                      {image.originalName || `${t.bankEvent} ${index + 1}`}
-                    </p>
-                    <p className="text-white/70 text-sm mt-1">
-                      {image.category || t.bankEvent}
-                    </p>
-                  </div>
+
                   <div 
                     className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
                     style={{
