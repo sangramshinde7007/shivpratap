@@ -96,11 +96,11 @@ const Home = () => {
       // Statistics section
       statsTitle: "Our Achievements in Numbers",
       statsSubtitle: "Trusted by millions, serving communities with excellence",
-      satisfiedCustomers: "50+ Lakh Satisfied Customers",
+      satisfiedCustomers: "Satisfied Customers",
       branches: "Branches",
       villageService: "Village Service Centers",
-      employee: "Employee",
-      businessVolume: "1000+ Crore Business",
+      employee: "Employees",
+      businessVolume: "Business Volume",
       // About section content
       aboutYear2002: "In the year 2002",
       aboutParagraph1: "Galai businessmen came together and presented the idea of establishing an organization to Honorable Pratap Sheth Dada Salunkhe. At this time, the condition of cooperatives was very bad, many organizations were bankrupt and some were on the verge of bankruptcy. There was an atmosphere of volatility among depositors. Taking a decision in such a situation was very risky.",
@@ -280,11 +280,11 @@ const Home = () => {
       // Statistics section
       statsTitle: "आमची उपलब्धी संख्यांमध्ये",
       statsSubtitle: "लाखो ग्राहकांचा विश्वास, उत्कृष्ट सेवेसह",
-      satisfiedCustomers: "50 लाख+ समाधान ग्राहक",
+      satisfiedCustomers: "समाधानी ग्राहक",
       branches: "शाखा",
       villageService: "गाव सेवा केंद्र",
       employee: "कर्मचारी",
-      businessVolume: "1000+ कोटी व्यवसाय",
+      businessVolume: "कोटी व्यवसाय",
       // About section content
       aboutYear2002: "वर्ष २००२ मध्ये",
       aboutParagraph1: "गलई व्यापाऱ्यांनी एकत्र येऊन माननीय प्रताप सेठ दादा सालुंखे यांना संस्था स्थापन करण्याचा कल्पना सादर केली. या वेळी सहकारी संस्थांची स्थिती खूप वाईट होती, अनेक संस्था दिवाळा झालेल्या होत्या आणि काही दिवाळ्याच्या वणवण्यावर होत्या. ठेवकरूंमध्ये अस्थिरतेचे वातावरण होते. अशा परिस्थितीत निर्णय घेणे खूप धोकादायक होते.",
@@ -456,7 +456,7 @@ const Home = () => {
     if (!countersVisible) return;
 
     const targetValues = {
-      customers: 5000000,
+      customers: 50,
       branches: 23,
       villageService: 6,
       employees: 200,
@@ -840,48 +840,7 @@ const Home = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
 
-  // Handle Counter Animation
-  useEffect(() => {
-    const statsSection = document.getElementById('stats-section');
-    if (!statsSection) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('.counter-number');
-            
-            counters.forEach((counter) => {
-              const target = parseInt(counter.getAttribute('data-target'));
-              const suffix = counter.getAttribute('data-suffix') || '';
-              const duration = 2500; // 2.5 seconds for smooth animation
-              const increment = target / (duration / 16); // 60fps
-              let current = 0;
-              
-              const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                  current = target;
-                  clearInterval(timer);
-                }
-                
-                // Format the number with commas for large numbers
-                let displayValue = Math.floor(current).toLocaleString('en-IN');
-                counter.textContent = displayValue + suffix;
-              }, 16);
-            });
-            
-            // Disconnect after animation starts
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(statsSection);
-    return () => observer.disconnect();
-  }, []);
 
   // Static gold price (same as Calculator.js)
   const staticGoldPrice = 6250;
@@ -2266,7 +2225,8 @@ const Home = () => {
                 <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20"></div>
               </div>
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.customers.toLocaleString('en-IN')}+
+                {counters.customers.toLocaleString('en-IN')}{language === 'en' ? ' Lakh+' : ' लाख+'}
+
               </div>
               <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
                 {t.satisfiedCustomers}
@@ -2330,7 +2290,8 @@ const Home = () => {
                 <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20" style={{ animationDelay: '0.8s' }}></div>
               </div>
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.businessVolume.toLocaleString('en-IN')}+
+                {counters.businessVolume.toLocaleString('en-IN')}{language === 'en' ? ' Cr+' : '+'}
+
               </div>
               <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
                 {t.businessVolume}

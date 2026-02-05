@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { 
-  FaFacebook, FaInstagram, FaTwitter, FaYoutube, 
-  FaPhone, FaEnvelope, FaGlobe, FaMobileAlt, 
+  FaFacebook, FaInstagram, FaYoutube, 
+  FaPhone, FaEnvelope, FaMobileAlt, 
   FaCalculator, FaBars, FaTimes, FaChevronDown, 
   FaChevronRight, FaMapMarkerAlt
 } from 'react-icons/fa';
@@ -329,16 +329,13 @@ const Navbar = () => {
 
           {/* Social Media Icons - Desktop only */}
           <div className="hidden lg:flex items-center space-x-2 border-l border-pink-300 pl-3">
-            <a href="https://facebook.com/shivpratapbank" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+            <a href="https://www.facebook.com/share/1HwBD72Dr8/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
               <FaFacebook size={13} className="hover:text-pink-100" />
             </a>
-            <a href="https://instagram.com/shivpratapbank" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+            <a href="https://www.instagram.com/shivpratapmultistate?igsh=MWxlb2szNDNnYzZ6cQ==" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
               <FaInstagram size={13} className="hover:text-pink-100" />
             </a>
-            <a href="https://twitter.com/shivpratapbank" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-              <FaTwitter size={13} className="hover:text-pink-100" />
-            </a>
-            <a href="https://youtube.com/@shivpratapbank" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+            <a href="https://youtube.com/@shivpratapmultistatevita?si=ynsKf3N1Ic3DRXX-" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
               <FaYoutube size={13} className="hover:text-pink-100" />
             </a>
           </div>
@@ -351,9 +348,10 @@ const Navbar = () => {
               } rounded hover:bg-pink-700 transition-colors`}
               onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
             >
-              <FaGlobe className="flex-shrink-0" size={screenSize === 'mobile' ? 9 : screenSize === 'tablet' ? 11 : 14} />
-              <span className="hidden xs:inline text-[10px] xs:text-xs sm:text-sm lg:text-base ml-0.5 xs:ml-1">{selectedLanguage}</span>
-              <FaChevronDown size={7} className="ml-0.5 xs:ml-1 flex-shrink-0" />
+              <span className="text-[10px] xs:text-xs sm:text-sm lg:text-base font-bold">
+                {selectedLanguage === 'English' ? 'EN' : 'MR'}
+              </span>
+              <FaChevronDown size={7} className="ml-1 flex-shrink-0" />
             </button>
             {isLanguageDropdownOpen && (
               <div className="absolute right-0 mt-1 w-24 xs:w-28 sm:w-32 bg-white rounded shadow-lg z-50 overflow-hidden">
@@ -501,10 +499,10 @@ const Navbar = () => {
             {/* Mobile Menu Toggle */}
             {screenSize === 'mobile' && (
               <button
-                className="p-1.5 rounded-md text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-colors mobile-menu-toggle"
+                className="p-3.5 rounded-md text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-colors mobile-menu-toggle"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                {isMobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+                {isMobileMenuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
               </button>
             )}
           </div>

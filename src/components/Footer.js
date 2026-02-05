@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { 
-  FaFacebook, FaInstagram, FaTwitter, FaYoutube, 
+  FaFacebook, FaInstagram, FaYoutube, 
   FaPhone, FaEnvelope, FaBuilding, FaUserCircle,
   FaSignInAlt
 } from 'react-icons/fa'
@@ -22,7 +22,7 @@ const Footer = () => {
   const translations = {
     en: {
       bankName: 'Shivpratap Bank',
-      tagline: 'Your trusted financial partner since 1985',
+      tagline: 'Transact financial transactions through mobile banking now without visiting an institution. More work in less time. Shiv Pratap Multistate Mobile Banking is providing the facility to make customer transactions more dynamic and cashless. Through this, the customer can make payments, pay bills, check account balance, etc. from his mobile phone.',
       followUs: 'Follow Us',
       bankingOnTheGo: 'Banking on the go',
       quickLinks: 'Quick Links',
@@ -46,14 +46,15 @@ const Footer = () => {
       servicesList: {
         savingsAccount: 'Savings Account',
         loans: 'Loans',
-        deposits: 'Deposits',
-        digitalBanking: 'Digital Banking',
+        currentAccount: 'Current Account',
+        mahilaAccount: 'Mahila Bank Account',
         insurance: 'Insurance'
       },
       contact: {
         phone: '+91 9582837032',
         email: 'customercare@shivpratapmultistate.com',
-        address: 'Shivpratap Plaza, Pune, Maharashtra'
+        address: 'Shivpratap Nagari Co-op. Credit Society Ltd. Vita (Multistate) Shiv Pratap Gold Tower, Vita h Khanapur, Dist. Sangli (Maharashtra)'
+
       },
       hours: {
         monFri: 'Mon - Fri:',
@@ -66,7 +67,7 @@ const Footer = () => {
     },
     mr: {
       bankName: 'शिवप्रताप बँक',
-      tagline: '१९८५ पासून तुमचा विश्वासू आर्थिक भागीदार',
+      tagline: 'आर्थिक व्यवहारांसाठी आता संस्थेमध्ये न जात मोबाईल बँकिंगद्वारे व्यवहार करा. कमी वेळेत अधिक कामे. ग्राहकांचे व्यवहार अधिक गतिमान व कॅशलेस व्हावे यासाठी शिवप्रताप मल्टिस्टेट मोबाईल बँकिंग हि सुविधा देत आहे. याद्वारे ग्राहक त्याच्या मोबाईल फोन वरून पैसे देणे-घेणे, बिल भरणे, खात्यातील शिल्लक तपासणे इ. कामे करू शकतो.',
       followUs: 'आमचे अनुसरण करा',
       bankingOnTheGo: 'चालता-फिरता बँकिंग',
       quickLinks: 'द्रुत दुवे',
@@ -90,14 +91,15 @@ const Footer = () => {
       servicesList: {
         savingsAccount: 'बचत खाते',
         loans: 'कर्ज',
-        deposits: 'ठेवी',
-        digitalBanking: 'डिजिटल बँकिंग',
+        currentAccount: 'चालू खाते',
+        mahilaAccount: 'महिला बँक खाते',
         insurance: 'विमा'
       },
       contact: {
         phone: '+91 9582837032',
         email: 'customercare@shivpratapmultistate.com',
-        address: 'शिवप्रताप प्लाझा, पुणे, महाराष्ट्र'
+        address: 'शिवप्रताप नागरी सहकारी पतसंस्था मर्यादित विटा (मल्टीस्टेट) शिवप्रताप गोल्ड टॉवर, विटा ता. खानापूर, जि. सांगली (महाराष्ट्र)'
+
       },
       hours: {
         monFri: 'सोम - शुक्र:',
@@ -118,25 +120,19 @@ const Footer = () => {
   const socialLinks = [
     { 
       icon: FaFacebook, 
-      url: 'https://facebook.com/ShivpratapBank', 
+      url: 'https://www.facebook.com/share/1HwBD72Dr8/', 
       color: 'hover:bg-blue-600',
       name: 'Facebook'
     },
     { 
       icon: FaInstagram, 
-      url: 'https://instagram.com/ShivpratapBank', 
+      url: 'https://www.instagram.com/shivpratapmultistate?igsh=MWxlb2szNDNnYzZ6cQ==', 
       color: 'hover:bg-pink-600',
       name: 'Instagram'
     },
     { 
-      icon: FaTwitter, 
-      url: 'https://twitter.com/ShivpratapBank', 
-      color: 'hover:bg-blue-400',
-      name: 'Twitter'
-    },
-    { 
       icon: FaYoutube, 
-      url: 'https://youtube.com/c/ShivpratapBank', 
+      url: 'https://youtube.com/@shivpratapmultistatevita?si=ynsKf3N1Ic3DRXX-', 
       color: 'hover:bg-red-600',
       name: 'YouTube'
     }
@@ -146,18 +142,18 @@ const Footer = () => {
   const quickLinks = [
     { name: currentContent.links.home, path: '/' },
     { name: currentContent.links.aboutUs, path: '/about' },
-    { name: currentContent.links.services, path: '/services' },
-    { name: currentContent.links.schemes, path: '/schemes' },
+    { name: currentContent.links.services, path: '/plan' },
+    { name: currentContent.links.schemes, path: '/loan' },
     { name: currentContent.links.contactUs, path: '/contact' }
   ]
 
   // Services links
   const services = [
-    { name: currentContent.servicesList.savingsAccount, path: '/services/savings' },
-    { name: currentContent.servicesList.loans, path: '/services/loans' },
-    { name: currentContent.servicesList.deposits, path: '/services/deposits' },
-    { name: currentContent.servicesList.digitalBanking, path: '/services/digital-banking' },
-    { name: currentContent.servicesList.insurance, path: '/services/insurance' }
+    { name: currentContent.servicesList.savingsAccount, path: '/savings-account' },
+    { name: currentContent.servicesList.loans, path: '/loan' },
+    { name: currentContent.servicesList.currentAccount, path: '/current-account' },
+    { name: currentContent.servicesList.mahilaAccount, path: '/premium-savings-account' },
+    { name: currentContent.servicesList.insurance, path: '/plan' }
   ]
 
   // Contact details
@@ -195,70 +191,66 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-12">
+    <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-5 sm:py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Login Button */}
-        <div className="flex justify-end mb-6 md:mb-8">
+        <div className="flex justify-center sm:justify-end mb-3 sm:mb-4">
           <button
             onClick={handleLoginClick}
-            className="group flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 active:scale-95 text-sm sm:text-base"
+            className="group flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 active:scale-95 text-xs sm:text-sm w-full sm:w-auto justify-center sm:justify-start"
           >
-            <FaUserCircle className="text-lg sm:text-xl" />
-            <span className="hidden sm:inline">{currentContent.loginRegister}</span>
-            <span className="sm:hidden">{currentContent.loginRegister.split(' / ')[0]}</span>
+            <FaUserCircle className="text-base sm:text-lg" />
+            <span>{currentContent.loginRegister}</span>
             <FaSignInAlt className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-6">
           {/* Bank Info & Social Media */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center justify-center mb-4">
+          <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
+            <div className="mb-2">
               <img
                 src={logo}
                 alt="Shivpratap Multistate Bank"
-                className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl shadow-lg object-contain"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shadow-lg object-contain"
               />
             </div>
-            <p className="text-gray-400 mb-4 sm:mb-6 text-center sm:text-left text-sm sm:text-base">
+            <p className="text-gray-400 mb-3 text-center sm:text-left text-[10px] sm:text-xs leading-relaxed max-w-sm sm:max-w-none">
               {currentContent.tagline}
             </p>
             
             {/* Social Media Links */}
-            <div className="mb-4 sm:mb-6">
-              <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-center sm:text-left">{currentContent.followUs}</h4>
-              <div className="flex justify-center sm:justify-start space-x-3">
+            <div className="mb-3 w-full flex flex-col items-center sm:items-start">
+              <h4 className="font-bold text-xs sm:text-sm mb-2 text-gray-200">{currentContent.followUs}</h4>
+              <div className="flex space-x-2">
                 {socialLinks.map((social, index) => (
                   <button
                     key={index}
                     onClick={() => handleSocialClick(social.url)}
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-700 ${social.color} flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group relative`}
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-700 ${social.color} flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group relative`}
                     aria-label={`Follow us on ${social.name}`}
                     title={`Follow us on ${social.name}`}
                   >
-                    <social.icon className="text-sm sm:text-base" />
-                    <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                      {social.name}
-                    </span>
+                    <social.icon className="text-xs sm:text-sm" />
                   </button>
                 ))}
               </div>
             </div>
 
             {/* Mobile Banking Badge */}
-            <div className="bg-gray-800/50 rounded-lg p-3 sm:p-4 border border-gray-700">
-              <p className="text-xs sm:text-sm text-gray-300 mb-2 text-center sm:text-left">{currentContent.bankingOnTheGo}</p>
+            <div className="bg-gray-800/50 rounded-lg p-2 sm:p-3 border border-gray-700 w-full max-w-sm sm:max-w-none">
+              <p className="text-[10px] sm:text-xs text-gray-300 mb-1.5 text-center sm:text-left font-medium">{currentContent.bankingOnTheGo}</p>
               <div className="flex justify-center sm:justify-start gap-2">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
                   alt="Get it on Google Play"
-                  className="h-6 sm:h-8 cursor-pointer hover:opacity-80 transition-opacity"
+                  className="h-5 sm:h-6 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => window.open('https://play.google.com/store/apps/details?id=com.shivpratapbank', '_blank')}
                 />
                 <img 
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
                   alt="Download on the App Store"
-                  className="h-6 sm:h-8 cursor-pointer hover:opacity-80 transition-opacity"
+                  className="h-5 sm:h-6 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => window.open('https://apps.apple.com/in/app/shivpratap-bank/id123456789', '_blank')}
                 />
               </div>
@@ -266,17 +258,17 @@ const Footer = () => {
           </div>
           
           {/* Quick Links */}
-          <div>
-            <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-center sm:text-left">{currentContent.quickLinks}</h4>
-            <ul className="space-y-1 sm:space-y-2">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <h4 className="font-bold text-sm sm:text-base mb-2 text-gray-100">{currentContent.quickLinks}</h4>
+            <ul className="space-y-1 w-full max-w-xs sm:max-w-none">
               {quickLinks.map((link, index) => (
-                <li key={index}>
+                <li key={index} className="w-full">
                   <button
                     onClick={() => handleLinkClick(link.path)}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-1.5 group w-full py-0.5"
                   >
-                    <span className="w-1 h-1 bg-gray-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {link.name}
+                    <span className="hidden sm:block w-1 h-1 bg-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="text-xs sm:text-sm">{link.name}</span>
                   </button>
                 </li>
               ))}
@@ -284,17 +276,17 @@ const Footer = () => {
           </div>
           
           {/* Services */}
-          <div>
-            <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-center sm:text-left">{currentContent.ourServices}</h4>
-            <ul className="space-y-1 sm:space-y-2">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <h4 className="font-bold text-sm sm:text-base mb-2 text-gray-100">{currentContent.ourServices}</h4>
+            <ul className="space-y-1 w-full max-w-xs sm:max-w-none">
               {services.map((service, index) => (
-                <li key={index}>
+                <li key={index} className="w-full">
                   <button
                     onClick={() => handleLinkClick(service.path)}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-1.5 group w-full py-0.5"
                   >
-                    <span className="w-1 h-1 bg-gray-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {service.name}
+                    <span className="hidden sm:block w-1 h-1 bg-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="text-xs sm:text-sm">{service.name}</span>
                   </button>
                 </li>
               ))}
@@ -302,37 +294,39 @@ const Footer = () => {
           </div>
           
           {/* Contact Information */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-center sm:text-left">{currentContent.contactInformation}</h4>
-            <ul className="space-y-2 sm:space-y-3">
+          <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
+            <h4 className="font-bold text-sm sm:text-base mb-2 text-gray-100">{currentContent.contactInformation}</h4>
+            <ul className="space-y-2 w-full max-w-xs sm:max-w-none mb-4">
               {contactInfo.map((contact, index) => (
                 <li key={index}>
                   <button
                     onClick={() => handleContactClick(contact.type, contact.text)}
-                    className="text-gray-400 hover:text-white transition-colors flex items-start gap-3 group w-full text-left text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors flex flex-col sm:flex-row items-center sm:items-start gap-1.5 sm:gap-2 group w-full text-center sm:text-left"
                   >
-                    <contact.icon className="mt-1 flex-shrink-0 text-sm sm:text-base" />
-                    <span className="group-hover:underline break-words">{contact.text}</span>
+                    <div className="p-1.5 bg-gray-800 rounded-full group-hover:bg-gray-700 transition-colors">
+                      <contact.icon className="text-xs text-purple-400" />
+                    </div>
+                    <span className="text-xs leading-relaxed group-hover:text-purple-300 transition-colors break-words w-full">{contact.text}</span>
                   </button>
                 </li>
               ))}
             </ul>
 
             {/* Business Hours */}
-            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-800/30 rounded-lg border border-gray-700">
-              <h5 className="font-bold text-gray-300 mb-2 text-center sm:text-left text-sm sm:text-base">{currentContent.businessHours}</h5>
-              <div className="text-xs sm:text-sm text-gray-400 space-y-1">
-                <div className="flex justify-between">
+            <div className="w-full max-w-xs sm:max-w-none p-2.5 bg-gray-800/40 rounded-xl border border-gray-700/50 backdrop-blur-sm">
+              <h5 className="font-bold text-gray-200 mb-1.5 text-center sm:text-left text-[10px] sm:text-xs uppercase tracking-wider">{currentContent.businessHours}</h5>
+              <div className="text-[10px] sm:text-xs text-gray-400 space-y-1">
+                <div className="flex justify-between border-b border-gray-700/50 pb-0.5">
                   <span>{currentContent.hours.monFri}</span>
-                  <span>{currentContent.hours.monFriTime}</span>
+                  <span className="font-medium text-gray-300">{currentContent.hours.monFriTime}</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between border-b border-gray-700/50 pb-0.5">
                   <span>{currentContent.hours.saturday}</span>
-                  <span>{currentContent.hours.saturdayTime}</span>
+                  <span className="font-medium text-gray-300">{currentContent.hours.saturdayTime}</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between pt-0.5">
                   <span>{currentContent.hours.sunday}</span>
-                  <span className="text-red-400">{currentContent.hours.closed}</span>
+                  <span className="text-red-400 font-medium bg-red-400/10 px-1.5 rounded">{currentContent.hours.closed}</span>
                 </div>
               </div>
             </div>
@@ -340,29 +334,31 @@ const Footer = () => {
         </div>
         
         {/* Footer Bottom */}
-        <div className="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-500 text-xs sm:text-sm">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-            <p className="text-center lg:text-left"> {new Date().getFullYear()} {currentContent.bankName}. {currentContent.allRightsReserved}</p>
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-              <span className="bg-green-800/30 text-green-400 px-2 sm:px-3 py-1 rounded-full text-xs">
+        <div className="border-t border-gray-700 mt-6 pt-4 text-center text-gray-500 text-[10px] sm:text-xs">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-3">
+            <p className="text-center lg:text-left font-medium"> 
+              &copy; {new Date().getFullYear()} {currentContent.bankName}. {currentContent.allRightsReserved}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+              <span className="bg-green-900/40 text-green-400 px-3 py-1 rounded-full text-[10px] font-semibold border border-green-800/50">
                 {currentContent.rbiLicensed}
               </span>
-              <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
+              <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 mt-1 sm:mt-0">
                 <button 
                   onClick={() => navigate('/privacy')}
-                  className="hover:text-white transition-colors text-xs sm:text-base"
+                  className="hover:text-purple-400 transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 after:transition-all hover:after:w-full"
                 >
                   {currentContent.privacyPolicy}
                 </button>
                 <button 
                   onClick={() => navigate('/terms')}
-                  className="hover:text-white transition-colors text-xs sm:text-base"
+                  className="hover:text-purple-400 transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 after:transition-all hover:after:w-full"
                 >
                   {currentContent.termsConditions}
                 </button>
                 <button 
                   onClick={() => navigate('/disclaimer')}
-                  className="hover:text-white transition-colors text-xs sm:text-base"
+                  className="hover:text-purple-400 transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 after:transition-all hover:after:w-full"
                 >
                   {currentContent.disclaimer}
                 </button>
@@ -371,8 +367,8 @@ const Footer = () => {
           </div>
           
           {/* Regulatory Info */}
-          <div className="mt-3 sm:mt-4 text-xs text-gray-600 max-w-4xl mx-auto">
-            <p className="text-center leading-relaxed">
+          <div className="mt-3 text-[10px] text-gray-600 max-w-4xl mx-auto border-t border-gray-800 pt-3">
+            <p className="text-center leading-relaxed opacity-75 hover:opacity-100 transition-opacity">
               {currentContent.regulatoryInfo}
             </p>
           </div>
