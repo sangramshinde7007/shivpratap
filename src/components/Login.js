@@ -7,12 +7,7 @@ import {
   FaEye, 
   FaEyeSlash,
   FaShieldAlt,
-  FaBuilding,
   FaUserPlus,
-  FaChartLine,
-  FaUsers,
-  FaDatabase,
-  FaKey,
   FaCheckCircle,
   FaArrowLeft
 } from 'react-icons/fa';
@@ -177,126 +172,39 @@ const Login = () => {
     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
     minHeight: '100vh',
     position: 'relative',
-    overflow: 'hidden'
+    // Removed overflow: hidden to allow scrolling on mobile if needed
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row relative" style={containerStyle}>
+    <div className="min-h-screen flex flex-col md:flex-row relative overflow-x-hidden overflow-y-auto md:overflow-hidden" style={containerStyle}>
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-0 right-1/4 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-1/3 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-48 h-48 md:w-72 md:h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute top-0 right-1/4 w-48 h-48 md:w-72 md:h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-1/3 w-48 h-48 md:w-72 md:h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
-      {/* Left Side - Brand/Info */}
-      <div className="hidden md:flex md:w-2/5 flex-col justify-between p-12 text-white relative z-10">
-        <div>
-          {/* Logo/Brand */}
-          <div className="flex items-center mb-8">
-            <div className="relative">
-              <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 shadow-lg border border-white/20">
-                <FaBuilding className="text-2xl" />
-              </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                <FaKey className="w-3 h-3" />
-              </div>
-            </div>
-            <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                Shiv Pratap
-              </h1>
-              <p className="text-white/90 font-medium mt-1">Multistate Admin Portal</p>
-              <div className="flex items-center mt-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                <span className="text-sm text-white/70">Secure Connection • v2.5.1</span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Features */}
-          <div className="mt-16 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-2xl">
-            <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
-              Premium Admin Features
-            </h2>
-            <div className="space-y-6">
-              <div className="flex items-center transform transition-transform hover:translate-x-2 duration-300">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center mr-4 border border-blue-500/30">
-                  <FaChartLine className="text-blue-300" />
-                </div>
-                <div>
-                  <p className="font-semibold">Advanced Analytics</p>
-                  <p className="text-sm text-white/60 mt-1">Real-time insights & reports</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center transform transition-transform hover:translate-x-2 duration-300">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center mr-4 border border-purple-500/30">
-                  <FaUsers className="text-purple-300" />
-                </div>
-                <div>
-                  <p className="font-semibold">User Management</p>
-                  <p className="text-sm text-white/60 mt-1">Complete control system</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center transform transition-transform hover:translate-x-2 duration-300">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500/20 to-pink-600/20 flex items-center justify-center mr-4 border border-pink-500/30">
-                  <FaDatabase className="text-pink-300" />
-                </div>
-                <div>
-                  <p className="font-semibold">Data Security</p>
-                  <p className="text-sm text-white/60 mt-1">Military-grade encryption</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center transform transition-transform hover:translate-x-2 duration-300">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center mr-4 border border-green-500/30">
-                  <FaShieldAlt className="text-green-300" />
-                </div>
-                <div>
-                  <p className="font-semibold">Secure Access</p>
-                  <p className="text-sm text-white/60 mt-1">Role-based permissions</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-white/60 text-sm">
-          <div className="flex items-center mb-4">
-            <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mr-2 animate-pulse"></div>
-            <p>24/7 Monitoring Active</p>
-          </div>
-          <p>© 2024 Shiv Pratap Multistate. All rights reserved.</p>
-          <p className="mt-2 text-white/40">Enterprise Edition • ISO 27001 Certified</p>
-        </div>
-      </div>
-
-      {/* Right Side - Login Form */}
-      <div className="w-full md:w-3/5 flex items-center justify-center p-4 md:p-8 relative z-10">
+      {/* Main Content - Centered */}
+      <div className="w-full flex items-center justify-center p-4 md:p-8 relative z-10 flex-grow">
         <div className="w-full max-w-md">
-          {/* Mobile Header */}
-          <div className="md:hidden text-center mb-8">
-            <div className="flex items-center justify-center mb-6">
+          {/* Header & Logo - REMOVED */}
+          {/* <div className="text-center mb-6 md:mb-8 mt-4 md:mt-0">
+            <div className="flex items-center justify-center mb-4 md:mb-6">
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 shadow-lg border border-white/20">
-                  <FaBuilding className="text-3xl" />
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 md:mr-4 shadow-lg border border-white/20">
+                  <FaBuilding className="text-2xl md:text-3xl" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                  <FaKey className="w-3 h-3" />
+                <div className="absolute -top-2 -right-2 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <FaKey className="w-2.5 h-2.5 md:w-3 md:h-3" />
                 </div>
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-white">Shiv Pratap</h1>
-            <p className="text-white/80 mt-1">Multistate Admin Portal</p>
-          </div>
+          </div> */}
 
           {/* Login Card */}
-          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20">
             {/* Header */}
-            <div className="text-center mb-8 relative">
+            <div className="text-center mb-6 md:mb-8 relative">
               {isRegisterMode && (
                 <button
                   onClick={() => {
@@ -310,26 +218,26 @@ const Login = () => {
                 </button>
               )}
               
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl mb-4 shadow-lg animate-float">
+              <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl md:rounded-2xl mb-4 shadow-lg animate-float">
                 {isRegisterMode ? (
-                  <FaUserPlus className="w-8 h-8 text-white" />
+                  <FaUserPlus className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 ) : (
-                  <FaShieldAlt className="w-8 h-8 text-white" />
+                  <FaShieldAlt className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 )}
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 {isRegisterMode ? 'Create Account' : 'Welcome Back'}
               </h2>
-              <p className="text-white/70">
+              <p className="text-white/70 text-sm md:text-base">
                 {isRegisterMode ? 'Register new admin account' : 'Sign in to continue to dashboard'}
               </p>
             </div>
 
             {/* Messages */}
             {error && (
-              <div className="mb-6 p-4 bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 rounded-xl backdrop-blur-sm animate-fadeIn">
+              <div className="mb-6 p-3 md:p-4 bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 rounded-xl backdrop-blur-sm animate-fadeIn">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-red-500/30 flex items-center justify-center mr-3">
+                  <div className="w-8 h-8 rounded-full bg-red-500/30 flex items-center justify-center mr-3 flex-shrink-0">
                     <span className="text-red-200">!</span>
                   </div>
                   <p className="text-red-200 text-sm">{error}</p>
@@ -338,9 +246,9 @@ const Login = () => {
             )}
 
             {successMessage && (
-              <div className="mb-6 p-4 bg-gradient-to-r from-green-500/20 to-green-600/20 border border-green-500/30 rounded-xl backdrop-blur-sm animate-fadeIn">
+              <div className="mb-6 p-3 md:p-4 bg-gradient-to-r from-green-500/20 to-green-600/20 border border-green-500/30 rounded-xl backdrop-blur-sm animate-fadeIn">
                 <div className="flex items-center">
-                  <FaCheckCircle className="text-green-300 mr-3" />
+                  <FaCheckCircle className="text-green-300 mr-3 flex-shrink-0" />
                   <p className="text-green-200 text-sm">{successMessage}</p>
                 </div>
               </div>
@@ -348,7 +256,7 @@ const Login = () => {
 
             {/* Form */}
             <form onSubmit={isRegisterMode ? handleRegister : handleLogin}>
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {/* Email Field */}
                 <div className="group">
                   <label className="block text-white/90 mb-2 text-sm font-semibold tracking-wide">
@@ -363,7 +271,7 @@ const Login = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="admin@shivpratap.com"
-                      className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-white/30"
+                      className="w-full px-4 py-3 md:px-5 md:py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-white/30 text-sm md:text-base"
                       required
                       autoComplete="email"
                     />
@@ -384,7 +292,7 @@ const Login = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-white/30"
+                      className="w-full px-4 py-3 md:px-5 md:py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-white/30 text-sm md:text-base"
                       required
                       autoComplete="current-password"
                     />
@@ -399,7 +307,7 @@ const Login = () => {
                 </div>
 
                 {/* Remember Me & Forgot Password */}
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center text-sm">
                   <label className="flex items-center cursor-pointer group">
                     <div className="relative">
                       <input
@@ -416,13 +324,13 @@ const Login = () => {
                         )}
                       </div>
                     </div>
-                    <span className="ml-2 text-sm text-white/70 group-hover:text-white transition-colors">
+                    <span className="ml-2 text-white/70 group-hover:text-white transition-colors">
                       Remember me
                     </span>
                   </label>
                   <button
                     type="button"
-                    className="text-sm text-blue-300 hover:text-blue-200 transition-colors font-medium hover:underline"
+                    className="text-blue-300 hover:text-blue-200 transition-colors font-medium hover:underline"
                     onClick={() => {/* Add forgot password logic */}}
                   >
                     Forgot Password?
@@ -433,7 +341,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none flex items-center justify-center group relative overflow-hidden"
+                  className="w-full py-3 md:py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none flex items-center justify-center group relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                   {loading ? (
@@ -461,63 +369,14 @@ const Login = () => {
             </form>
 
             {/* Security Badge */}
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <div className="flex items-center justify-center text-white/50 text-sm">
+            <div className="mt-6 md:mt-8 pt-6 border-t border-white/10">
+              <div className="flex items-center justify-center text-white/50 text-xs md:text-sm">
                 <FaShieldAlt className="mr-2 text-green-400" />
                 <span className="font-medium">256-bit SSL Encryption</span>
-                <div className="mx-3 w-1 h-1 bg-white/30 rounded-full"></div>
-                <span>GDPR Compliant</span>
+                {/* <div className="mx-3 w-1 h-1 bg-white/30 rounded-full"></div>
+                <span>GDPR Compliant</span> */}
               </div>
             </div>
-
-            {/* Mode Toggle */}
-            {/* <div className="mt-6 text-center">
-              <p className="text-white/70 text-sm">
-                {isRegisterMode ? (
-                  <>
-                    Already have an account?{' '}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsRegisterMode(false);
-                        setError('');
-                        setSuccessMessage('');
-                      }}
-                      className="text-blue-300 hover:text-blue-200 font-semibold transition-colors hover:underline"
-                    >
-                      Sign In
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    Need an admin account?{' '}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsRegisterMode(true);
-                        setError('');
-                        setSuccessMessage('');
-                      }}
-                      className="text-blue-300 hover:text-blue-200 font-semibold transition-colors hover:underline"
-                    >
-                      Request Access
-                    </button>
-                  </>
-                )}
-              </p>
-            </div> */}
-          </div>
-
-          {/* Mobile Footer */}
-          <div className="md:hidden mt-8 text-center">
-            <div className="flex items-center justify-center space-x-4 text-white/60 text-sm mb-2">
-              <span>Secure Portal</span>
-              <div className="w-1 h-1 bg-white/30 rounded-full"></div>
-              <span>v2.5.1</span>
-              <div className="w-1 h-1 bg-white/30 rounded-full"></div>
-              <span>Enterprise</span>
-            </div>
-            <p className="text-white/40 text-xs">© 2024 Shiv Pratap Multistate. All rights reserved.</p>
           </div>
         </div>
       </div>
