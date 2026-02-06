@@ -12,7 +12,7 @@ import {
 const Plan = () => {
   const { language } = useLanguage();
   const location = useLocation();
-  const isMarathi = language === 'mr';
+
 
   // Color constants
   const primaryColor = '#b03462';

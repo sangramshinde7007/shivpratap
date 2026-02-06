@@ -1,5 +1,4 @@
-﻿import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaFacebook,
@@ -8,11 +7,7 @@ import {
   FaUserCheck, FaMapMarkerAlt, FaExternalLinkAlt,
   FaHistory, FaTrophy, FaClock, FaPhone, FaEnvelope
 } from 'react-icons/fa';
-import { 
-  database, 
-  ref as dbRef, 
-  get 
-} from '../../firebase';
+
 
 import slider1 from '../Assets/slider1.png';
 import slider111 from '../Assets/slider111.png';
@@ -26,6 +21,152 @@ import slider8 from '../Assets/slider8.png';
 import slider9 from '../Assets/slider9.png';
 import slider10 from '../Assets/slider10.png';
 import popupImage from '../Assets/All.jpeg';
+
+// Merge AboutUs translations
+const aboutTranslations = {
+  en: {
+    pageTitle: 'About Us',
+    subtitle: 'Shivpratap Multistate Nagari Co-Op Credit Society Ltd.',
+    badges: {
+      multistate: 'Multistate Institution',
+      secureBanking: 'Secure Banking',
+      yearsService: '22+ Years of Service'
+    },
+    stats: [
+      { label: 'Established Year', suffix: '' },
+      { label: 'Multistate Status', suffix: '' },
+      { label: 'Customers', suffix: 'Lakh+' },
+      { label: 'Years of Service', suffix: '+' }
+    ],
+    foundingTitle: 'Foundation and Beginning',
+    foundingText1: 'In 2002, the Galai businessmen in our area came together and presented the idea of establishing a cooperative credit society to Late Pratapsheth (Dada) Salunkhe. At that time, the cooperative sector was going through extremely difficult circumstances—many institutions had collapsed, some were on the verge of collapse, and there was tremendous instability among depositors.',
+    foundingText2: 'Starting a new institution in such challenging circumstances was truly a courageous step. Late Pratapsheth (Dada) Salunkhe and Adv. Vitthalrao Salunkhe, who had in-depth knowledge of the banking sector, conducted an extensive study of the situation and decided to run the institution efficiently based on proper management, transparent transactions, and responsible lending.',
+    establishmentDate: 'Establishment',
+    establishmentDateValue: 'June 26, 2002',
+    motto: '"Service and Security"',
+    inaugurationTitle: 'Inauguration Ceremony',
+    inaugurationText: 'After this, the institution was established on June 26, 2002, and the grand inauguration of the institution took place on July 11, 2002, at the hands of Late Dr. Patangrao Kadam, Hon. Jayantrao Patil, and Hon. Harshvardhan Patil, the then dignitaries.',
+    inaugurationCards: [
+      { title: 'Special Ceremony', desc: 'Many former and current MLAs present' },
+      { title: 'Important Decision', desc: 'Stay away from political interference' },
+      { title: 'Growth Beginning', desc: 'Business community joined the institution' }
+    ],
+    expansionTitle: 'Expansion and Multistate Status',
+    expansionText1: 'The growth of the institution has been remarkable from the beginning. The machinery, vegetable, poultry, grape, and other business communities in our area were connected to the institution, and the institution started providing loans to all sectors.',
+    expansionHighlight: '2012: Achieved Multistate status, the first Multistate cooperative credit society in Western Maharashtra',
+    expansionText2: 'Since the Galai brothers of the institution are spread across the country, there was a demand that the institution should expand its operations from various states. Considering this demand positively, the institution achieved Multistate status in 2012 and gained recognition as the first cooperative credit society to become Multistate in Western Maharashtra.',
+    technologyTitle: 'Modern Technology and Services',
+    technologyCards: [
+      { title: 'Pioneer in Technology', desc: 'First local institution to computerize circulation and pigmy collection' },
+      { title: 'Core Banking System', desc: 'CBS, online transactions, mobile banking, NEFT/RTGS/IMPS facilities' },
+      { title: 'Service and Security', desc: 'Staff that considers customer satisfaction as true service is the main strength of the institution' },
+      { title: 'Advanced Accounting', desc: 'Digitization and IT-based accurate accounting, all these services are continuously improved' }
+    ],
+    facilitiesTitle: 'Facilities and Services',
+    facilitiesCards: [
+      { title: 'Modern Offices', desc: 'Modern facilities in all branches' },
+      { title: 'Trained Staff', desc: 'Experienced and helpful staff' },
+      { title: 'Control System', desc: 'Excellent internal control system' },
+      { title: 'Timely Service', desc: 'Services available to customers on time' }
+    ],
+    financialServicesTitle: 'Financial Services',
+    financialServices: [
+      'Savings Account',
+      'Fixed Deposit',
+      'Recurring Deposit',
+      'Women\'s Scheme',
+      'Senior Citizen Scheme',
+      'Gold Loan',
+      'Personal Loan',
+      'Business Loan',
+      'Various Facilities'
+    ],
+    socialCommitmentTitle: 'Social Commitment',
+    socialCommitmentText: 'The institution has maintained social commitment along with financial services. The institution honestly focuses on financial literacy, women empowerment, encouraging small entrepreneurs in rural areas, guidance for students, and implementing various welfare programs for society.',
+    socialCommitmentBadge: 'Dedicated to Social Development',
+    todayTitle: 'Today\'s Institution',
+    todayText: 'Today, Shivpratap Multistate is an institution standing on a strong financial foundation and is continuously progressing with the strength of members\' trust, management\'s vision, transparency, and employees\' dedication.',
+    todayMotto: '"Following the values of cooperation, taking everyone along, providing safe and reliable banking services"',
+    todayCommitment: 'Our commitment is to keep the flag of the institution\'s progress flying with more brightness.',
+    contactTitle: 'Contact Us',
+    contactSubtitle: 'Contact us for more information about our services and products',
+    contactAddress: 'Address',
+    contactPhone: 'Phone',
+    contactEmail: 'Email'
+  },
+  mr: {
+    pageTitle: 'संस्थेविषयी',
+    subtitle: 'Shivpratap Multistate Nagari Co-Op Credit Society Ltd.',
+    badges: {
+      multistate: 'मल्टीस्टेट संस्था',
+      secureBanking: 'सुरक्षित बँकिंग',
+      yearsService: '२२+ वर्षे सेवा'
+    },
+    stats: [
+      { label: 'स्थापना वर्ष', suffix: '' },
+      { label: 'मल्टीस्टेट दर्जा', suffix: '' },
+      { label: 'ग्राहक', suffix: 'लाख+' },
+      { label: 'वर्षे सेवेचा अनुभव', suffix: '+' }
+    ],
+    foundingTitle: 'स्थापना आणि प्रारंभ',
+    foundingText1: 'सन २००२ साली आमच्या भागातील गलाई व्यवसायिकांनी एकत्र येऊन स्व. प्रतापशेठ (दादा) साळुंखे यांच्याकडे सहकारी पतसंस्था स्थापनेची कल्पना मांडली. त्या काळात सहकार क्षेत्र अत्यंत कठीण परिस्थितीतून जात होते—अनेक संस्था बुडालेल्या, काही बुडण्याच्या मार्गावर, आणि ठेवीदारांमध्ये प्रचंड अस्थिरता निर्माण झाली होती. अशा आव्हानात्मक परिस्थितीत नवी संस्था सुरू करणे हे खरोखर धाडसी पाऊल होते.',
+    foundingText2: 'स्व. प्रतापशेठ (दादा) साळुंखे व बँकिंग  क्षेत्राची सखोल माहिती असणारे अ‍ॅड. विठ्ठलराव साळुंखे यांनी परिस्थितीचा विस्तृत अभ्यास करून, योग्य व्यवस्थापन, पारदर्शक व्यवहार आणि जबाबदार कर्जपुरवठा यांच्या आधारे संस्था सक्षमपणे चालवण्याचा निर्णय घेतला. इतर संस्थांनी केलेल्या चुका टाळून, कमी व्याजदरात व सुरक्षित तारण घेऊन कर्जपुरवठा करणे ही संस्थेची धोरणात्मक दिशा निश्चित करण्यात आली.',
+    establishmentDate: 'स्थापना',
+    establishmentDateValue: '२६ जून २००२',
+    motto: '"सेवा आणि सुरक्षा"',
+    inaugurationTitle: 'उद्घाटन सोहळा',
+    inaugurationText: 'यानंतर २६ जून २००२ रोजी संस्थेची स्थापना झाली आणि ११ जुलै २००२ रोजी संस्थेचे भव्य उद्घाटन स्व.डॉ. पतंगराव कदम, मा. जयंतराव पाटील, व मा. हर्षवर्धन पाटील या तत्कालीन मान्यवरांच्या हस्ते पार पडले. अनेक आजी–माजी आमदार उपस्थित असलेला हा सोहळा विशेष ठरला, आणि तेव्हाच राजकीय हस्तक्षेपापासून संस्था कायम दूर राहील, असा ठोस निर्णय घेण्यात आला.',
+    inaugurationCards: [
+      { title: 'विशेष सोहळा', desc: 'अनेक आजी–माजी आमदार उपस्थित' },
+      { title: 'महत्वपूर्ण निर्णय', desc: 'राजकीय हस्तक्षेपापासून दूर राहणे' },
+      { title: 'वाढीचा प्रारंभ', desc: 'व्यापारी वर्ग संस्थेशी जोडला गेला' }
+    ],
+    expansionTitle: 'विस्तार आणि मल्टीस्टेट दर्जा',
+    expansionText1: 'संस्थेची वाढ सुरुवातीपासूनच उल्लेखनीय राहिली. आपल्या परिसरातील यंत्रमाग, भाजीपाला, पोल्ट्री, द्राक्ष तसेच अन्य व्यापारी वर्ग संस्थेशी जोडत गेले आणि संस्था सर्व क्षेत्रांसाठी कर्जपुरवठा करू लागली. आधुनिकतेचा स्वीकार हा संस्थेच्या कामकाजाचा कायमस्वरूपी भाग राहिला आहे. चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था म्हणून शिवप्रताप मल्टीस्टेटची ओळख निर्माण झाली. त्यानंतर Core Banking System (CBS), ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा, डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा संस्था सातत्याने उन्नत करत गेली.',
+    expansionHighlight: '२०१२: मल्टीस्टेट दर्जा मिळवला, पश्चिम महाराष्ट्रातील पहिली मल्टीस्टेट सहकारी पतसंस्था',
+    expansionText2: 'आधुनिकतेचा स्वीकार हा संस्थेच्या कामकाजाचा कायमस्वरूपी भाग राहिला आहे. चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था म्हणून शिवप्रताप मल्टीस्टेटची ओळख निर्माण झाली. त्यानंतर Core Banking System (CBS), ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा, डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा संस्था सातत्याने उन्नत करत गेली.',
+    technologyTitle: 'आधुनिक तंत्रज्ञान आणि सेवा',
+    technologyCards: [
+      { title: 'तंत्रज्ञानातील अग्रेसर', desc: 'चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था' },
+      { title: 'Core Banking System', desc: 'CBS, ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा' },
+      { title: 'सेवा आणि सुरक्षा', desc: 'ग्राहकांचे समाधान हीच खरी सेवा मानणारा कर्मचारी वर्ग संस्थेची मुख्य ताकद' },
+      { title: 'उन्नत लेखापद्धती', desc: 'डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा सातत्याने उन्नत' }
+    ],
+    facilitiesTitle: 'सुविधा आणि सेवा',
+    facilitiesCards: [
+      { title: 'सुबक कार्यालये', desc: 'सर्व शाखांमध्ये आधुनिक सुविधा' },
+      { title: 'प्रशिक्षित कर्मचारी', desc: 'अनुभवी आणि सहाय्यक कर्मचारीवर्ग' },
+      { title: 'नियंत्रण व्यवस्था', desc: 'उत्तम अंतर्गत नियंत्रण व्यवस्था' },
+      { title: 'वेळेवर सेवा', desc: 'ग्राहकांना वेळेवर उपलब्ध सेवा' }
+    ],
+    financialServicesTitle: 'आर्थिक सेवा',
+    financialServices: [
+      'बचत खाते',
+      'मुदत ठेव',
+      'आवर्ती ठेव',
+      'महिला योजना',
+      'ज्येष्ठ नागरिक योजना',
+      'गोल्ड लोन',
+      'वैयक्तिक कर्ज',
+      'व्यवसाय कर्ज',
+      'विविध सोयी'
+    ],
+    serviceSafetyPrinciple: "“सेवा आणि सुरक्षा” हे तत्त्व संस्थेने सुरुवातीपासूनच जपले असून ग्राहकांचे समाधान हीच खरी सेवा मानणारा कर्मचारी वर्ग संस्थेची मुख्य ताकद आहे.",
+    facilitiesAndServicesNarrative: "संस्थेच्या सर्व शाखांमध्ये सुबक कार्यालये, प्रशिक्षित कर्मचारी, उत्तम अंतर्गत नियंत्रण व्यवस्था आणि ग्राहकांना वेळेवर उपलब्ध होणाऱ्या आर्थिक सेवांमुळे संस्थेची विश्वासार्हता दिवसेंदिवस वाढत गेली आहे. बचत खाते, मुदत ठेव, आवर्ती ठेव, महिला व ज्येष्ठ नागरिकांसाठी विशेष योजना, तसेच गोल्ड लोन, वैयक्तिक कर्ज, व्यवसाय कर्ज अशा विविध सोयी देऊन संस्था सभासदांच्या छोट्या-मोठ्या आर्थिक गरजांना समर्थपणे हाताळत आहे..",
+    socialCommitmentTitle: 'सामाजिक बांधिलकी',
+    socialCommitmentText: 'संस्थेचे गलाई बांधव देशभर पसरलेले असल्यामुळे विविध राज्यांतून संस्थेने आपले कामकाज वाढवावे, अशी मागणी होत होती. या मागणीचा सकारात्मक विचार करून संस्थेने २०१२ साली मल्टीस्टेट दर्जा मिळवला, आणि पश्चिम महाराष्ट्रातील मल्टीस्टेट होणारी पहिली सहकारी पतसंस्था म्हणून मान्यता मिळवली.',
+    socialCommitmentBadge: 'समाज विकासासाठी समर्पित',
+    todayTitle: 'आजची संस्था',
+    todayText: 'आज शिवप्रताप मल्टीस्टेट ही संस्था मजबूत आर्थिक पायावर उभी असून सभासदांचा विश्वास, व्यवस्थापनाची दूरदृष्टी, पारदर्शकता आणि कर्मचार्‍यांचे समर्पण यांच्या बळावर सातत्याने प्रगती करत आहे. सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे आणि संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे. सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे आणि संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे.',
+    todayMotto: '"सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे"',
+    todayCommitment: 'संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे.',
+    contactTitle: 'आमच्याशी संपर्क साधा',
+    contactSubtitle: 'आमच्या सेवा आणि उत्पादनांबद्दल अधिक माहितीसाठी संपर्क करा',
+    contactAddress: 'पत्ता',
+    contactPhone: 'फोन',
+    contactEmail: 'ईमेल'
+  }
+};
 
 const Home = () => {
   const { language } = useLanguage();
@@ -417,151 +558,7 @@ const Home = () => {
     }
   };
   
-  // Merge AboutUs translations
-  const aboutTranslations = {
-    en: {
-      pageTitle: 'About Us',
-      subtitle: 'Shivpratap Multistate Nagari Co-Op Credit Society Ltd.',
-      badges: {
-        multistate: 'Multistate Institution',
-        secureBanking: 'Secure Banking',
-        yearsService: '22+ Years of Service'
-      },
-      stats: [
-        { label: 'Established Year', suffix: '' },
-        { label: 'Multistate Status', suffix: '' },
-        { label: 'Customers', suffix: 'Lakh+' },
-        { label: 'Years of Service', suffix: '+' }
-      ],
-      foundingTitle: 'Foundation and Beginning',
-      foundingText1: 'In 2002, the Galai businessmen in our area came together and presented the idea of establishing a cooperative credit society to Late Pratapsheth (Dada) Salunkhe. At that time, the cooperative sector was going through extremely difficult circumstances—many institutions had collapsed, some were on the verge of collapse, and there was tremendous instability among depositors.',
-      foundingText2: 'Starting a new institution in such challenging circumstances was truly a courageous step. Late Pratapsheth (Dada) Salunkhe and Adv. Vitthalrao Salunkhe, who had in-depth knowledge of the banking sector, conducted an extensive study of the situation and decided to run the institution efficiently based on proper management, transparent transactions, and responsible lending.',
-      establishmentDate: 'Establishment',
-      establishmentDateValue: 'June 26, 2002',
-      motto: '"Service and Security"',
-      inaugurationTitle: 'Inauguration Ceremony',
-      inaugurationText: 'After this, the institution was established on June 26, 2002, and the grand inauguration of the institution took place on July 11, 2002, at the hands of Late Dr. Patangrao Kadam, Hon. Jayantrao Patil, and Hon. Harshvardhan Patil, the then dignitaries.',
-      inaugurationCards: [
-        { title: 'Special Ceremony', desc: 'Many former and current MLAs present' },
-        { title: 'Important Decision', desc: 'Stay away from political interference' },
-        { title: 'Growth Beginning', desc: 'Business community joined the institution' }
-      ],
-      expansionTitle: 'Expansion and Multistate Status',
-      expansionText1: 'The growth of the institution has been remarkable from the beginning. The machinery, vegetable, poultry, grape, and other business communities in our area were connected to the institution, and the institution started providing loans to all sectors.',
-      expansionHighlight: '2012: Achieved Multistate status, the first Multistate cooperative credit society in Western Maharashtra',
-      expansionText2: 'Since the Galai brothers of the institution are spread across the country, there was a demand that the institution should expand its operations from various states. Considering this demand positively, the institution achieved Multistate status in 2012 and gained recognition as the first cooperative credit society to become Multistate in Western Maharashtra.',
-      technologyTitle: 'Modern Technology and Services',
-      technologyCards: [
-        { title: 'Pioneer in Technology', desc: 'First local institution to computerize circulation and pigmy collection' },
-        { title: 'Core Banking System', desc: 'CBS, online transactions, mobile banking, NEFT/RTGS/IMPS facilities' },
-        { title: 'Service and Security', desc: 'Staff that considers customer satisfaction as true service is the main strength of the institution' },
-        { title: 'Advanced Accounting', desc: 'Digitization and IT-based accurate accounting, all these services are continuously improved' }
-      ],
-      facilitiesTitle: 'Facilities and Services',
-      facilitiesCards: [
-        { title: 'Modern Offices', desc: 'Modern facilities in all branches' },
-        { title: 'Trained Staff', desc: 'Experienced and helpful staff' },
-        { title: 'Control System', desc: 'Excellent internal control system' },
-        { title: 'Timely Service', desc: 'Services available to customers on time' }
-      ],
-      financialServicesTitle: 'Financial Services',
-        financialServices: [
-        'Savings Account',
-        'Fixed Deposit',
-        'Recurring Deposit',
-        'Women\'s Scheme',
-        'Senior Citizen Scheme',
-        'Gold Loan',
-        'Personal Loan',
-        'Business Loan',
-        'Various Facilities'
-      ],
-      socialCommitmentTitle: 'Social Commitment',
-      socialCommitmentText: 'The institution has maintained social commitment along with financial services. The institution honestly focuses on financial literacy, women empowerment, encouraging small entrepreneurs in rural areas, guidance for students, and implementing various welfare programs for society.',
-      socialCommitmentBadge: 'Dedicated to Social Development',
-      todayTitle: 'Today\'s Institution',
-      todayText: 'Today, Shivpratap Multistate is an institution standing on a strong financial foundation and is continuously progressing with the strength of members\' trust, management\'s vision, transparency, and employees\' dedication.',
-      todayMotto: '"Following the values of cooperation, taking everyone along, providing safe and reliable banking services"',
-      todayCommitment: 'Our commitment is to keep the flag of the institution\'s progress flying with more brightness.',
-      contactTitle: 'Contact Us',
-      contactSubtitle: 'Contact us for more information about our services and products',
-      contactAddress: 'Address',
-      contactPhone: 'Phone',
-      contactEmail: 'Email'
-    },
-    mr: {
-      pageTitle: 'संस्थेविषयी',
-      subtitle: 'Shivpratap Multistate Nagari Co-Op Credit Society Ltd.',
-      badges: {
-        multistate: 'मल्टीस्टेट संस्था',
-        secureBanking: 'सुरक्षित बँकिंग',
-        yearsService: '२२+ वर्षे सेवा'
-      },
-      stats: [
-        { label: 'स्थापना वर्ष', suffix: '' },
-        { label: 'मल्टीस्टेट दर्जा', suffix: '' },
-        { label: 'ग्राहक', suffix: 'लाख+' },
-        { label: 'वर्षे सेवेचा अनुभव', suffix: '+' }
-      ],
-      foundingTitle: 'स्थापना आणि प्रारंभ',
-      foundingText1: 'सन २००२ साली आमच्या भागातील गलाई व्यवसायिकांनी एकत्र येऊन स्व. प्रतापशेठ (दादा) साळुंखे यांच्याकडे सहकारी पतसंस्था स्थापनेची कल्पना मांडली. त्या काळात सहकार क्षेत्र अत्यंत कठीण परिस्थितीतून जात होते—अनेक संस्था बुडालेल्या, काही बुडण्याच्या मार्गावर, आणि ठेवीदारांमध्ये प्रचंड अस्थिरता निर्माण झाली होती. अशा आव्हानात्मक परिस्थितीत नवी संस्था सुरू करणे हे खरोखर धाडसी पाऊल होते.',
-      foundingText2: 'स्व. प्रतापशेठ (दादा) साळुंखे व बँकिंग  क्षेत्राची सखोल माहिती असणारे अ‍ॅड. विठ्ठलराव साळुंखे यांनी परिस्थितीचा विस्तृत अभ्यास करून, योग्य व्यवस्थापन, पारदर्शक व्यवहार आणि जबाबदार कर्जपुरवठा यांच्या आधारे संस्था सक्षमपणे चालवण्याचा निर्णय घेतला. इतर संस्थांनी केलेल्या चुका टाळून, कमी व्याजदरात व सुरक्षित तारण घेऊन कर्जपुरवठा करणे ही संस्थेची धोरणात्मक दिशा निश्चित करण्यात आली.',
-      establishmentDate: 'स्थापना',
-      establishmentDateValue: '२६ जून २००२',
-      motto: '"सेवा आणि सुरक्षा"',
-      inaugurationTitle: 'उद्घाटन सोहळा',
-      inaugurationText: 'यानंतर २६ जून २००२ रोजी संस्थेची स्थापना झाली आणि ११ जुलै २००२ रोजी संस्थेचे भव्य उद्घाटन स्व.डॉ. पतंगराव कदम, मा. जयंतराव पाटील, व मा. हर्षवर्धन पाटील या तत्कालीन मान्यवरांच्या हस्ते पार पडले. अनेक आजी–माजी आमदार उपस्थित असलेला हा सोहळा विशेष ठरला, आणि तेव्हाच राजकीय हस्तक्षेपापासून संस्था कायम दूर राहील, असा ठोस निर्णय घेण्यात आला.',
-      inaugurationCards: [
-        { title: 'विशेष सोहळा', desc: 'अनेक आजी–माजी आमदार उपस्थित' },
-        { title: 'महत्वपूर्ण निर्णय', desc: 'राजकीय हस्तक्षेपापासून दूर राहणे' },
-        { title: 'वाढीचा प्रारंभ', desc: 'व्यापारी वर्ग संस्थेशी जोडला गेला' }
-      ],
-      expansionTitle: 'विस्तार आणि मल्टीस्टेट दर्जा',
-      expansionText1: 'संस्थेची वाढ सुरुवातीपासूनच उल्लेखनीय राहिली. आपल्या परिसरातील यंत्रमाग, भाजीपाला, पोल्ट्री, द्राक्ष तसेच अन्य व्यापारी वर्ग संस्थेशी जोडत गेले आणि संस्था सर्व क्षेत्रांसाठी कर्जपुरवठा करू लागली. आधुनिकतेचा स्वीकार हा संस्थेच्या कामकाजाचा कायमस्वरूपी भाग राहिला आहे. चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था म्हणून शिवप्रताप मल्टीस्टेटची ओळख निर्माण झाली. त्यानंतर Core Banking System (CBS), ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा, डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा संस्था सातत्याने उन्नत करत गेली.',
-      expansionHighlight: '२०१२: मल्टीस्टेट दर्जा मिळवला, पश्चिम महाराष्ट्रातील पहिली मल्टीस्टेट सहकारी पतसंस्था',
-      expansionText2: 'आधुनिकतेचा स्वीकार हा संस्थेच्या कामकाजाचा कायमस्वरूपी भाग राहिला आहे. चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था म्हणून शिवप्रताप मल्टीस्टेटची ओळख निर्माण झाली. त्यानंतर Core Banking System (CBS), ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा, डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा संस्था सातत्याने उन्नत करत गेली.',
-      technologyTitle: 'आधुनिक तंत्रज्ञान आणि सेवा',
-      technologyCards: [
-        { title: 'तंत्रज्ञानातील अग्रेसर', desc: 'चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था' },
-        { title: 'Core Banking System', desc: 'CBS, ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा' },
-        { title: 'सेवा आणि सुरक्षा', desc: 'ग्राहकांचे समाधान हीच खरी सेवा मानणारा कर्मचारी वर्ग संस्थेची मुख्य ताकद' },
-        { title: 'उन्नत लेखापद्धती', desc: 'डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा सातत्याने उन्नत' }
-      ],
-      facilitiesTitle: 'सुविधा आणि सेवा',
-      facilitiesCards: [
-        { title: 'सुबक कार्यालये', desc: 'सर्व शाखांमध्ये आधुनिक सुविधा' },
-        { title: 'प्रशिक्षित कर्मचारी', desc: 'अनुभवी आणि सहाय्यक कर्मचारीवर्ग' },
-        { title: 'नियंत्रण व्यवस्था', desc: 'उत्तम अंतर्गत नियंत्रण व्यवस्था' },
-        { title: 'वेळेवर सेवा', desc: 'ग्राहकांना वेळेवर उपलब्ध सेवा' }
-      ],
-      financialServicesTitle: 'आर्थिक सेवा',
-      financialServices: [
-        'बचत खाते',
-        'मुदत ठेव',
-        'आवर्ती ठेव',
-        'महिला योजना',
-        'ज्येष्ठ नागरिक योजना',
-        'गोल्ड लोन',
-        'वैयक्तिक कर्ज',
-        'व्यवसाय कर्ज',
-        'विविध सोयी'
-      ],
-      serviceSafetyPrinciple: "“सेवा आणि सुरक्षा” हे तत्त्व संस्थेने सुरुवातीपासूनच जपले असून ग्राहकांचे समाधान हीच खरी सेवा मानणारा कर्मचारी वर्ग संस्थेची मुख्य ताकद आहे.",
-      facilitiesAndServicesNarrative: "संस्थेच्या सर्व शाखांमध्ये सुबक कार्यालये, प्रशिक्षित कर्मचारी, उत्तम अंतर्गत नियंत्रण व्यवस्था आणि ग्राहकांना वेळेवर उपलब्ध होणाऱ्या आर्थिक सेवांमुळे संस्थेची विश्वासार्हता दिवसेंदिवस वाढत गेली आहे. बचत खाते, मुदत ठेव, आवर्ती ठेव, महिला व ज्येष्ठ नागरिकांसाठी विशेष योजना, तसेच गोल्ड लोन, वैयक्तिक कर्ज, व्यवसाय कर्ज अशा विविध सोयी देऊन संस्था सभासदांच्या छोट्या-मोठ्या आर्थिक गरजांना समर्थपणे हाताळत आहे..",
-      socialCommitmentTitle: 'सामाजिक बांधिलकी',
-      socialCommitmentText: 'संस्थेचे गलाई बांधव देशभर पसरलेले असल्यामुळे विविध राज्यांतून संस्थेने आपले कामकाज वाढवावे, अशी मागणी होत होती. या मागणीचा सकारात्मक विचार करून संस्थेने २०१२ साली मल्टीस्टेट दर्जा मिळवला, आणि पश्चिम महाराष्ट्रातील मल्टीस्टेट होणारी पहिली सहकारी पतसंस्था म्हणून मान्यता मिळवली.',
-      socialCommitmentBadge: 'समाज विकासासाठी समर्पित',
-      todayTitle: 'आजची संस्था',
-      todayText: 'आज शिवप्रताप मल्टीस्टेट ही संस्था मजबूत आर्थिक पायावर उभी असून सभासदांचा विश्वास, व्यवस्थापनाची दूरदृष्टी, पारदर्शकता आणि कर्मचार्‍यांचे समर्पण यांच्या बळावर सातत्याने प्रगती करत आहे. सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे आणि संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे. सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे आणि संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे.',
-      todayMotto: '"सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे"',
-      todayCommitment: 'संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे.',
-      contactTitle: 'आमच्याशी संपर्क साधा',
-      contactSubtitle: 'आमच्या सेवा आणि उत्पादनांबद्दल अधिक माहितीसाठी संपर्क करा',
-      contactAddress: 'पत्ता',
-      contactPhone: 'फोन',
-      contactEmail: 'ईमेल'
-    }
-  };
+
 
 
 
@@ -571,8 +568,7 @@ const Home = () => {
   // State management
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [galleryLoading, setGalleryLoading] = useState(true);
+
   const [selectedImage, setSelectedImage] = useState(null);
   const [showPopup, setShowPopup] = useState(true); // Popup state - starts as true to show on page load
 
@@ -618,7 +614,7 @@ const Home = () => {
       { value: 1, target: 1, suffix: aboutTranslations[language].stats[2].suffix, label: aboutTranslations[language].stats[2].label, icon: FaUsers, color: 'amber' },
       { value: 22, target: 22, suffix: aboutTranslations[language].stats[3].suffix, label: aboutTranslations[language].stats[3].label, icon: FaClock, color: 'purple' }
     ]);
-  }, [language, aboutTranslations]);
+  }, [language]);
 
 
 
@@ -707,31 +703,7 @@ const Home = () => {
 
 
 
-  // Load gallery images from Firebase
-  useEffect(() => {
-    loadGalleryImages();
-  }, []);
 
-  const loadGalleryImages = async () => {
-    try {
-      setGalleryLoading(true);
-      const galleryRef = dbRef(database, 'shivpratapmultistate/gallery');
-      const snapshot = await get(galleryRef);
-      
-      if (snapshot.exists()) {
-        const galleryData = snapshot.val();
-        const imagesList = Object.keys(galleryData).map(key => ({
-          id: key,
-          ...galleryData[key]
-        }));
-        setGalleryImages(imagesList);
-      }
-    } catch (error) {
-      console.error('Error loading gallery images:', error);
-    } finally {
-      setGalleryLoading(false);
-    }
-  };
 
   
   // Touch handlers for mobile swipe

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaHome,
@@ -8,7 +8,7 @@ import {
 
 const SavingAccount = () => {
   const { language } = useLanguage();
-  const [, setActiveSection] = useState('about');
+
 
   // Translations
   const translations = {
@@ -131,13 +131,7 @@ const SavingAccount = () => {
   const t = translations[language];
 
   // Handle scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
+
 
   return (
     <div className="font-sans bg-gray-50">
