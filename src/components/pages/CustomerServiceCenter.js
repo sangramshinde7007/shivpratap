@@ -99,12 +99,13 @@ const CustomerServiceCenter = () => {
       },
       address: {
         en: 'Nagewadi, Tal. Sangola, Dist. Solapur',
-        mr: 'नागेवाडी, ता. सांगोला, जि. सोलापूर'
+        mr: 'सांगली जिल्हा मध्यवर्ती बॅंकेजवळ,नागेवाडी.'
       },
       description: {
         en: 'Main Customer Service Center in Solapur District',
         mr: 'सोलापूर जिल्ह्यातील प्रमुख ग्राहक सेवा केंद्र'
-      }
+      },
+      mapLink: 'https://maps.app.goo.gl/9HmoDR3X4ws748yEA'
     },
     {
       id: 2,
@@ -114,12 +115,13 @@ const CustomerServiceCenter = () => {
       },
       address: {
         en: 'Balvadi, Tal. Khanapur, Dist. Sangli',
-        mr: 'बलवडी, ता. खानापूर, जि. सांगली'
+        mr: 'विटा कुंडल रोड,स्वागत कमान जवळ, बलवडी (भा)'
       },
       description: {
         en: 'Service Center in Khanapur Taluka',
         mr: 'खानापूर तालुक्यातील ग्राहक सेवा केंद्र'
-      }
+      },
+      mapLink: 'https://maps.app.goo.gl/rmwZheVfQeaPCJ316'
     },
     {
       id: 3,
@@ -129,12 +131,13 @@ const CustomerServiceCenter = () => {
       },
       address: {
         en: 'Pare, Tal. Shirala, Dist. Sangli',
-        mr: 'पारें, ता. शिराळा, जि. सांगली'
+        mr: 'ग्रामसचिवालय शेजारी,पारे.'
       },
       description: {
         en: 'Main Service Center in Sangli District',
         mr: 'सांगली जिल्ह्यातील प्रमुख सेवा केंद्र'
-      }
+      },
+      mapLink: 'https://maps.app.goo.gl/ondPoqwMUYDiQh9PA'
     },
     {
       id: 4,
@@ -144,12 +147,13 @@ const CustomerServiceCenter = () => {
       },
       address: {
         en: 'Vengav, Tal. Khanapur, Dist. Sangli',
-        mr: 'वेणगाव, ता. खानापूर, जि. सांगली'
+        mr: 'कै. हरीराम (दादा ) निवृत्ती देवकर व्यासपीठ शेजारी,वेजेगाव.'
       },
       description: {
         en: 'Customer Service Center in Sangli District',
         mr: 'सांगली जिल्ह्यातील ग्राहक सेवा केंद्र'
-      }
+      },
+      mapLink: 'https://maps.app.goo.gl/zXZfR2ruu44sP2EB7'
     },
     {
       id: 5,
@@ -159,12 +163,13 @@ const CustomerServiceCenter = () => {
       },
       address: {
         en: 'Karanje, Tal. Khanapur (Vita), Dist. Sangli',
-        mr: 'करंजे, ता. खानापूर (विटा), जि. सांगली'
+        mr: 'कै.संपतराव माने,मोफत वाचनालय शेजारी,करंजे.'
       },
       description: {
         en: 'Service Center in Sangli District',
         mr: 'सांगली जिल्ह्यातील सेवा केंद्र'
-      }
+      },
+      mapLink: 'https://maps.app.goo.gl/dRUDT2zHFETLXmF79?g_st=aw'
     },
     {
       id: 6,
@@ -174,12 +179,13 @@ const CustomerServiceCenter = () => {
       },
       address: {
         en: 'Balwadi, Tal. Khanapur, Dist. Sangli',
-        mr: 'बलवडी, ता. खानापूर, जि. सांगली'
+        mr: 'राहुल किराणा स्टोअर्स शेजारी,बलवडी(खा).'
       },
       description: {
         en: 'Customer Service Center in Khanapur Taluka',
         mr: 'खानापूर तालुक्यातील ग्राहक सेवा केंद्र'
-      }
+      },
+      mapLink: 'https://maps.app.goo.gl/b1cm4jmDhMmrLGre7?g_st=aw'
     }
   ];
 
@@ -204,8 +210,13 @@ const CustomerServiceCenter = () => {
 
   // Handle get directions
   const handleGetDirections = (center) => {
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(center.address[currentLang])}`;
-    window.open(mapsUrl, '_blank');
+    // Use mapLink if available, otherwise use address search
+    if (center.mapLink) {
+      window.open(center.mapLink, '_blank');
+    } else {
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(center.address[currentLang])}`;
+      window.open(mapsUrl, '_blank');
+    }
   };
 
   return (

@@ -91,7 +91,7 @@ const Branch = () => {
         'Shirala Branch': 'Shirala Branch',
         'Peth Vadgaon Branch': 'Peth Vadgaon Branch',
         'Ashta Branch': 'Ashta Branch',
-        'Akluj Branch': 'Akluj Branch',
+        'Alasand Branch': 'Alasand Branch',
         'Vashi Branch': 'Vashi Branch',
         'Koparkhairane Branch': 'Koparkhairane Branch',
         'Kalamboli Branch': 'Kalamboli Branch',
@@ -170,7 +170,7 @@ const Branch = () => {
         'Shirala Branch': 'शिराळा शाखा',
         'Peth Vadgaon Branch': 'पेठ वडगाव शाखा',
         'Ashta Branch': 'आष्टा शाखा',
-        'Akluj Branch': 'अकलूज शाखा',
+        'Alasand Branch': 'अकलूज शाखा',
         'Vashi Branch': 'वाशी शाखा',
         'Koparkhairane Branch': 'कोपरखैरणे शाखा',
         'Kalamboli Branch': 'कळंबोली शाखा',
@@ -207,7 +207,7 @@ const Branch = () => {
     { id: 'shirala', name: 'Shirala', count: 1 },
     { id: 'peth_vadgaon', name: 'Peth Vadgaon', count: 1 },
     { id: 'ashta', name: 'Ashta', count: 1 },
-    { id: 'akluj', name: 'Akluj', count: 1 },
+    { id: 'Alasand', name: 'Alasand', count: 1 },
     { id: 'vashi', name: 'Vashi', count: 1 },
     { id: 'koparkhairane', name: 'Koparkhairane', count: 1 },
     { id: 'kalamboli', name: 'Kalamboli', count: 1 },
@@ -219,23 +219,24 @@ const Branch = () => {
     id: 'head-office',
     name: 'Main Office (Vita - Main Office)',
     city: 'Vita',
-    address: 'Shiv Pratap Gold Tower, Power House Road, Saraf Peth, Hanmant Bazar, Vita, Tal. Khanapur, Dist. Sangli - 415311',
+    address: 'शिवप्रताप गोल्ड टॉवर,पॉवर हाऊस रोड, दुसरा मजला, विटा.',
     phone: '02347-276399',
     email: 'headoffice@shivpratapbank.com',
     timings: 'Monday to Friday: 9:30 AM - 5:30 PM | Saturday: 9:30 AM - 1:30 PM',
     established: '1985',
     manager: 'Mr. Rajesh Sharma',
     services: ['All Banking Services', 'Corporate Banking', 'Investment Advisory', 'Loan Processing', 'Foreign Exchange'],
-    facilities: ['ATM', 'Locker', 'WiFi', 'Parking', 'Wheelchair Access', 'Customer Lounge']
+    facilities: ['ATM', 'Locker', 'WiFi', 'Parking', 'Wheelchair Access', 'Customer Lounge'],
+    mapLink: 'https://maps.app.goo.gl/NZ2BXT9Zdtv7J9SS8'
   };
 
   // Branches data from your list
   const branches = [
     {
       id: 1,
-      name: 'Main Office (Vita – Main Office)',
+      name: 'मुख्य शाखा',
       city: 'vita',
-      address: 'Shiv Pratap Gold Tower, Power House Road, Saraf Peth, Hanmant Bazar, Vita, Tal. Khanapur, Dist. Sangli – 415311',
+      address: 'शिवप्रताप गोल्ड टॉवर,पॉवर हाऊस रोड, पहिला मजला,विटा.',
       phone: '02347-276399',
       email: 'vita.main@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -243,13 +244,14 @@ const Branch = () => {
       manager: 'Mr. Rajesh Sharma',
       atms: 3,
       services: ['All Banking Services', 'Corporate Banking', 'Loan Processing'],
-      facilities: ['ATM', 'Locker', 'Safe Deposit', 'Customer Lounge']
+      facilities: ['ATM', 'Locker', 'Safe Deposit', 'Customer Lounge'],
+      mapLink: 'https://maps.app.goo.gl/NZ2BXT9Zdtv7J9SS8'
     },
     {
       id: 2,
-      name: 'Choundeshwari Temple Branch, Vita',
+      name: 'चौंडेश्वरी चौक शाखा - विटा',
       city: 'vita',
-      address: 'Near Choundeshwari Temple, Bricks, Tal. Khanapur, Dist. Sangli – 415311',
+      address: 'भैरवनाथ थिएटर जवळ, लेंगरे रोड, विटा.',
       phone: '02347-276371',
       email: 'vita.choundeshwari@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -257,13 +259,14 @@ const Branch = () => {
       manager: 'Mrs. Priya Deshmukh',
       atms: 2,
       services: ['Savings Account', 'Current Account', 'Fixed Deposit'],
-      facilities: ['ATM', 'Locker', 'Cheque Deposit']
+      facilities: ['ATM', 'Locker', 'Cheque Deposit'],
+      mapLink: 'https://maps.app.goo.gl/666gNKgq37zcwL2AA'
     },
     {
       id: 3,
-      name: 'Sangli Branch',
+      name: 'सांगली शाखा',
       city: 'sangli',
-      address: 'Sanika Bhavan, Saraf Katta, Sangli, Dist. Sangli – 416410',
+      address: 'नवीन सराफ कट्टा,सानिका भवन,तानवडे बुक डेपो सामोर, सांगली.',
       phone: '0233-2327399',
       email: 'sangli@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -271,13 +274,14 @@ const Branch = () => {
       manager: 'Mr. Sanjay Patil',
       atms: 2,
       services: ['All Accounts', 'Education Loan', 'Insurance'],
-      facilities: ['ATM', 'Locker', 'Internet Banking']
+      facilities: ['ATM', 'Locker', 'Internet Banking'],
+      mapLink: 'https://maps.app.goo.gl/spuQY6Snbs4xgvZ77'
     },
     {
       id: 4,
-      name: 'Khanapur Branch',
+      name: 'खानापूर शाखा',
       city: 'khanapur',
-      address: 'Near ST Stand, Khanapur, Dist. Sangli',
+      address: 'एसटी स्टँड समोर, सतीश ड्रेसेस जवळ, शिवपार्वती बिल्डिंग खानापूर.',
       phone: '02347-295416',
       email: 'khanapur@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -285,11 +289,12 @@ const Branch = () => {
       manager: 'Mr. Ramesh Kumar',
       atms: 2,
       services: ['Agriculture Loan', 'Gold Loan', 'Micro Finance'],
-      facilities: ['ATM', 'Locker', 'Agriculture Advisory']
+      facilities: ['ATM', 'Locker', 'Agriculture Advisory'],
+      mapLink: 'https://maps.app.goo.gl/YvhvyUkBm1LpTT7s9?g_st=aw'
     },
     {
       id: 5,
-      name: 'Tasgaon Branch',
+      name: 'तासगाव शाखा',
       city: 'tasgaon',
       address: 'Vishwapriya Complex, Vandemataram Chowk, Tasgaon, Dist. Sangli',
       phone: '02346-240599',
@@ -303,9 +308,9 @@ const Branch = () => {
     },
     {
       id: 6,
-      name: 'Atpadi Branch',
+      name: 'आटपाडी शाखा',
       city: 'atpadi',
-      address: 'Kalyan Hira Plaza, Opposite ST Stand, Atpadi, Dist. Sangli – 415301',
+      address: 'आटपाडी कॉलेज समोर,दिघंची रोड,आटपाडी.',
       phone: '02343-220399',
       email: 'atpadi@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -313,13 +318,14 @@ const Branch = () => {
       manager: 'Mr. Vikram Singh',
       atms: 2,
       services: ['Business Banking', 'Current Account', 'Working Capital'],
-      facilities: ['ATM', 'Locker', 'Business Advisory']
+      facilities: ['ATM', 'Locker', 'Business Advisory'],
+      mapLink: 'https://maps.app.goo.gl/mbLBb3E7spdCjfaL8'
     },
     {
       id: 7,
-      name: 'Mayani Branch',
+      name: 'मायणी शाखा',
       city: 'mayani',
-      address: 'Opposite ST Stand, Malhar Peth, Pandharpur Road, Mayani, Tal. Khatav, Dist. Satara – 415102',
+      address: 'ए.टी. स्टँड समोर, मेन रोड, मायणी.',
       phone: '02161-270999',
       email: 'mayani@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -327,13 +333,14 @@ const Branch = () => {
       manager: 'Mr. Ajit Pawar',
       atms: 1,
       services: ['Agriculture Loan', 'Small Business', 'Savings Account'],
-      facilities: ['ATM', 'Locker', 'Agriculture Support']
+      facilities: ['ATM', 'Locker', 'Agriculture Support'],
+      mapLink: 'https://maps.app.goo.gl/CEcAkow8hv8wWX4A6'
     },
     {
       id: 8,
-      name: 'Jat Branch',
+      name: 'जत शाखा',
       city: 'jat',
-      address: 'LIC Office Next Building, Umrani Road, Jat, Dist. Sangli',
+      address: 'एल.आय.सी. ऑफिस जवळ, उमराणी रोड, जत.',
       phone: '02344-248999',
       email: 'jat@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -341,13 +348,14 @@ const Branch = () => {
       manager: 'Mr. Amit Verma',
       atms: 2,
       services: ['Retail Banking', 'MSME Loans', 'Credit Cards'],
-      facilities: ['ATM', 'Locker', 'Self-service Kiosk']
+      facilities: ['ATM', 'Locker', 'Self-service Kiosk'],
+      mapLink: 'https://maps.app.goo.gl/AVSpEVrD2JY3RUBh7'
     },
     {
       id: 9,
-      name: 'Kavathe Mahankal Branch',
+      name: 'कवठे महांकाळ शाखा',
       city: 'kavathe_mahankal',
-      address: 'Chhatrapati Shivaji Maharaj Square, Kavathe Mahankal, Dist. Sangli',
+      address: 'छत्रपती शिवाजी महाराज चौक सांगली जिल्हा मध्यवर्ती बँक रस्ता ,कवठे महांकाळ.',
       phone: '02341-223999',
       email: 'kavathe@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -355,11 +363,12 @@ const Branch = () => {
       manager: 'Mrs. Neha Joshi',
       atms: 2,
       services: ['NRI Services', 'Trade Finance', 'Forex'],
-      facilities: ['ATM', 'Safe Deposit', 'Business Lounge']
+      facilities: ['ATM', 'Safe Deposit', 'Business Lounge'],
+      mapLink: 'https://maps.app.goo.gl/suPoXrcdeh1jqq3Q7'
     },
     {
       id: 10,
-      name: 'Miraj Branch',
+      name: 'मिरज शाखा',
       city: 'miraj',
       address: 'Satar Maker Galli, Shaniwar Peth, Miraj, Tal. Miraj, Dist. Sangli – 416410',
       phone: '0233-2220299',
@@ -373,7 +382,7 @@ const Branch = () => {
     },
     {
       id: 11,
-      name: 'Karad Branch',
+      name: 'कराड शाखा',
       city: 'karad',
       address: 'Azad Chowk, Patil & Company Building, Somwar Peth, Karad',
       phone: '02364-245678',
@@ -387,9 +396,9 @@ const Branch = () => {
     },
     {
       id: 12,
-      name: 'Islampur Branch',
+      name: 'ईश्वरपूर शाखा',
       city: 'islampur',
-      address: 'Gandhi Chowk, City Centre, Islampur, Tal. Walwa, Dist. Sangli',
+      address: 'काला मारुती मंदिर काला मारुती चौक, ईश्वरपूर.',
       phone: '8960050042',
       email: 'islampur@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -397,13 +406,14 @@ const Branch = () => {
       manager: 'Mr. Sanjay Patil',
       atms: 2,
       services: ['Agriculture Loan', 'Gold Loan', 'Micro Finance'],
-      facilities: ['ATM', 'Locker', 'Agriculture Advisory']
+      facilities: ['ATM', 'Locker', 'Agriculture Advisory'],
+      mapLink: 'https://maps.app.goo.gl/HdKmkpiHGU2rsuYL9'
     },
     {
       id: 13,
-      name: 'Ichalkaranji Branch',
+      name: 'इचलकरंजी शाखा',
       city: 'ichalkaranji',
-      address: 'Runwal Towers, Dhanya Ola, Date Mala, Ichalkaranji, Tal. Hatkanangle, Dist. Kolhapur',
+      address: 'जुनी महानगरपालिका रोड, मगदुम शेजारी, गिरनार अपार्टमेंट शेजारी,इचलकरंजी.',
       phone: '7460050051',
       email: 'ichalkaranji@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -411,13 +421,14 @@ const Branch = () => {
       manager: 'Mr. Vikram Singh',
       atms: 2,
       services: ['Business Banking', 'Current Account', 'Working Capital'],
-      facilities: ['ATM', 'Locker', 'Business Advisory']
+      facilities: ['ATM', 'Locker', 'Business Advisory'],
+      mapLink: 'https://maps.app.goo.gl/MrrLCgnnLCZP9BMRA'
     },
     {
       id: 14,
-      name: 'Athani Branch',
+      name: 'अथणी शाखा',
       city: 'athani',
-      address: 'Near Mrugendra Theatre, Bhaji Mandai, Athani, Dist. Belgaum',
+      address: 'गोटखिंडी गल्ली भाजी  मार्केट, अथणी.',
       phone: '7460050052',
       email: 'athani@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -425,13 +436,14 @@ const Branch = () => {
       manager: 'Mr. Ajit Pawar',
       atms: 2,
       services: ['Agriculture Loan', 'Small Business', 'Savings Account'],
-      facilities: ['ATM', 'Locker', 'Agriculture Support']
+      facilities: ['ATM', 'Locker', 'Agriculture Support'],
+      mapLink: 'https://maps.app.goo.gl/78VtZ6erRkoyZy3M6'
     },
     {
       id: 15,
-      name: 'Bhalvani Branch',
+      name: 'भाळवणी शाखा',
       city: 'bhalvani',
-      address: 'Main Road, Bhalvani, Khanapur, Mulla Wada',
+      address: 'मेन रोड ,मुल्ला वाडा ,भाळवणी.',
       phone: '8960050043',
       email: 'bhalvani@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -439,13 +451,14 @@ const Branch = () => {
       manager: 'Mr. Amit Verma',
       atms: 1,
       services: ['Retail Banking', 'MSME Loans', 'Credit Cards'],
-      facilities: ['ATM', 'Locker', 'Self-service Kiosk']
+      facilities: ['ATM', 'Locker', 'Self-service Kiosk'],
+      mapLink: 'https://maps.app.goo.gl/3Tm4tAFwrL5q6Z2f7'
     },
     {
       id: 16,
-      name: 'Shirala Branch',
+      name: 'शिराळा शाखा',
       city: 'shirala',
-      address: 'ST Stand Road, Opposite SBI Bank, Shirala',
+      address: 'एस टी स्टँड रोड,  स्टेट बँक ऑफ इंडिया समोर, शिराळा.',
       phone: '02345-245678',
       email: 'shirala@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -453,13 +466,14 @@ const Branch = () => {
       manager: 'Mrs. Neha Joshi',
       atms: 1,
       services: ['NRI Services', 'Trade Finance', 'Forex'],
-      facilities: ['ATM', 'Safe Deposit', 'Business Lounge']
+      facilities: ['ATM', 'Safe Deposit', 'Business Lounge'],
+      mapLink: 'https://maps.app.goo.gl/MnnTF3WfWXhYtPbe7'
     },
     {
       id: 17,
-      name: 'Peth Vadgaon Branch',
+      name: 'पेठ वडगाव शाखा',
       city: 'peth_vadgaon',
-      address: 'Near Padmarod Belekar Medical, Sonar Galli, Opposite Momin Doctor Hospital, Guruganga Apartment, Peth Vadgaon',
+      address: 'गुरुगंगा अपार्टमेंट , मोमीन हॉस्पिटल समोर,पद्मा रोड, पेठ वडगाव.',
       phone: '02347-245678',
       email: 'pethvadgaon@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -467,11 +481,12 @@ const Branch = () => {
       manager: 'Mr. Ramesh Kumar',
       atms: 2,
       services: ['Corporate Banking', 'NRI Services', 'Trade Finance'],
-      facilities: ['ATM', 'Locker', 'Conference Room']
+      facilities: ['ATM', 'Locker', 'Conference Room'],
+      mapLink: 'https://maps.app.goo.gl/Qz9Ad8UNyJzSNfNt5'
     },
     {
       id: 18,
-      name: 'Ashta Branch',
+      name: 'आष्टा शाखा',
       city: 'ashta',
       address: 'Sagar Jewellers Samor, Pawar City Center, Main Road, Ashta',
       phone: '+91 63690 93632',
@@ -485,21 +500,22 @@ const Branch = () => {
     },
     {
       id: 19,
-      name: 'Akluj Branch',
-      city: 'akluj',
-      address: 'Dove Medical Samor, Vita–Kundal Road, Akluj',
+      name: 'आळसंद शाखा',
+      city: 'Alasand',
+      address: 'डोंबे मेडिकल समोर, विटा-कुंडल रोड,आळसंद.',
       phone: '02188-245678',
-      email: 'akluj@shivpratapbank.com',
+      email: 'Alasand@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
       established: '2021',
       manager: 'Mr. Sanjay Patil',
       atms: 2,
       services: ['Agriculture Loan', 'Gold Loan', 'Micro Finance'],
-      facilities: ['ATM', 'Locker', 'Agriculture Advisory']
+      facilities: ['ATM', 'Locker', 'Agriculture Advisory'],
+      mapLink: 'https://maps.app.goo.gl/jUdc1Fojvo827xha8'
     },
     {
       id: 20,
-      name: 'Vashi Branch',
+      name: 'वाशी शाखा',
       city: 'vashi',
       address: 'Gavdevi Mandir Javal, Sector 14, Vashi Koparkhairane Road, Vashi – 400703',
       phone: '022-27894567',
@@ -513,9 +529,9 @@ const Branch = () => {
     },
     {
       id: 21,
-      name: 'Koparkhairane Branch',
+      name: 'कोपरखैरणे शाखा',
       city: 'koparkhairane',
-      address: 'Swagat Chambers, Plot No. 8, North Point School of Kids Samor, Koparkhairane – 400709',
+      address: 'स्वागत चेंबर , प्लॉट न १९, नॉर्थ पॉईंट स्कूल ऑफ व्हीलेज समोर , कोपखैरणे',
       phone: '022-27784567',
       email: 'koparkhairane@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -523,13 +539,14 @@ const Branch = () => {
       manager: 'Mr. Ajit Pawar',
       atms: 2,
       services: ['Retail Banking', 'MSME Loans', 'Credit Cards'],
-      facilities: ['ATM', 'Locker', 'Self-service Kiosk']
+      facilities: ['ATM', 'Locker', 'Self-service Kiosk'],
+      mapLink: 'https://maps.app.goo.gl/mxZxyrSN5vE7rtBv5'
     },
     {
       id: 22,
-      name: 'Kalamboli Branch',
+      name: 'कळंबोली शाखा',
       city: 'kalamboli',
-      address: 'Shop No. 3, Krishna Tower, Plot No. 13, Sector 5, CIDCO Office Javal, Kalamboli – 410218',
+      address: 'शॉप नं. १३, प्लॅटिनियम एक्सपेरीओ,प्लॉट नं. ८२ सेक्टर १७, रोडपाली, कळंबोली.',
       phone: '02192-245678',
       email: 'kalamboli@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -537,13 +554,14 @@ const Branch = () => {
       manager: 'Mr. Amit Verma',
       atms: 2,
       services: ['NRI Services', 'Trade Finance', 'Forex'],
-      facilities: ['ATM', 'Safe Deposit', 'Business Lounge']
+      facilities: ['ATM', 'Safe Deposit', 'Business Lounge'],
+      mapLink: 'https://maps.app.goo.gl/G9ayLFUjuQWCiJDH6'
     },
     {
       id: 23,
-      name: 'Vishrantwadi, Pune Branch',
+      name: 'विश्रांतवाडी (पुणे)  शाखा',
       city: 'pune',
-      address: 'Shop No. 74, Mahalaxmi Vihar, Alandi Road, Vishrantwadi, Pune',
+      address: 'शॉप न- 74, महालक्ष्मी विहार, आळंदी रोड , विश्रांतवाडी.( पुणे)',
       phone: '020-24567890',
       email: 'pune@shivpratapbank.com',
       timings: 'Mon-Fri: 10AM-4PM | Sat: 10AM-1PM',
@@ -551,7 +569,8 @@ const Branch = () => {
       manager: 'Mrs. Neha Joshi',
       atms: 3,
       services: ['Corporate Banking', 'NRI Services', 'Trade Finance'],
-      facilities: ['ATM', 'Locker', 'Conference Room']
+      facilities: ['ATM', 'Locker', 'Conference Room'],
+      mapLink: 'https://maps.app.goo.gl/x8b4Mcitbb9sGLEH8'
     }
   ];
 
@@ -591,9 +610,14 @@ const Branch = () => {
 
   // Handle get directions
   const handleGetDirections = (branch) => {
-    const address = encodeURIComponent(branch.address);
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
-    window.open(mapsUrl, '_blank');
+    // Use mapLink if available, otherwise use address search
+    if (branch.mapLink) {
+      window.open(branch.mapLink, '_blank');
+    } else {
+      const address = encodeURIComponent(branch.address);
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+      window.open(mapsUrl, '_blank');
+    }
   };
 
   return (
@@ -802,6 +826,18 @@ const Branch = () => {
                               <div className="text-gray-600">{headOffice.phone}</div>
                             </div>
                           </div>
+                          {/* Google Maps Link */}
+                          {headOffice.mapLink && (
+                            <div className="pt-4">
+                              <button
+                                onClick={() => window.open(headOffice.mapLink, '_blank')}
+                                className="w-full bg-gradient-to-r from-rose-600 to-rose-800 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+                              >
+                                <FaDirections className="mr-2 text-xl" />
+                                {currentContent.getDirections}
+                              </button>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>

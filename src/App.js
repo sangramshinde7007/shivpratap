@@ -27,6 +27,7 @@ import ManagingDirector from './components/pages/ManagingDirector';
 import Calculator from './components/pages/Calculator';
 import MahilaSavingsAccount from './components/pages/MahilaSavingsAccount';
 import LoanCalculator from './components/pages/LoanCalculator';
+import Career from './components/pages/Career';
 
 
 import AdminDashboard from './components/Admin/AdminDashboard';
@@ -35,13 +36,14 @@ import AdminGallery from './components/Admin/AdminGallery';
 import AdminMedia from './components/Admin/AdminMedia';
 import MarqueeDisplay from './components/Admin/MarqueeDisplay';
 import AdminMarquee from './components/Admin/AdminMarquee';
+import AdminCareer from './components/Admin/AdminCareer';
 
 // Layout wrapper component
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
   
   // Routes where navbar and footer should be hidden
-  const hideLayoutRoutes = ['/login', '/admin-dashboard', '/admin-register', '/admin-gallery', '/admin-media', '/admin-marquee'];
+  const hideLayoutRoutes = ['/login', '/admin-dashboard', '/admin-register', '/admin-gallery', '/admin-media', '/admin-marquee', '/admin-career'];
   const shouldHideLayout = hideLayoutRoutes.some(route => location.pathname.startsWith(route));
   
   return (
@@ -84,6 +86,16 @@ function App() {
                 <Route path='/plan-subhmangal/:lang' element={<Plan />} />
                 <Route path='/plan-billionaire' element={<Plan />} />
                 <Route path='/plan-billionaire/:lang' element={<Plan />} />
+                <Route path='/plan-fixed-deposit' element={<Plan />} />
+                <Route path='/plan-fixed-deposit/:lang' element={<Plan />} />
+                <Route path='/plan-double-money' element={<Plan />} />
+                <Route path='/plan-double-money/:lang' element={<Plan />} />
+                <Route path='/plan-fourfold' element={<Plan />} />
+                <Route path='/plan-fourfold/:lang' element={<Plan />} />
+                <Route path='/plan-sujata' element={<Plan />} />
+                <Route path='/plan-sujata/:lang' element={<Plan />} />
+                <Route path='/plan-unfixed-deposit' element={<Plan />} />
+                <Route path='/plan-unfixed-deposit/:lang' element={<Plan />} />
                 <Route path='/plan-personal' element={<Plan />} />
                 <Route path='/plan-personal/:lang' element={<Plan />} />
                 <Route path='/plan-emi-gold' element={<Plan />} />
@@ -130,6 +142,8 @@ function App() {
                 <Route path='/calculator/:lang' element={<Calculator />} />
                 <Route path='/loan-calculator' element={<LoanCalculator />} />
                 <Route path='/loan-calculator/:lang' element={<LoanCalculator />} />
+                <Route path='/career' element={<Career />} />
+                <Route path='/career/:lang' element={<Career />} />
 
                 <Route path='/admin-dashboard' element={<AdminDashboard />} />
                 <Route path='/admin-register' element={<AdminRigister />} />
@@ -137,6 +151,7 @@ function App() {
                 <Route path='/admin-media' element={<AdminMedia />} />
                 <Route path='/marquee' element={<MarqueeDisplay />} />
                 <Route path='/admin-marquee' element={<AdminMarquee />} />
+                <Route path='/admin-career' element={<AdminCareer />} />
                 
               </Routes>
             </LayoutWrapper>

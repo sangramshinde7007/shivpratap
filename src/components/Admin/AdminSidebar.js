@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   FiImage, FiVideo, FiLogOut, 
   FiMenu, FiX, FiChevronRight, FiGrid,
-  FiEdit3
+  FiEdit3, FiBriefcase
 } from 'react-icons/fi';
 import { 
   database, 
@@ -110,6 +110,12 @@ const AdminSidebar = ({ collapsed, toggleSidebar }) => {
           label: 'Marquee Management', 
           path: '/admin-marquee',
           gradient: 'from-orange-500 to-red-400'
+        },
+        { 
+          icon: FiBriefcase, 
+          label: 'Career Management', 
+          path: '/admin-career',
+          gradient: 'from-indigo-500 to-blue-400'
         },
       ]
     },

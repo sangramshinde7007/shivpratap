@@ -91,6 +91,7 @@ const Navbar = () => {
             'Fixed Deposits', 'Pension Deposit Scheme', 'Subhmangal Deposit Scheme', 
             'Double Deposit Scheme', 'Half Price Deposit Scheme', 'Fourfold Deposit Scheme'
           ]},
+          { label: 'Small Saving', hasSubDropdown: true, subItems: ['Sujata Deposit Scheme'] },
           { label: 'Unfixed Deposit', hasDropdown: false, hasSubDropdown: false }
         ]},
         { label: 'Loan', hasDropdown: true, dropdownItems: [
@@ -100,7 +101,8 @@ const Navbar = () => {
         { label: 'Branch', hasDropdown: true, dropdownItems: ['Branch', 'Customer Service Center'] },
         { label: 'Gallery', hasDropdown: false },
         { label: 'Media', hasDropdown: false },
-        { label: 'Annual Report', hasDropdown: false }
+        { label: 'Annual Report', hasDropdown: false },
+        { label: 'Career', hasDropdown: false }
       ],
       bankName: 'Shivpratap Multistate Bank',
       bankNameShort: 'Shivpratap Bank',
@@ -140,13 +142,14 @@ const Navbar = () => {
           { label: 'अनिश्चित मुदत ठेव', hasDropdown: false, hasSubDropdown: false }
         ]},
         { label: 'कर्ज', hasDropdown: true, dropdownItems: [
-          'सोने कर्ज', 'व्यवसाय कर्ज', 'वैयक्तिक कर्ज', 'पगार तारण कर्ज', 
+          'सोने कर्ज', 'व्यवसायिक कर्ज', 'वैयक्तिक कर्ज', 'पगार तारण कर्ज', 
           'वाहन कर्ज', 'ठेव तारण कर्ज', 'कॅश क्रेडिट कर्ज', 'गृहकर्ज'
         ]},
         { label: 'शाखा', hasDropdown: true, dropdownItems: ['शाखा', 'ग्राहक सेवा केंद्र'] },
         { label: 'गॅलरी', hasDropdown: false },
         { label: 'मीडिया', hasDropdown: false },
-        { label: 'वार्षिक अहवाल', hasDropdown: false }
+        { label: 'वार्षिक अहवाल', hasDropdown: false },
+        { label: 'करिअर', hasDropdown: false }
       ],
       bankName: 'शिवप्रताप मल्टीस्टेट बँक',
       bankNameShort: 'शिवप्रताप बँक',
@@ -194,15 +197,16 @@ const Navbar = () => {
       'Shivpratap Ujjwal Balsanchayan': '/plan-recurring',
       'Karodpati': '/plan-billionaire',
 
-      'Fixed Deposits': '/plan',
+      'Fixed Deposits': '/plan-fixed-deposit',
       'Pension Deposit Scheme': '/plan-pension',
       'Subhmangal Deposit Scheme': '/plan-subhmangal',
-      'Damdupat Deposit Scheme': '/plan-half-price',
-      'Damdidpat Deposit Scheme': '/plan-half-price',
-      'Damchaupat Deposit Scheme': '/plan-half-price',
+      'Double Deposit Scheme': '/plan-double-money',
+      'Half Price Deposit Scheme': '/plan-half-price',
+      'Fourfold Deposit Scheme': '/plan-fourfold',
       
-      'Sujata Deposit Scheme': '/plan',
-      'Unfixed Deposit': '/plan',
+      'Small Saving': '/plan-sujata',
+      'Sujata Deposit Scheme': '/plan-sujata',
+      'Unfixed Deposit': '/plan-unfixed-deposit',
       
       'Gold Loan': '/loan#gold-loan',
       'Business Loan': '/loan#business-loan',
@@ -218,6 +222,7 @@ const Navbar = () => {
       'Gallery': '/gallery',
       'Media': '/media',
       'Annual Report': '/annual-report',
+      'Career': '/career',
       
       // Marathi mappings
       'संस्थेविषयी': '/',
@@ -237,18 +242,19 @@ const Navbar = () => {
       'शिवप्रताप उज्ज्वल बालसंचयन': '/plan-recurring',
       'कोट्याधीश': '/plan-billionaire',
 
-      'फिक्स्ड डिपॉझिट': '/plan',
+      'फिक्स्ड डिपॉझिट': '/plan-fixed-deposit',
       'पेन्शन ठेव योजना': '/plan-pension',
       'शुभमंगल ठेव योजना': '/plan-subhmangal',
-      'दाम दुपट ठेव योजना': '/plan-half-price',
+      'दामदुपट ठेव योजना': '/plan-double-money',
       'दाम दीडपट ठेव योजना': '/plan-half-price',
-      'दाम चौपट ठेव योजना': '/plan-half-price',
+      'दामचौपट ठेव योजना': '/plan-fourfold',
       
-      'सुजाता ठेव योजना': '/plan',
-      'अनिश्चित मुदत ठेव': '/plan',
+      'अल्प बचत': '/plan-sujata',
+      'सुजाता ठेव योजना': '/plan-sujata',
+      'अनिश्चित मुदत ठेव': '/plan-unfixed-deposit',
 
       'सोने कर्ज': '/loan#gold-loan',
-      'व्यवसाय कर्ज': '/loan#business-loan',
+      'व्यवसायिक कर्ज': '/loan#business-loan',
       'वैयक्तिक कर्ज': '/loan#personal-loan',
       'पगार तारण कर्ज': '/loan#salary-loan',
       'वाहन कर्ज': '/loan#vehicle-loan',
@@ -260,10 +266,11 @@ const Navbar = () => {
       'ग्राहक सेवा केंद्र': '/customer-service',
       'गॅलरी': '/gallery',
       'मीडिया': '/media',
-      'वार्षिक अहवाल': '/annual-report'
+      'वार्षिक अहवाल': '/annual-report',
+      'करिअर': '/career'
     };
 
-    const key = subItem || dropdownItem || mainItem;
+    const key = subItem || (typeof dropdownItem === 'object' ? dropdownItem.label : dropdownItem) || mainItem;
     return pathMap[key] || '/';
   };
 
