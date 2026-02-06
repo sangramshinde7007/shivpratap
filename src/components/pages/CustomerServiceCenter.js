@@ -93,45 +93,93 @@ const CustomerServiceCenter = () => {
   const serviceCenters = [
     {
       id: 1,
-      name: 'नागेवाडी ग्राहक सेवा केंद्र',
-      englishName: 'Nagewadi Customer Service Center',
-      address: 'नागेवाडी, ता. सांगोला, जि. सोलापूर',
-      description: 'सोलापूर जिल्ह्यातील प्रमुख ग्राहक सेवा केंद्र'
+      name: {
+        en: 'Nagewadi Customer Service Center',
+        mr: 'नागेवाडी ग्राहक सेवा केंद्र'
+      },
+      address: {
+        en: 'Nagewadi, Tal. Sangola, Dist. Solapur',
+        mr: 'नागेवाडी, ता. सांगोला, जि. सोलापूर'
+      },
+      description: {
+        en: 'Main Customer Service Center in Solapur District',
+        mr: 'सोलापूर जिल्ह्यातील प्रमुख ग्राहक सेवा केंद्र'
+      }
     },
     {
       id: 2,
-      name: 'कळंबोली (रा.) ग्राहक सेवा केंद्र',
-      englishName: 'Kalamboli (Raigad) Customer Service Center',
-      address: 'कळंबोली, रायगड जिल्हा, महाराष्ट्र',
-      description: 'रायगड जिल्ह्यातील सुविधाजनक सेवा केंद्र'
+      name: {
+        en: 'Balvadi (Bha.) Customer Service Center',
+        mr: 'बलवडी (भा) ग्राहक सेवा केंद्र'
+      },
+      address: {
+        en: 'Balvadi, Tal. Khanapur, Dist. Sangli',
+        mr: 'बलवडी, ता. खानापूर, जि. सांगली'
+      },
+      description: {
+        en: 'Service Center in Khanapur Taluka',
+        mr: 'खानापूर तालुक्यातील ग्राहक सेवा केंद्र'
+      }
     },
     {
       id: 3,
-      name: 'पारें ग्राहक सेवा केंद्र',
-      englishName: 'Paren Customer Service Center',
-      address: 'पारें, ता. शिराळा, जि. सांगली',
-      description: 'सांगली जिल्ह्यातील प्रमुख सेवा केंद्र'
+      name: {
+        en: 'Paren Customer Service Center',
+        mr: 'पारें ग्राहक सेवा केंद्र'
+      },
+      address: {
+        en: 'Pare, Tal. Shirala, Dist. Sangli',
+        mr: 'पारें, ता. शिराळा, जि. सांगली'
+      },
+      description: {
+        en: 'Main Service Center in Sangli District',
+        mr: 'सांगली जिल्ह्यातील प्रमुख सेवा केंद्र'
+      }
     },
     {
       id: 4,
-      name: 'वेणगाव ग्राहक सेवा केंद्र',
-      englishName: 'Vengav Customer Service Center',
-      address: 'वेणगाव, ता. खानापूर, जि. सांगली',
-      description: 'सोलापूर जिल्ह्यातील ग्राहक सेवा केंद्र'
+      name: {
+        en: 'Vengav Customer Service Center',
+        mr: 'वेणगाव ग्राहक सेवा केंद्र'
+      },
+      address: {
+        en: 'Vengav, Tal. Khanapur, Dist. Sangli',
+        mr: 'वेणगाव, ता. खानापूर, जि. सांगली'
+      },
+      description: {
+        en: 'Customer Service Center in Sangli District',
+        mr: 'सांगली जिल्ह्यातील ग्राहक सेवा केंद्र'
+      }
     },
     {
       id: 5,
-      name: 'कराड ग्राहक सेवा केंद्र',
-      englishName: 'Karad Customer Service Center',
-      address: 'कराड, सातारा जिल्हा, महाराष्ट्र',
-      description: 'सातारा जिल्ह्यातील प्रमुख सेवा केंद्र'
+      name: {
+        en: 'Karanje Customer Service Center',
+        mr: 'करंजे ग्राहक सेवा केंद्र'
+      },
+      address: {
+        en: 'Karanje, Tal. Khanapur (Vita), Dist. Sangli',
+        mr: 'करंजे, ता. खानापूर (विटा), जि. सांगली'
+      },
+      description: {
+        en: 'Service Center in Sangli District',
+        mr: 'सांगली जिल्ह्यातील सेवा केंद्र'
+      }
     },
     {
       id: 6,
-      name: 'बलवडी (खा.) ग्राहक सेवा केंद्र',
-      englishName: 'Balwadi (Kha.) Customer Service Center',
-      address: 'बलवडी, ता. खानापूर, जि. सांगली',
-      description: 'खानापूर तालुक्यातील ग्राहक सेवा केंद्र'
+      name: {
+        en: 'Balwadi (Kha.) Customer Service Center',
+        mr: 'बलवडी (खा.) ग्राहक सेवा केंद्र'
+      },
+      address: {
+        en: 'Balwadi, Tal. Khanapur, Dist. Sangli',
+        mr: 'बलवडी, ता. खानापूर, जि. सांगली'
+      },
+      description: {
+        en: 'Customer Service Center in Khanapur Taluka',
+        mr: 'खानापूर तालुक्यातील ग्राहक सेवा केंद्र'
+      }
     }
   ];
 
@@ -139,9 +187,8 @@ const CustomerServiceCenter = () => {
   const filteredCenters = searchQuery === '' 
     ? serviceCenters 
     : serviceCenters.filter(center => 
-        center.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        center.englishName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        center.address.toLowerCase().includes(searchQuery.toLowerCase())
+        center.name[currentLang].toLowerCase().includes(searchQuery.toLowerCase()) ||
+        center.address[currentLang].toLowerCase().includes(searchQuery.toLowerCase())
       );
 
   // Handle location selection
@@ -157,7 +204,7 @@ const CustomerServiceCenter = () => {
 
   // Handle get directions
   const handleGetDirections = (center) => {
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(center.address)}`;
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(center.address[currentLang])}`;
     window.open(mapsUrl, '_blank');
   };
 
@@ -285,21 +332,20 @@ const CustomerServiceCenter = () => {
               <div className="p-6">
                 {/* Center Name */}
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{center.name}</h3>
-                  <p className="text-rose-600 text-sm font-medium">{center.englishName}</p>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{center.name[currentLang]}</h3>
                 </div>
 
                 {/* Address */}
                 <div className="mb-6">
                   <div className="flex items-start">
                     <FaMapMarkerAlt className="text-gray-400 mt-1 mr-3 flex-shrink-0" />
-                    <div className="text-gray-600 text-sm">{center.address}</div>
+                    <div className="text-gray-600 text-sm">{center.address[currentLang]}</div>
                   </div>
                 </div>
 
                 {/* Description */}
                 <div className="mb-6">
-                  <p className="text-sm text-gray-500">{center.description}</p>
+                  <p className="text-sm text-gray-500">{center.description[currentLang]}</p>
                 </div>
 
                 {/* Action Buttons */}
@@ -347,8 +393,7 @@ const CustomerServiceCenter = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-4xl font-bold text-white">{selectedLocation.name}</h2>
-                      <p className="text-rose-100 text-lg">{selectedLocation.englishName}</p>
+                      <h2 className="text-4xl font-bold text-white">{selectedLocation.name[currentLang]}</h2>
                     </div>
                     <button
                       onClick={() => setSelectedLocation(null)}
@@ -372,7 +417,7 @@ const CustomerServiceCenter = () => {
                             <FaMapMarkerAlt className="text-rose-600 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <div className="font-bold text-gray-800">{currentContent.address}</div>
-                              <div className="text-gray-700">{selectedLocation.address}</div>
+                              <div className="text-gray-700">{selectedLocation.address[currentLang]}</div>
                             </div>
                           </div>
                         </div>
@@ -382,7 +427,7 @@ const CustomerServiceCenter = () => {
                       <div>
                         <h3 className="text-2xl font-bold text-gray-800 mb-6">{currentContent.details}</h3>
                         <div className="text-gray-700 leading-relaxed">
-                          <p>{selectedLocation.description}</p>
+                          <p>{selectedLocation.description[currentLang]}</p>
                           <div className="mt-6 p-4 bg-rose-50 rounded-lg">
                             <p className="text-sm text-gray-600">
                               {currentContent.thisCenterDedicated}
@@ -397,7 +442,7 @@ const CustomerServiceCenter = () => {
                       <h3 className="text-2xl font-bold text-gray-800 mb-4">{currentContent.location}</h3>
                       <div className="bg-gray-100 rounded-xl h-64 overflow-hidden">
                         <iframe
-                          src={`https://maps.google.com/maps?q=${encodeURIComponent(selectedLocation.address)}&output=embed`}
+                          src={`https://maps.google.com/maps?q=${encodeURIComponent(selectedLocation.address[currentLang])}&output=embed`}
                           width="100%"
                           height="100%"
                           style={{ border: 0 }}

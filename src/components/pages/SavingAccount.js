@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaHome, FaArrowRight,
-  FaCheckCircle,
+  FaHome,
   FaPhoneAlt, FaMapMarkedAlt,
-  FaHandHoldingUsd,
-  FaChevronRight, FaInfoCircle, FaUniversity,
-  FaMobileAlt, FaRupeeSign
+  FaChevronRight, FaInfoCircle, 
 } from 'react-icons/fa';
 
 const SavingAccount = () => {
@@ -22,11 +19,11 @@ const SavingAccount = () => {
       savingsAccount: 'Savings Account',
       
       // Hero Section
-      pageTitle: 'Savings Account and Premium Savings Account',
+      pageTitle: 'Savings Account',
       pageSubtitle: 'Secure your future with our trusted savings solutions. Enjoy attractive interest rates and complete banking freedom.',
       
       // Main Content
-      mainHeading: 'Savings Account and Premium Savings Account',
+      mainHeading: 'Savings Account',
       mainContent: 'A common man can sleep soundly when he wants his money in a safe and reliable hand following the motto of highest service and security. Shiv Pratap Multistate Society knows the importance of your savings, that\'s why we manage your savings responsibly and also offer a return of 6.50%. Not only this, it also provides checkbook, NEFT, RTGS, IMPS mobile banking, internet banking, SMS banking facilities along with savings account without charging any kind of value.So that you can get your money instantly at the time of need. Contact your nearest Shiv Pratap Multistate branch today for more information on savings accounts.',
       
       // About Section
@@ -79,11 +76,11 @@ const SavingAccount = () => {
       savingsAccount: 'बचत खाते',
       
       // Hero Section
-      pageTitle: 'बचत खाते आणि प्रीमियम बचत खाते',
-      pageSubtitle: 'आमच्या विश्वसनीय बचत उपायांसह आपले भविष्य सुरक्षित करा. आकर्षक व्याज दर आणि पूर्ण बँकिंग स्वातंत्र्याचा आनंद घ्या.',
+      pageTitle: 'बचत खाते',
+      pageSubtitle: '',
       
       // Main Content
-      mainHeading: 'बचत खाते आणि प्रीमियम बचत खाते',
+      mainHeading: 'बचत खाते',
       mainContent: 'उच्चतम सेवा व सुरक्षा या ब्रीद वाक्यास अनुसरून आपली रक्कम एका सुरक्षित आणि विश्वासार्ह हाती हवी, तेव्हाच एका सर्वसामान्य माणसाला शांत झोप लागते. शिवप्रताप मल्टीस्टेट सोसायटी तुमच्या या बचतीचे महत्त्व जाणते, म्हणूनच तुमची बचत आम्ही जबाबदारीने सांभाळतो आणि त्यावर ६.५०% परतावा देखील देतो. इतकंच नाही तर बचत खात्यासोबत चेकबुक, NEFT, RTGS, IMPS मोबाईल बँकिंग, इंटरनेट बँकिंग, एसएमएस बँकिंग या सुविधादेखील देतो ते पण कोणत्याही प्रकारचे मूल्य न घेता, जेणेकरून गरजेच्या वेळी तुम्हाला तुमची रक्कम त्वरितमिळावी. बचत खात्यासंदर्भात अधिक माहितीसाठी आजच आपल्या नजीकच्या शिवप्रताप मल्टीस्टेट शाखेशी संपर्क साधा. ',
       
       // About Section
@@ -252,34 +249,11 @@ const SavingAccount = () => {
                 </div>
               </div>
             </section>
-
           </div>
 
           {/* Right Column - Sidebar */}
           <div className="space-y-6 sm:space-y-8">
-            {/* Quick Links */}
-            <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 border border-gray-100">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">{t.quickLinks}</h3>
-              <div className="space-y-2 sm:space-y-3">
-                <button className="w-full flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors text-left">
-                  <FaRupeeSign className="text-blue-600 mr-3 text-sm sm:text-base" />
-                  <span className="text-sm sm:text-base">{t.currentAccount}</span>
-                </button>
-                <button className="w-full flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors text-left">
-                  <FaHandHoldingUsd className="text-green-600 mr-3 text-sm sm:text-base" />
-                  <span className="text-sm sm:text-base">{t.loanProducts}</span>
-                </button>
-                <button className="w-full flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors text-left">
-                  <FaUniversity className="text-purple-600 mr-3 text-sm sm:text-base" />
-                  <span className="text-sm sm:text-base">{t.fixedDeposits}</span>
-                </button>
-                <button className="w-full flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors text-left">
-                  <FaMobileAlt className="text-red-600 mr-3 text-sm sm:text-base" />
-                  <span className="text-sm sm:text-base">{t.mobileBanking}</span>
-                </button>
-              </div>
-            </div>
-
+            
             {/* Contact Card */}
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl shadow-xl p-4 sm:p-6 border border-green-100">
               <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">{t.needHelp}</h3>
@@ -303,70 +277,7 @@ const SavingAccount = () => {
           </div>
         </div>
 
-        {/* Call to Action Banner */}
-        <section id="open" className="scroll-mt-20 sm:scroll-mt-24 mt-8 sm:mt-12">
-          <div 
-            className="rounded-2xl shadow-2xl overflow-hidden relative transform transition-all duration-500 hover:scale-[1.02]"
-            style={{
-              background: 'linear-gradient(135deg, #b03462 0%, #8a2c4d 50%, #6d233d 100%)',
-              backgroundImage: 'radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 60%), linear-gradient(135deg, #b03462 0%, #8a2c4d 50%, #6d233d 100%)'
-            }}
-          >
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 opacity-20">
-              <div className="absolute inset-0 rounded-full border-4 border-white transform rotate-45"></div>
-            </div>
-            <div className="absolute bottom-0 left-0 w-24 sm:w-36 md:w-48 h-24 sm:h-36 md:h-48 opacity-15">
-              <div className="absolute inset-0 rounded-full border-4 border-white transform -rotate-12"></div>
-            </div>
-            
-            <div className="p-8 sm:p-12 md:p-16 text-center text-white relative z-10">
-              <div className="mb-4 sm:mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white bg-opacity-20 backdrop-blur-sm mb-3 sm:mb-4">
-                  <FaHandHoldingUsd className="text-2xl sm:text-3xl md:text-4xl" />
-                </div>
-              </div>
-              
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-                {t.readyToStart}
-                <span className="block text-yellow-300">{t.financialJourney}</span>
-              </h2>
-              
-              <p className="text-base sm:text-lg md:text-xl text-white text-opacity-90 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-                {t.ctaSubtitle}
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-6 sm:mb-8">
-                <button 
-                  onClick={() => scrollToSection('open')}
-                  className="bg-white text-[#b03462] px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg hover:bg-yellow-50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl border-2 border-transparent hover:border-yellow-300"
-                >
-                  <FaArrowRight className="inline mr-2" />
-                  {t.applyOnlineNow}
-                </button>
-              </div>
-              
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-white text-opacity-90">
-                <div className="flex items-center">
-                  <FaCheckCircle className="mr-2 text-green-300 text-sm sm:text-base" />
-                  <span className="text-xs sm:text-sm">{t.zeroPaperwork}</span>
-                </div>
-                <div className="flex items-center">
-                  <FaCheckCircle className="mr-2 text-green-300 text-sm sm:text-base" />
-                  <span className="text-xs sm:text-sm">{t.instantApproval}</span>
-                </div>
-                <div className="flex items-center">
-                  <FaCheckCircle className="mr-2 text-green-300 text-sm sm:text-base" />
-                  <span className="text-xs sm:text-sm">{t.dedicatedSupport}</span>
-                </div>
-                <div className="flex items-center">
-                  <FaCheckCircle className="mr-2 text-green-300 text-sm sm:text-base" />
-                  <span className="text-xs sm:text-sm">{t.freeDebitCardCta}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* Custom CSS */}
         <style jsx>{`

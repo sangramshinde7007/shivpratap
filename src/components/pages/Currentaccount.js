@@ -3,8 +3,6 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaBuilding, FaBriefcase,
   FaHome, FaChevronRight,
-  FaMapMarkerAlt,
-  FaStore, FaUniversity, FaHandHoldingUsd, FaTruck,
   FaHeadset,
   FaEnvelope,
 } from 'react-icons/fa';
@@ -47,7 +45,7 @@ const Currentaccount = () => {
       
       // Contact Section
       businessSupport: 'Business Support',
-      businessHelpline: 'Business Helpline',
+      businessHelpline: 'Customer Care',
       corporateBranch: 'Corporate Branch',
       findNearestBranch: 'Find nearest business branch',
       emailSupport: 'Email Support',
@@ -67,7 +65,7 @@ const Currentaccount = () => {
       // Hero Section
       businessBanking: 'व्यवसाय बँकिंग',
       pageTitle: 'चालू खाते',
-      pageSubtitle: 'व्यवसाय आणि व्यावसायिक गरजांसाठी सुरळीत बँकिंग',
+      pageSubtitle: '',
       
       // Main Content
       mainHeading: 'चालू खाते',
@@ -91,7 +89,7 @@ const Currentaccount = () => {
       
       // Contact Section
       businessSupport: 'व्यवसाय समर्थन',
-      businessHelpline: 'व्यवसाय हेल्पलाइन',
+      businessHelpline: 'ग्राहक सेवा',
       corporateBranch: 'कॉर्पोरेट शाखा',
       findNearestBranch: 'जवळची व्यवसाय शाखा शोधा',
       emailSupport: 'ईमेल समर्थन',
@@ -212,39 +210,7 @@ const Currentaccount = () => {
           {/* Right Column - Sidebar */}
           <div className="space-y-8">
 
-            {/* Business Quick Links */}
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                <FaBriefcase className="text-blue-600 mr-3" />
-                {t.businessServices}
-              </h3>
-              <div className="space-y-3">
-                <button type="button" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mr-4">
-                    <FaHandHoldingUsd className="text-white" />
-                  </div>
-                  <span className="font-medium text-gray-800">{t.businessLoans}</span>
-                </button>
-                <button type="button" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mr-4">
-                    <FaUniversity className="text-white" />
-                  </div>
-                  <span className="font-medium text-gray-800">{t.termDeposits}</span>
-                </button>
-                <button type="button" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-500 flex items-center justify-center mr-4">
-                    <FaTruck className="text-white" />
-                  </div>
-                  <span className="font-medium text-gray-800">{t.tradeFinance}</span>
-                </button>
-                <button type="button" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center mr-4">
-                    <FaStore className="text-white" />
-                  </div>
-                  <span className="font-medium text-gray-800">{t.merchantServices}</span>
-                </button>
-              </div>
-            </div>
+
 
             {/* Business Contact Card */}
             <div className="bg-gradient-to-br from-emerald-900 to-green-800 rounded-2xl shadow-xl p-6 border border-emerald-700">
@@ -257,13 +223,7 @@ const Currentaccount = () => {
                     <div className="text-emerald-200 font-bold text-lg">9582837032 </div>
                   </div>
                 </div>
-                <div className="flex items-center p-4 bg-emerald-800/30 rounded-xl border border-emerald-600">
-                  <FaMapMarkerAlt className="text-emerald-300 text-2xl mr-4" />
-                  <div>
-                    <div className="font-medium text-white">{t.corporateBranch}</div>
-                    <div className="text-emerald-200">{t.findNearestBranch}</div>
-                  </div>
-                </div>
+
                 <div className="flex items-center p-4 bg-emerald-800/30 rounded-xl border border-emerald-600">
                   <FaEnvelope className="text-emerald-300 text-2xl mr-4" />
                   <div>
@@ -276,60 +236,7 @@ const Currentaccount = () => {
           </div>
         </div>
 
-        {/* 8. Business CTA Banner */}
-        <section id="apply" className="scroll-mt-24 mt-16">
-          <div 
-            className="relative overflow-hidden rounded-2xl shadow-2xl"
-            style={{
-              background: 'linear-gradient(135deg, #0d47a1 0%, #1976d2 50%, #42a5f5 100%)'
-            }}
-          >
-            {/* Business Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-              }}></div>
-            </div>
 
-            <div className="relative p-12 text-center text-white z-10">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  {t.ctaTitle} <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">{t.ctaHighlight}</span>
-                </h2>
-                <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                  {t.ctaSubtitle}
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <button className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white hover:bg-opacity-10 transition-all duration-300">
-                    {t.contactBusinessBranch}
-                  </button>
-                </div>
-                
-                {/* <div className="mt-10 pt-8 border-t border-blue-300">
-                  <div className="flex flex-wrap justify-center gap-8">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-cyan-300">₹10K</div>
-                      <div className="text-blue-200">Min Balance</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-cyan-300">Unlimited</div>
-                      <div className="text-blue-200">Transactions</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-cyan-300">Free</div>
-                      <div className="text-blue-200">NEFT up to ₹10L</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-cyan-300">24/7</div>
-                      <div className="text-blue-200">Business Support</div>
-                    </div>
-                  </div>
-                </div> */}
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
 
       {/* Custom CSS */}

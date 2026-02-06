@@ -11,14 +11,14 @@ const ManagingDirector = () => {
   // Translations
   const translations = {
     en: {
-      pageTitle: "Managing Director Committee",
+      pageTitle: "Existing Board of Directors",
       directorName: "Sanchalak Mandal",
       directorTitle: "Managing Director",
       imageAlt: "Sanchalak Mandal",
       modalImageAlt: "Sanchalak Mandal - Managing Director"
     },
     mr: {
-      pageTitle: "व्यवस्थापक संचालक मंडळ",
+      pageTitle: "विद्यमान संचालक मंडळ",
       directorName: "संचालक मंडळ",
       directorTitle: "व्यवस्थापक संचालक",
       imageAlt: "संचालक मंडळ",

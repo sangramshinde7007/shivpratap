@@ -24,6 +24,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [screenSize, setScreenSize] = useState('desktop');
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [isCalcDropdownOpen, setIsCalcDropdownOpen] = useState(false);
   const [marqueeText, setMarqueeText] = useState('Welcome to Shivpratap Multistate Bank');
 
   useEffect(() => {
@@ -79,34 +80,37 @@ const Navbar = () => {
     en: {
       navItems: [
         { label: 'Organization', hasDropdown: false },
-        { label: 'Director', hasDropdown: true, dropdownItems: ['Chairman', 'Executive Directors', 'Managing Director'] },
+        { label: 'Director', hasDropdown: true, dropdownItems: ['Chairman\'s Message', 'Executive Director\'s Message', 'Existing Board of Directors'] },
+        { label: 'Account', hasDropdown: true, dropdownItems: ['Saving Account', 'Premium Saving', 'Unnati Saving', 'Current Account'] },
         { label: 'Plan', hasDropdown: true, dropdownItems: [
-          { label: 'Deposit Schemes', hasSubDropdown: true, subItems: [
-            'Pension Deposit Scheme', 'Recurring Deposit Scheme (RD)', 'Half Price Deposit Scheme', 
-            'Subhmangal Deposit Scheme', 'Billionaire Deposit Scheme'
+          { label: 'Recurring', hasSubDropdown: true, subItems: [
+            'Regular Recurring', 'Unnati Mahila Lakhpati Recurring', 'Shivpratap Ujwal Swapnapurti Yogna', 
+            'Shivpratap Ujjwal Balsanchayan', 'Karodpati'
           ]},
-          { label: 'Loan Schemes', hasSubDropdown: true, subItems: ['Personal Loan'] },
-          { label: 'Gold Loan Schemes', hasSubDropdown: true, subItems: [
-            'EMI Gold Loan', 'Regular Gold Loan', 'Easy Gold Loan', 
-            'Gold Loan Overdraft (C.C.)', 'Bullet Gold Loan', 'Door Step (Home Reach) Gold Loan'
-          ]}
+          { label: 'Fixed Deposit', hasSubDropdown: true, subItems: [
+            'Fixed Deposits', 'Pension Deposit Scheme', 'Subhmangal Deposit Scheme', 
+            'Double Deposit Scheme', 'Half Price Deposit Scheme', 'Fourfold Deposit Scheme'
+          ]},
+          { label: 'Unfixed Deposit', hasDropdown: false, hasSubDropdown: false }
         ]},
-        { label: 'Account', hasDropdown: true, dropdownItems: ['Savings Account', 'Current Account', 'Mahila Savings Account'] },
+        { label: 'Loan', hasDropdown: true, dropdownItems: [
+          'Gold Loan', 'Business Loan', 'Personal Loan', 'Salary Loan', 
+          'Vehicle Loan', 'Deposit Loan', 'Cash Credit Loan', 'Home Loan'
+        ]},
         { label: 'Branch', hasDropdown: true, dropdownItems: ['Branch', 'Customer Service Center'] },
-        { label: 'Loan', hasDropdown: true, dropdownItems: ['Gold Loan', 'Personal Loan', 'Mortgage Loan', 'Home Loan', 'Vehicle Loan', 'Women Loan'] },
         { label: 'Gallery', hasDropdown: false },
         { label: 'Media', hasDropdown: false },
-        { label: 'Annual Report', hasDropdown: false },
-        { label: 'Contact', hasDropdown: false }
+        { label: 'Annual Report', hasDropdown: false }
       ],
-      // ... rest remains same
       bankName: 'Shivpratap Multistate Bank',
       bankNameShort: 'Shivpratap Bank',
       trustedSince: 'Trusted Since 1985',
       calculator: 'Calculator',
-      calc: 'Calc',
+      calc: 'Calculator',
       mobileBanking: 'Mobile Banking',
-      mobile: 'Mobile',
+      mobile: 'Mobile Banking',
+      fdCalc: 'FD Calculator',
+      loanCalc: 'Loan Calculator',
       announcements: 'Announcements:',
       menu: 'Menu',
       language: 'Language:',
@@ -120,35 +124,39 @@ const Navbar = () => {
     },
     mr: {
       navItems: [
-        { label: 'संस्था', hasDropdown: false },
-        { label: 'संचालक', hasDropdown: true, dropdownItems: ['अध्यक्ष', 'व्यवस्थापकीय संचालक', 'कार्यकारी संचालक'] },
+        { label: 'संस्थेविषयी', hasDropdown: false },
+        { label: 'संचालक', hasDropdown: true, dropdownItems: ['चेअरमन मनोगत', 'कार्यकारी संचालक मनोगत', 'विद्यमान संचालक मंडळ'] },
+        { label: 'खाते', hasDropdown: true, dropdownItems: ['बचत खाते', 'प्रीमियम बचत', 'उन्नती बचत', 'चालू खाते'] },
         { label: 'योजना', hasDropdown: true, dropdownItems: [
-          { label: 'ठेव योजना', hasSubDropdown: true, subItems: [
-            'पेन्शन ठेव योजना', 'आवर्ती ठेव योजना (आरडी)', 'अर्धवेळ ठेव योजना', 
-            'शुभमंगल ठेव योजना', 'अब्जाधीश ठेव योजना'
+          { label: 'आवर्ती ठेव', hasSubDropdown: true, subItems: [
+            'नियमित आवर्ती', 'उन्नती महिला लखपती आवर्ती', 'शिवप्रताप उज्ज्वल स्वप्नपूर्ती योजना', 
+            'शिवप्रताप उज्ज्वल बालसंचयन', 'करोडपती'
           ]},
-          { label: 'कर्ज योजना', hasSubDropdown: true, subItems: ['वैयक्तिक कर्ज'] },
-          { label: 'सोने कर्ज योजना', hasSubDropdown: true, subItems: [
-            'ईएमआय सोने कर्ज', 'नियमित सोने कर्ज', 'सोपे सोने कर्ज', 
-            'सोने कर्ज ओव्हरड्राफ्ट (सी.सी.)', 'बुलेट सोने कर्ज', 'दारस्थ (होम रीच) सोने कर्ज'
-          ]}
+          { label: 'मुदत ठेव', hasSubDropdown: true, subItems: [
+            'मुदत ठेवी', 'पेन्शन ठेव योजना', 'शुभमंगल ठेव योजना', 
+            'दामदुपट ठेव योजना', 'दाम दीडपट ठेव योजना', 'दामचौपट ठेव योजना'
+          ]},
+          { label: 'अल्प बचत', hasSubDropdown: true, subItems: ['सुजाता ठेव योजना'] },
+          { label: 'अनिश्चित मुदत ठेव', hasDropdown: false, hasSubDropdown: false }
         ]},
-        { label: 'खाते', hasDropdown: true, dropdownItems: ['बचत खाते', 'चालू खाते', 'महिला बचत खाते '] },
+        { label: 'कर्ज', hasDropdown: true, dropdownItems: [
+          'सोने कर्ज', 'व्यवसाय कर्ज', 'वैयक्तिक कर्ज', 'पगार तारण कर्ज', 
+          'वाहन कर्ज', 'ठेव तारण कर्ज', 'कॅश क्रेडिट कर्ज', 'गृहकर्ज'
+        ]},
         { label: 'शाखा', hasDropdown: true, dropdownItems: ['शाखा', 'ग्राहक सेवा केंद्र'] },
-        { label: 'कर्ज', hasDropdown: true, dropdownItems: ['सोन्याचे कर्ज प्रतिमा', 'वैयक्तिक कर्ज प्रतिमा', 'हायपोथेकेशन कर्ज प्रतिमा', 'घर कर्ज प्रतिमा', 'वाहन कर्ज प्रतिमा', 'महिला कर्ज प्रतिमा'] },
         { label: 'गॅलरी', hasDropdown: false },
         { label: 'मीडिया', hasDropdown: false },
-        { label: 'वार्षिक अहवाल', hasDropdown: false },
-        { label: 'संपर्क', hasDropdown: false }
+        { label: 'वार्षिक अहवाल', hasDropdown: false }
       ],
-      // ... rest remains same
       bankName: 'शिवप्रताप मल्टीस्टेट बँक',
       bankNameShort: 'शिवप्रताप बँक',
       trustedSince: '१९८५ पासून विश्वासार्ह',
       calculator: 'कॅल्क्युलेटर',
-      calc: 'कॅल्क',
+      calc: 'कॅल्क्युलेटर',
       mobileBanking: 'मोबाईल बँकिंग',
-      mobile: 'मोबाईल',
+      mobile: 'मोबाईल बँकिंग',
+      fdCalc: 'एफडी कॅल्क्युलेटर',
+      loanCalc: 'कर्ज कॅल्क्युलेटर',
       announcements: 'घोषणा:',
       menu: 'मेनू',
       language: 'भाषा:',
@@ -169,70 +177,90 @@ const Navbar = () => {
   const getNavigationPath = (mainItem, dropdownItem, subItem = null) => {
     const pathMap = {
       // English mappings
-      'Organization': '/about',
-      'Chairman': '/chairman',
-      'Executive Directors': '/executive-director',
-      'Managing Director': '/managing-director',
-      'Pension Deposit Scheme': '/plan-pension',
-      'Recurring Deposit Scheme (RD)': '/plan-recurring',
-      'Half Price Deposit Scheme': '/plan-half-price',
-      'Subhmangal Deposit Scheme': '/plan-subhmangal',
-      'Billionaire Deposit Scheme': '/plan-billionaire',
-      'Personal Loan': '/plan-personal',
-      'EMI Gold Loan': '/plan-emi-gold',
-      'Regular Gold Loan': '/plan-regular-gold',
-      'Easy Gold Loan': '/plan-easy-gold',
-      'Gold Loan Overdraft (C.C.)': '/plan-gold-overdraft',
-      'Bullet Gold Loan': '/plan-bullet-gold',
-      'Door Step (Home Reach) Gold Loan': '/plan-doorstep-gold',
-      'Savings Account': '/savings-account',
+      'Organization': '/',
+      'Chairman\'s Message': '/chairman',
+      'Executive Director\'s Message': '/executive-director',
+      'Existing Board of Directors': '/managing-director',
+      
+      'Saving Account': '/savings-account',
+
+      'Premium Saving': '/premium-savings-account',
+      'Unnati Saving': '/mahila-savings-account',
       'Current Account': '/current-account',
-      'Mahila Savings Account': '/premium-savings-account',
+
+      'Regular Recurring': '/plan-recurring',
+      'Unnati Mahila Lakhpati Recurring': '/plan-recurring',
+      'Shivpratap Ujwal Swapnapurti Yogna': '/plan-recurring',
+      'Shivpratap Ujjwal Balsanchayan': '/plan-recurring',
+      'Karodpati': '/plan-billionaire',
+
+      'Fixed Deposits': '/plan',
+      'Pension Deposit Scheme': '/plan-pension',
+      'Subhmangal Deposit Scheme': '/plan-subhmangal',
+      'Damdupat Deposit Scheme': '/plan-half-price',
+      'Damdidpat Deposit Scheme': '/plan-half-price',
+      'Damchaupat Deposit Scheme': '/plan-half-price',
+      
+      'Sujata Deposit Scheme': '/plan',
+      'Unfixed Deposit': '/plan',
+      
+      'Gold Loan': '/loan#gold-loan',
+      'Business Loan': '/loan#business-loan',
+      'Personal Loan': '/loan#personal-loan',
+      'Salary Loan': '/loan#salary-loan',
+      'Vehicle Loan': '/loan#vehicle-loan',
+      'Deposit Loan': '/loan#deposit-loan',
+      'Deposit Mortgage Loans': '/loan#mortgage-loan',
+      'Home Loan': '/loan#home-loan',
+
       'Branch': '/branch',
       'Customer Service Center': '/customer-service',
       'Gallery': '/gallery',
       'Media': '/media',
       'Annual Report': '/annual-report',
-      'FAQ': '/faq',
-      'Contact': '/contact',
       
       // Marathi mappings
-      'संस्था': '/about',
-      'अध्यक्ष': '/chairman',
-      'व्यवस्थापकीय संचालक': '/executive-director',
-      'कार्यकारी संचालक': '/managing-director',
-      'पेन्शन ठेव योजना': '/plan-pension',
-      'आवर्ती ठेव योजना (आरडी)': '/plan-recurring',
-      'अर्धवेळ ठेव योजना': '/plan-half-price',
-      'शुभमंगल ठेव योजना': '/plan-subhmangal',
-      'अब्जाधीश ठेव योजना': '/plan-billionaire',
-      'वैयक्तिक कर्ज': '/plan-personal',
-      'ईएमआय सोने कर्ज': '/plan-emi-gold',
-      'नियमित सोने कर्ज': '/plan-regular-gold',
-      'सोपे सोने कर्ज': '/plan-easy-gold',
-      'सोने कर्ज ओव्हरड्राफ्ट (सी.सी.)': '/plan-gold-overdraft',
-      'बुलेट सोने कर्ज': '/plan-bullet-gold',
-      'दारस्थ (होम रीच) सोने कर्ज': '/plan-doorstep-gold',
+      'संस्थेविषयी': '/',
+      'चेअरमन मनोगत': '/chairman',
+      'कार्यकारी संचालक मनोगत': '/executive-director',
+      'विद्यमान संचालक मंडळ': '/managing-director',
+      
       'बचत खाते': '/savings-account',
+
+      'प्रीमियम बचत': '/premium-savings-account',
+      'उन्नती बचत': '/mahila-savings-account',
       'चालू खाते': '/current-account',
-      'महिला बचत खाते ': '/premium-savings-account',
+
+      'नियमित आवर्ती': '/plan-recurring',
+      'उन्नती महिला लखपती आवर्ती': '/plan-recurring',
+      'शिवप्रताप उज्ज्वल स्वप्नपूर्ती योजना': '/plan-recurring',
+      'शिवप्रताप उज्ज्वल बालसंचयन': '/plan-recurring',
+      'कोट्याधीश': '/plan-billionaire',
+
+      'फिक्स्ड डिपॉझिट': '/plan',
+      'पेन्शन ठेव योजना': '/plan-pension',
+      'शुभमंगल ठेव योजना': '/plan-subhmangal',
+      'दाम दुपट ठेव योजना': '/plan-half-price',
+      'दाम दीडपट ठेव योजना': '/plan-half-price',
+      'दाम चौपट ठेव योजना': '/plan-half-price',
+      
+      'सुजाता ठेव योजना': '/plan',
+      'अनिश्चित मुदत ठेव': '/plan',
+
+      'सोने कर्ज': '/loan#gold-loan',
+      'व्यवसाय कर्ज': '/loan#business-loan',
+      'वैयक्तिक कर्ज': '/loan#personal-loan',
+      'पगार तारण कर्ज': '/loan#salary-loan',
+      'वाहन कर्ज': '/loan#vehicle-loan',
+      'ठेव तारण कर्ज': '/loan#deposit-loan',
+      'कॅश क्रेडिट कर्ज': '/loan#mortgage-loan',
+      'गृहकर्ज': '/loan#home-loan',
+
       'शाखा': '/branch',
       'ग्राहक सेवा केंद्र': '/customer-service',
       'गॅलरी': '/gallery',
       'मीडिया': '/media',
-      'वार्षिक अहवाल': '/annual-report',
-      'वारंवार विचारले जाणारे प्रश्न': '/faq',
-      'संपर्क': '/contact',
-      'सोने कर्ज': '/loan#gold-loan',
-      'हायपोथेकेशन कर्ज': '/loan#mortgage-loan',
-      'घर कर्ज': '/loan#home-loan',
-      'वाहन कर्ज': '/loan#vehicle-loan',
-      'महिला कर्ज': '/loan#women-loan',
-      'Gold Loan': '/loan#gold-loan',
-      'Mortgage Loan': '/loan#mortgage-loan',
-      'Home Loan': '/loan#home-loan',
-      'Vehicle Loan': '/loan#vehicle-loan',
-      'Women Loan': '/loan#women-loan',
+      'वार्षिक अहवाल': '/annual-report'
     };
 
     const key = subItem || dropdownItem || mainItem;
@@ -305,7 +333,7 @@ const Navbar = () => {
           <FaMapMarkerAlt className="mr-1 sm:mr-1.5 lg:mr-2 text-pink-200 flex-shrink-0" size={screenSize === 'mobile' ? 9 : screenSize === 'tablet' ? 11 : 14} />
           <span className="truncate text-[10px] xs:text-xs sm:text-sm lg:text-base">
             {screenSize === 'desktop' 
-              ? 'Shivpratap Gold Tower, Power House Rd, Hanmant Bazar, Vita, Maharashtra 415311'
+              ? ' Shiv Pratap Gold Tower, Vita Ta. Khanapur, Dist. Sangli (Maharashtra)'
               : screenSize === 'tablet'
               ? 'Shivpratap Gold Tower, Vita, Maharashtra'
               : 'Vita, Maharashtra'
@@ -318,7 +346,7 @@ const Navbar = () => {
           {/* Phone Number - Always visible with icon, text shows on xs and up */}
           <div className="flex items-center cursor-pointer hover:text-pink-100 transition-colors" onClick={handlePhoneClick}>
             <FaPhone className="mr-0.5 xs:mr-1 lg:mr-1.5 flex-shrink-0" size={screenSize === 'mobile' ? 9 : screenSize === 'tablet' ? 11 : 14} />
-            <span className="text-[10px] xs:text-xs sm:text-sm lg:text-base whitespace-nowrap">+91 98765 43210</span>
+            <span className="text-[10px] xs:text-xs sm:text-sm lg:text-base whitespace-nowrap">+91 9582837032</span>
           </div>
 
           {/* Email - Shows on medium screens and up */}
@@ -376,13 +404,13 @@ const Navbar = () => {
       style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)' }}
     >
       <div className="mx-auto px-3 sm:px-4 lg:px-6">
-        <div className={`flex items-center justify-between ${
-          screenSize === 'mobile' ? 'h-16' : 
+        <div className={`flex items-center ${
+          screenSize === 'mobile' ? 'h-16 justify-between' : 
           screenSize === 'tablet' ? 'h-20' : 
           'h-24'
         }`}>
           {/* Logo - Responsive - Full Width */}
-          <div className="flex items-center cursor-pointer flex-1" onClick={() => navigate('/')}>
+          <div className={`flex items-center cursor-pointer ${screenSize !== 'mobile' ? 'flex-1 justify-start' : 'flex-1'}`} onClick={() => navigate('/')}>
             <img
               src={logo}
               alt="Shivpratap Multistate Bank"
@@ -398,34 +426,53 @@ const Navbar = () => {
           {screenSize !== 'mobile' && (
             <div className={`hidden ${
               screenSize === 'tablet' ? 'md:flex' : 'lg:flex'
-            } items-center space-x-1`}>
+            } flex-none justify-center items-center space-x-1`}>
               {currentContent.navItems.map((item, index) => (
-                <div key={index} className="relative">
+                <div key={index} className="relative"
+                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(index)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
                   <button
                     className={`${
-                      screenSize === 'tablet' ? 'px-2 py-2 text-xs' : 'px-3 py-2 text-sm'
-                    } rounded-md font-semibold text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-colors`}
-                    onClick={() => item.hasDropdown ? setActiveDropdown(activeDropdown === index ? null : index) : handleNavigation(getNavigationPath(item.label))}
+                      screenSize === 'tablet' ? 'px-1.5 py-1.5 text-[10px]' : 'px-3 py-2 text-sm'
+                    } rounded-md font-semibold text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-colors whitespace-nowrap`}
+                    onClick={() => {
+                        if (item.hasDropdown) {
+                            // Optional: Click behavior can remain or be disabled on desktop
+                            setActiveDropdown(index);
+                        } else {
+                            handleNavigation(getNavigationPath(item.label));
+                        }
+                    }}
                   >
-                    {screenSize === 'tablet' && item.label.length > 8 
-                      ? item.label.substring(0, 8) + '...' 
+                    {screenSize === 'tablet' && item.label.length > 10
+                      ? item.label.substring(0, 10) + '...' 
                       : item.label}
                     {item.hasDropdown && <FaChevronDown className="ml-1 inline" size={8} />}
                   </button>
                   {item.hasDropdown && activeDropdown === index && (
                     <div className={`${
                       screenSize === 'tablet' ? 'w-48' : 'w-56'
-                    } absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg z-50`}>
+                    } absolute top-full left-0 bg-white rounded-md shadow-lg z-50`}>
                       {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                        <div key={dropdownIndex} className="relative">
+                        <div key={dropdownIndex} className="relative"
+                          onMouseEnter={() => {
+                            if (dropdownItem.hasSubDropdown) {
+                              const dropdownLabel = typeof dropdownItem === 'string' ? dropdownItem : dropdownItem.label;
+                              setActiveSubDropdown(dropdownLabel);
+                            }
+                          }}
+                          onMouseLeave={() => setActiveSubDropdown(null)}
+                        >
                           <button
                             className={`block w-full text-left ${
                               screenSize === 'tablet' ? 'px-3 py-2 text-xs' : 'px-3 py-2 text-sm'
                             } font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-600 flex justify-between items-center`}
                             onClick={() => {
                               if (dropdownItem.hasSubDropdown) {
+                                // Handled by hover, but safe to keep
                                 const dropdownLabel = typeof dropdownItem === 'string' ? dropdownItem : dropdownItem.label;
-                                setActiveSubDropdown(activeSubDropdown === dropdownLabel ? null : dropdownLabel);
+                                setActiveSubDropdown(dropdownLabel);
                               } else {
                                 handleNavigation(getNavigationPath(item.label, dropdownItem));
                               }
@@ -442,7 +489,7 @@ const Navbar = () => {
                             const dropdownLabel = typeof dropdownItem === 'string' ? dropdownItem : dropdownItem.label;
                             return activeSubDropdown === dropdownLabel;
                           })() && (
-                            <div className="absolute left-full top-0 ml-1 w-64 bg-white rounded-md shadow-xl z-50 border border-gray-100">
+                            <div className="absolute left-full top-0 w-64 bg-white rounded-md shadow-xl z-50 border border-gray-100">
                               {dropdownItem.subItems.map((subItem, subIndex) => (
                                 <button
                                   key={subIndex}
@@ -466,21 +513,54 @@ const Navbar = () => {
           )}
 
           {/* Right Side Actions - Responsive */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2 lg:space-x-3">
+          <div className={`flex items-center space-x-1.5 sm:space-x-2 lg:space-x-3 ${screenSize !== 'mobile' ? 'flex-1 justify-end' : ''}`}>
             {/* Hide calculator and mobile banking buttons on mobile */}
             {screenSize !== 'mobile' && (
               <>
-                <button
-                  onClick={handleCalculatorClick}
-                  className={`flex items-center ${
-                    screenSize === 'tablet' ? 'px-1.5 py-1 text-xs' : 'px-2 lg:px-3 py-1.5 lg:py-2 text-xs sm:text-sm lg:text-base'
-                  } rounded-md font-semibold text-white bg-pink-600 hover:bg-pink-700 transition-colors`}
+                <div 
+                  className="relative group"
+                  onMouseEnter={() => setIsCalcDropdownOpen(true)}
+                  onMouseLeave={() => setIsCalcDropdownOpen(false)}
                 >
-                  <FaCalculator className={`${
-                    screenSize === 'tablet' ? 'mr-1' : 'mr-1.5'
-                  }`} size={screenSize === 'tablet' ? 10 : 12} />
-                  <span className="hidden sm:inline">{currentContent.calc}</span>
-                </button>
+                  <button
+                    onClick={() => setIsCalcDropdownOpen(!isCalcDropdownOpen)}
+                    className={`flex items-center ${
+                      screenSize === 'tablet' ? 'px-1.5 py-1 text-xs' : 'px-2 lg:px-3 py-1.5 lg:py-2 text-xs sm:text-sm lg:text-base'
+                    } rounded-md font-semibold text-white bg-pink-600 hover:bg-pink-700 transition-colors`}
+                  >
+                    <FaCalculator className={`${
+                      screenSize === 'tablet' ? 'mr-1' : 'mr-1.5'
+                    }`} size={screenSize === 'tablet' ? 10 : 12} />
+                    <span className="hidden sm:inline">{currentContent.calc}</span>
+                    <FaChevronDown className="ml-1" size={10} />
+                  </button>
+
+                  {/* Calculator Dropdown */}
+                  {isCalcDropdownOpen && (
+                    <div className="absolute top-full right-0 mt-1 w-48 bg-white rounded-md shadow-lg z-50 overflow-hidden border border-gray-100">
+                      <div className="py-1">
+                        <button
+                          onClick={() => {
+                            navigate('/calculator');
+                            setIsCalcDropdownOpen(false);
+                          }}
+                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 border-b border-gray-50 last:border-0"
+                        >
+                          {currentContent.fdCalc}
+                        </button>
+                        <button
+                          onClick={() => {
+                            navigate('/loan-calculator');
+                            setIsCalcDropdownOpen(false);
+                          }}
+                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600"
+                        >
+                          {currentContent.loanCalc}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 <button
                   onClick={handleMobileBankingClick}
@@ -598,7 +678,7 @@ const Navbar = () => {
                   className="inline-flex items-center text-pink-600 font-bold hover:text-pink-700 text-xs"
                 >
                   <FaPhone className="mr-1.5" size={12} />
-                  +91 98765 43210
+                  +91 9582837032
                 </button>
               </div>
             </div>

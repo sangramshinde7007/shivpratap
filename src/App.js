@@ -25,6 +25,9 @@ import ExecutiveDirector from './components/pages/ExecutiveDirector';
 import AnnualReport from './components/pages/AnnualReport';
 import ManagingDirector from './components/pages/ManagingDirector';
 import Calculator from './components/pages/Calculator';
+import MahilaSavingsAccount from './components/pages/MahilaSavingsAccount';
+import LoanCalculator from './components/pages/LoanCalculator';
+
 
 import AdminDashboard from './components/Admin/AdminDashboard';
 import AdminRigister from './components/Admin/AdminRigister';
@@ -66,6 +69,9 @@ function App() {
                 <Route path='/premium-savings-account/:lang' element={<Premiumsavingsacco />} />
                 <Route path='/current-account' element={<Currentaccount />} />
                 <Route path='/current-account/:lang' element={<Currentaccount />} />
+                <Route path='/mahila-savings-account' element={<MahilaSavingsAccount />} />
+                <Route path='/mahila-savings-account/:lang' element={<MahilaSavingsAccount />} />
+
                 <Route path='/plan' element={<Plan />} />
                 <Route path='/plan/:lang' element={<Plan />} />
                 <Route path='/plan-pension' element={<Plan />} />
@@ -122,6 +128,8 @@ function App() {
                 <Route path='/managing-director/:lang' element={<ManagingDirector />} />
                 <Route path='/calculator' element={<Calculator />} />
                 <Route path='/calculator/:lang' element={<Calculator />} />
+                <Route path='/loan-calculator' element={<LoanCalculator />} />
+                <Route path='/loan-calculator/:lang' element={<LoanCalculator />} />
 
                 <Route path='/admin-dashboard' element={<AdminDashboard />} />
                 <Route path='/admin-register' element={<AdminRigister />} />

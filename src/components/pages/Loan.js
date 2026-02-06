@@ -1818,26 +1818,7 @@ const Loan = () => {
                   </button>
                 </div>
                 
-                <div className="mt-6 sm:mt-8 lg:mt-10 pt-4 sm:pt-6 lg:pt-8 border-t border-blue-300">
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                    <div className="text-center">
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-300">24 Hrs</div>
-                      <div className="text-blue-200 text-xs sm:text-sm">{t.approvalTime}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-300">100%</div>
-                      <div className="text-blue-200 text-xs sm:text-sm">{t.transparent}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-300">₹5 Cr</div>
-                      <div className="text-blue-200 text-xs sm:text-sm">{t.maxLoan}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-300">0.5%</div>
-                      <div className="text-blue-200 text-xs sm:text-sm">{t.processingFee}</div>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaPiggyBank, FaCoins,
+  FaPiggyBank,
   FaChartLine, FaHandHoldingUsd, FaShieldAlt,
   FaCalendarAlt, FaRupeeSign, FaPercent,
-  FaBuilding, FaDoorOpen, FaCalculator, 
-  FaArrowRight, FaCheckCircle, FaStar, FaUserTie, FaRing, FaMoneyBillWave, FaFileContract, FaHandshake, FaPhoneAlt
+  FaBuilding,
+  FaArrowRight, FaCheckCircle, FaStar, FaUserTie, FaRing, FaPhoneAlt
 } from 'react-icons/fa';
 
 const Plan = () => {
@@ -26,12 +26,12 @@ const Plan = () => {
     en: {
       pageTitle: 'Financial Plans & Schemes',
       pageSubtitle: 'Explore our comprehensive range of deposit and loan schemes designed to meet all your financial needs',
-      depositSchemes: 'Deposit Schemes',
-      loanSchemes: 'Loan Schemes',
-      goldLoanSchemes: 'Gold Loan Schemes',
-      depositDesc: 'Secure your future with our range of deposit schemes designed for every life stage and financial goal.',
-      loanDesc: 'Get quick financial assistance with our easy loan schemes featuring minimal documentation and fast approval.',
-      goldDesc: 'Instant loans against your gold with flexible repayment options and competitive interest rates.',
+      recurringSchemes: 'Recurring Deposits',
+      fixedDepositSchemes: 'Fixed Deposits',
+      unfixedDepositSchemes: 'Unfixed Deposits',
+      recurringDesc: 'Build wealth systematically with our recurring deposit schemes offering regular savings and attractive returns.',
+      fixedDepositDesc: 'Secure your future with our fixed deposit schemes designed for every life stage and financial goal.',
+      unfixedDepositDesc: 'Flexible deposit options with easy withdrawal facilities for your short-term financial needs.',
       keyFeatures: 'Key Features',
       schemeHighlights: 'Scheme Highlights',
       interestRate: 'Interest Rate',
@@ -91,12 +91,12 @@ const Plan = () => {
     mr: {
       pageTitle: 'आर्थिक योजना आणि योजना',
       pageSubtitle: 'आपल्या सर्व आर्थिक गरजा पूर्ण करण्यासाठी डिपॉझिट आणि कर्ज योजनांची आमची व्यापक श्रेणी शोधा',
-      depositSchemes: 'ठेव योजना',
-      loanSchemes: 'कर्ज योजना',
-      goldLoanSchemes: 'सोने कर्ज योजना',
-      depositDesc: 'प्रत्येक जीवन श्रेणी आणि आर्थिक लक्ष्यांसाठी डिझाइन केलेल्या आमच्या ठेव योजनांच्या श्रेणीसह आपले भविष्य सुरक्षित करा.',
-      loanDesc: 'किमान दस्तऐवजीकरण आणि जलद मंजुरीसह आमच्या सोप्या कर्ज योजनांसह जलद आर्थिक सहाय्य मिळवा.',
-      goldDesc: 'लवचिक परतफेड पर्याय आणि स्पर्धात्मक व्याज दरांसह आपल्या सोन्यावर तातडीचे कर्ज.',
+      recurringSchemes: 'आवर्ती ठेवी',
+      fixedDepositSchemes: 'मुदत ठेवी',
+      unfixedDepositSchemes: 'अनिश्चित मुदत ठेवी',
+      recurringDesc: 'नियमित बचत आणि आकर्षक परताव्यासह आमच्या आवर्ती ठेव योजनांसह पद्धतशीरपणे संपत्ती तयार करा.',
+      fixedDepositDesc: 'प्रत्येक जीवन श्रेणी आणि आर्थिक लक्ष्यांसाठी डिझाइन केलेल्या आमच्या मुदत ठेव योजनांसह आपले भविष्य सुरक्षित करा.',
+      unfixedDepositDesc: 'आपल्या अल्पकालीन आर्थिक गरजांसाठी सोप्या काढण्याच्या सुविधांसह लवचिक ठेव पर्याय.',
       keyFeatures: 'मुख्य वैशिष्ट्ये',
       schemeHighlights: 'योजना मुख्य गुणविशेष',
       interestRate: 'व्याज दर',
@@ -105,10 +105,10 @@ const Plan = () => {
       keyFeatureLabel: 'मुख्य वैशिष्ट्य',
       goldLoanComparison: 'सोने कर्ज योजना तुलना',
       whyChooseDeposits: 'आमच्या ठेव योजना का निवडाव्यात?',
-      needHelp: 'योग्य योजना निवडण्यात मदत हवी का?',
-      needHelpDesc: 'आपल्या लक्ष्यांनुसार आणि आवश्यकतांनुसार योग्य योजना निवडण्यासाठी आमले आर्थिक सल्लागार येथे आहेत.',
+      needHelp: 'योग्य योजना निवडण्यासाठी मदत हवी आहे का?',
+      needHelpDesc: 'तुमच्या उद्दिष्टे आणि गरजांनुसार योग्य योजना निवडण्यासाठी आमचे आर्थिक सल्लागार तुमच्या मदतीसाठी सदैव तयार आहेत.',
       callNow: 'आता कॉल करा: 9582837032',
-      visitBranch: 'जवळची शाखा भेट द्या',
+      visitBranch: 'जवळच्या शाखेला भेट द्या.',
       // Deposit Schemes
       pensionTitle: 'पेन्शन ठेव योजना',
       pensionTagline: 'वृद्धापकाळीची आर्थिक सुरक्षा योजना',
@@ -158,7 +158,7 @@ const Plan = () => {
   const t = translations[language];
 
   // State for active category
-  const [activeCategory, setActiveCategory] = useState('deposit');
+  const [activeCategory, setActiveCategory] = useState('recurring');
   const [, setSelectedPlan] = useState(null);
 
   // Handle path-based navigation
@@ -171,13 +171,12 @@ const Plan = () => {
       const schemeId = schemeMatch[1];
       
       // Set active category based on scheme ID
-      if (schemeId.includes('pension') || schemeId.includes('recurring') || schemeId.includes('half-price') || 
-          schemeId.includes('subhmangal') || schemeId.includes('billionaire')) {
-        setActiveCategory('deposit');
-      } else if (schemeId.includes('personal')) {
-        setActiveCategory('loan');
-      } else if (schemeId.includes('gold')) {
-        setActiveCategory('gold');
+      if (schemeId.includes('recurring') || schemeId.includes('billionaire')) {
+        setActiveCategory('recurring');
+      } else if (schemeId.includes('pension') || schemeId.includes('half-price') || schemeId.includes('subhmangal')) {
+        setActiveCategory('fixed');
+      } else if (schemeId.includes('unfixed')) {
+        setActiveCategory('unfixed');
       }
 
       // Scroll to the specific section after a short delay
@@ -195,16 +194,16 @@ const Plan = () => {
     }
   }, [location.pathname]);
 
-  // Deposit Schemes Data
-  const depositSchemes = [
+  // Recurring Deposit Schemes Data
+  const recurringSchemes = [
     {
-      id: 'pension',
-      title: t.pensionTitle,
-      icon: <FaUserTie />,
-      tagline: t.pensionTagline,
-      description: t.pensionDesc,
-      features: t.pensionFeatures,
-      color: 'from-blue-500 to-blue-700'
+      id: 'billionaire',
+      title: t.billionaireTitle,
+      icon: <FaChartLine />,
+      tagline: t.billionaireTagline,
+      description: t.billionaireDesc,
+      features: t.billionaireFeatures,
+      color: 'from-yellow-500 to-yellow-700'
     },
     {
       id: 'recurring',
@@ -214,6 +213,19 @@ const Plan = () => {
       description: t.rdDesc,
       features: t.rdFeatures,
       color: 'from-green-500 to-green-700'
+    }
+  ];
+
+  // Fixed Deposit Schemes Data
+  const fixedDepositSchemes = [
+    {
+      id: 'pension',
+      title: t.pensionTitle,
+      icon: <FaUserTie />,
+      tagline: t.pensionTagline,
+      description: t.pensionDesc,
+      features: t.pensionFeatures,
+      color: 'from-blue-500 to-blue-700'
     },
     {
       id: 'half-price',
@@ -232,190 +244,38 @@ const Plan = () => {
       description: t.subhmangalDesc,
       features: t.subhmangalFeatures,
       color: 'from-pink-500 to-pink-700'
-    },
-    {
-      id: 'billionaire',
-      title: t.billionaireTitle,
-      icon: <FaChartLine />,
-      tagline: t.billionaireTagline,
-      description: t.billionaireDesc,
-      features: t.billionaireFeatures,
-      color: 'from-yellow-500 to-yellow-700'
     }
   ];
 
-  // Loan Schemes Data
-  const loanSchemes = [
-    {
-      id: 'personal',
-      title: t.personalTitle,
-      icon: <FaHandHoldingUsd />,
-      tagline: t.personalTagline,
-      description: t.personalDesc,
-      features: t.personalFeatures,
-      highlights: t.personalHighlights,
-      color: 'from-blue-500 to-indigo-600'
-    }
-  ];
-
-  // Gold Loan Schemes Data
-  const goldLoanSchemes = [
-    {
-      id: 'emi-gold',
-      title: t.emiGoldTitle,
-      icon: <FaCalculator />,
-      interestRate: '0.69% per month',
-      maxAmount: '₹50,000',
-      tenure: '12 months',
-      description: isMarathi ? '0.69* पैसे मासिक व्याजदर प्रति तोळा रु. ५०,०००/- पर्यंत रक्कम मुदत १२ महिने मासिक हप्ता व व्याज भरणे आवश्यक मासिक व्याज आकारणी ' : 'Interest rate: 0.69* paisa per month Loan amount up to Rs. 50,000/- Duration: 12 months Monthly installment and interest payment required Monthly interest calculation ',
-      features: isMarathi ? [
-        'मासिक ईएमआय',
-        '₹50,000 मर्यादा',
-        '1 वर्ष कालावधी',
-        'मासिक व्याज'
-      ] : [
-        'Monthly EMI',
-        '₹50,000 limit',
-        '1 year tenure',
-        'Monthly interest'
-      ],
-      color: 'from-yellow-500 to-amber-600'
-    },
-    {
-      id: 'regular-gold',
-      title: t.regularGoldTitle,
-      icon: <FaCoins />,
-      interestRate: '0.83% per month',
-      maxAmount: '₹35,000 per tola',
-      tenure: '12 months',
-      description: isMarathi ? '0.83* पैसे मासिक व्याजदर प्रति तोळा रु. ३५,०००/- पर्यंत कर्ज रक्कम मुदत १२ महिने मासिक व्याज भरणे आवश्यक मासिक व्याज आकारणी ' : 'Monthly Interest Rate: 0.83* Loan Amount up to Rs. 35,000/- per tola Duration: 12 months Monthly interest payment required Monthly interest calculation ',
-      features: isMarathi ? [
-        'मासिक व्याज',
-        '₹35,000/तोला',
-        '1 वर्ष कालावधी',
-        'नियमित देय'
-      ] : [
-        'Monthly interest',
-        '₹35,000/tola',
-        '1 year tenure',
-        'Regular payment'
-      ],
-      color: 'from-yellow-600 to-yellow-800'
-    },
-    {
-      id: 'easy-gold',
-      title: t.easyGoldTitle,
-      icon: <FaHandshake />,
-      interestRate: '0.99% per month',
-      maxAmount: '₹50,000',
-      tenure: '12 months',
-      description: isMarathi ? '0.99* पैसे मासिक व्याजदर प्रति तोळा रु. ५०,०००/- पर्यंत रक्कम मुदत १२ महिने मासिक व्याज भरणे आवश्यक मासिक व्याज आकारणी ' : 'Interest rate: 0.99% per month Loan amount up to Rs. 50,000/- Duration: 12 months Monthly interest payment required Monthly interest calculation ',
-      features: isMarathi ? [
-        'सोपी प्रक्रिया',
-        '₹50,000 मर्यादा',
-        'जलद मंजुरी',
-        'मासिक व्याज'
-      ] : [
-        'Simple process',
-        '₹50,000 limit',
-        'Quick approval',
-        'Monthly interest'
-      ],
-      color: 'from-orange-500 to-orange-700'
-    },
-    {
-      id: 'gold-overdraft',
-      title: t.goldOverdraftTitle,
-      icon: <FaFileContract />,
-      interestRate: '15% per annum',
-      maxAmount: 'Based on gold valuation',
-      tenure: '24 months',
-      description: isMarathi ? '१५%* वार्षिक व्याजदर एकदाच गोल्ड व्हॅल्युएशन वरती वरती कर्ज रक्कम मंजुरी फक्त वापरलेल्या रकमेवरती व्याज मुदत २४ महिने तिमाही व्याज आकारणी ' : '15%* annual interest rate Approval for a loan amount based on the current gold valuation Interest applicable only on the utilized amount Loan tenure of 24 months Quarterly interest calculation ',
-      features: isMarathi ? [
-        'ओव्हरड्राफ्ट सुविधा',
-        'वापरलेल्यावर व्याज',
-        '2 वर्ष कालावधी',
-        'त्रैमासिक व्याज'
-      ] : [
-        'Overdraft facility',
-        'Interest on utilized',
-        '2 years tenure',
-        'Quarterly interest'
-      ],
-      color: 'from-green-500 to-green-700'
-    },
-    {
-      id: 'bullet-gold',
-      title: t.bulletGoldTitle,
-      icon: <FaMoneyBillWave />,
-      interestRate: '15% per annum',
-      maxAmount: '₹50,000',
-      tenure: '12 months',
-      description: isMarathi ? '१५%* वार्षिक व्याजदर एकरकमी परतफेड प्रति तोळा रु. ५०,०००/- पर्यंत कर्ज रक्कम मुदत १२ महिने तिमाही व्याज आकारणी ' : '15%* annual interest rate Immediate disbursement Loan amount up to Rs. 50,000/- Repayment period of 12 months Quarterly interest calculation ',
-      features: isMarathi ? [
-        'तातडीचे वितरण',
-        '₹50,000 मर्यादा',
-        'बुलेट परतफेड',
-        'त्रैमासिक व्याज'
-      ] : [
-        'Immediate disbursal',
-        '₹50,000 limit',
-        'Bullet repayment',
-        'Quarterly interest'
-      ],
-      color: 'from-red-500 to-red-700'
-    },
-    {
-      id: 'doorstep-gold',
-      title: t.doorstepGoldTitle,
-      icon: <FaDoorOpen />,
-      interestRate: 'Contact for details',
-      maxAmount: 'Based on valuation',
-      tenure: 'Flexible',
-      description: isMarathi ? 'वरील सर्व योजना उपलब्ध घरपोहच कर्ज सुविधा कॉल करून कर्जाची मागणी गोल्ड व्हॅल्युएशन ग्राहकांच्या घरीच घ्रहकांच्या घरीच कर्ज रक्कम देण्याची सोय फक्त ५ रु प्रति कि. मी. प्रोसेस फी ' : 'The above scheme is available Home Reach Loan Facility Request for the loan by calling Gold valuation at customers homes Loan amount to be given at customers homes Interest rate of only 5 Rs. per sq. ft. ',
-      features: isMarathi ? [
-        'घरी मूल्यांकन',
-        'दारस्थी सेवा',
-        'फोन विनंती',
-        'सोयीस्कर',
-        'सेवा शुल्क: ₹5/चौ.फूट.'
-      ] : [
-        'Home valuation',
-        'Doorstep service',
-        'Phone request',
-        'Convenient',
-        'Service charge: ₹5/sq.ft.'
-      ],
-      color: 'from-purple-500 to-purple-700'
-    }
-  ];
+  // Unfixed Deposit Schemes Data (empty for now)
+  const unfixedDepositSchemes = [];
 
   // Get schemes based on active category
   const getActiveSchemes = () => {
     switch(activeCategory) {
-      case 'deposit': return depositSchemes;
-      case 'loan': return loanSchemes;
-      case 'gold': return goldLoanSchemes;
-      default: return depositSchemes;
+      case 'recurring': return recurringSchemes;
+      case 'fixed': return fixedDepositSchemes;
+      case 'unfixed': return unfixedDepositSchemes;
+      default: return recurringSchemes;
     }
   };
 
   // Get category title
   const getCategoryTitle = () => {
     switch(activeCategory) {
-      case 'deposit': return t.depositSchemes;
-      case 'loan': return t.loanSchemes;
-      case 'gold': return t.goldLoanSchemes;
-      default: return t.depositSchemes;
+      case 'recurring': return t.recurringSchemes;
+      case 'fixed': return t.fixedDepositSchemes;
+      case 'unfixed': return t.unfixedDepositSchemes;
+      default: return t.recurringSchemes;
     }
   };
 
   // Get category icon
   const getCategoryIcon = () => {
     switch(activeCategory) {
-      case 'deposit': return <FaPiggyBank />;
-      case 'loan': return <FaHandHoldingUsd />;
-      case 'gold': return <FaCoins />;
+      case 'recurring': return <FaPiggyBank />;
+      case 'fixed': return <FaBuilding />;
+      case 'unfixed': return <FaHandHoldingUsd />;
       default: return <FaPiggyBank />;
     }
   };
@@ -461,57 +321,57 @@ const Plan = () => {
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12">
           <button
-            onClick={() => setActiveCategory('deposit')}
+            onClick={() => setActiveCategory('recurring')}
             className={`px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 sm:gap-3 text-sm sm:text-base ${
-              activeCategory === 'deposit' ? 'shadow-xl scale-105' : 'hover:shadow-lg'
+              activeCategory === 'recurring' ? 'shadow-xl scale-105' : 'hover:shadow-lg'
             }`}
             style={{
-              background: activeCategory === 'deposit' 
+              background: activeCategory === 'recurring' 
                 ? `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`
                 : 'white',
-              color: activeCategory === 'deposit' ? 'white' : primaryColor,
-              border: `2px solid ${activeCategory === 'deposit' ? 'transparent' : `${primaryColor}30`}`
+              color: activeCategory === 'recurring' ? 'white' : primaryColor,
+              border: `2px solid ${activeCategory === 'recurring' ? 'transparent' : `${primaryColor}30`}`
             }}
           >
             <FaPiggyBank className="text-sm sm:text-base" />
-            <span className="hidden sm:inline">{t.depositSchemes}</span>
-            <span className="sm:hidden">{t.depositSchemes.split(' ')[0]}</span>
+            <span className="hidden sm:inline">{t.recurringSchemes}</span>
+            <span className="sm:hidden">{t.recurringSchemes.split(' ')[0]}</span>
           </button>
 
           <button
-            onClick={() => setActiveCategory('loan')}
+            onClick={() => setActiveCategory('fixed')}
             className={`px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 sm:gap-3 text-sm sm:text-base ${
-              activeCategory === 'loan' ? 'shadow-xl scale-105' : 'hover:shadow-lg'
+              activeCategory === 'fixed' ? 'shadow-xl scale-105' : 'hover:shadow-lg'
             }`}
             style={{
-              background: activeCategory === 'loan' 
+              background: activeCategory === 'fixed' 
                 ? `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`
                 : 'white',
-              color: activeCategory === 'loan' ? 'white' : primaryColor,
-              border: `2px solid ${activeCategory === 'loan' ? 'transparent' : `${primaryColor}30`}`
+              color: activeCategory === 'fixed' ? 'white' : primaryColor,
+              border: `2px solid ${activeCategory === 'fixed' ? 'transparent' : `${primaryColor}30`}`
+            }}
+          >
+            <FaBuilding className="text-sm sm:text-base" />
+            <span className="hidden sm:inline">{t.fixedDepositSchemes}</span>
+            <span className="sm:hidden">{t.fixedDepositSchemes.split(' ')[0]}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveCategory('unfixed')}
+            className={`px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 sm:gap-3 text-sm sm:text-base ${
+              activeCategory === 'unfixed' ? 'shadow-xl scale-105' : 'hover:shadow-lg'
+            }`}
+            style={{
+              background: activeCategory === 'unfixed' 
+                ? `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`
+                : 'white',
+              color: activeCategory === 'unfixed' ? 'white' : primaryColor,
+              border: `2px solid ${activeCategory === 'unfixed' ? 'transparent' : `${primaryColor}30`}`
             }}
           >
             <FaHandHoldingUsd className="text-sm sm:text-base" />
-            <span className="hidden sm:inline">{t.loanSchemes}</span>
-            <span className="sm:hidden">{t.loanSchemes.split(' ')[0]}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveCategory('gold')}
-            className={`px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 sm:gap-3 text-sm sm:text-base ${
-              activeCategory === 'gold' ? 'shadow-xl scale-105' : 'hover:shadow-lg'
-            }`}
-            style={{
-              background: activeCategory === 'gold' 
-                ? `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`
-                : 'white',
-              color: activeCategory === 'gold' ? 'white' : primaryColor,
-              border: `2px solid ${activeCategory === 'gold' ? 'transparent' : `${primaryColor}30`}`
-            }}
-          >
-            <FaCoins className="text-sm sm:text-base" />
-            <span className="hidden sm:inline">{t.goldLoanSchemes}</span>
-            <span className="sm:hidden">{t.goldLoanSchemes.split(' ')[0]}</span>
+            <span className="hidden sm:inline">{t.unfixedDepositSchemes}</span>
+            <span className="sm:hidden">{t.unfixedDepositSchemes.split(' ')[0]}</span>
           </button>
         </div>
 
@@ -543,9 +403,9 @@ const Plan = () => {
                 {getCategoryTitle()}
               </h2>
               <p className="text-gray-600 max-w-3xl text-sm sm:text-base">
-                {activeCategory === 'deposit' && t.depositDesc}
-                {activeCategory === 'loan' && t.loanDesc}
-                {activeCategory === 'gold' && t.goldDesc}
+                {activeCategory === 'recurring' && t.recurringDesc}
+                {activeCategory === 'fixed' && t.fixedDepositDesc}
+                {activeCategory === 'unfixed' && t.unfixedDepositDesc}
               </p>
             </div>
           </div>
@@ -672,121 +532,65 @@ const Plan = () => {
           ))}
         </div>
 
-        {/* Scheme Comparison Table for Gold Loans */}
-        {activeCategory === 'gold' && (
-          <div 
-            className="rounded-2xl shadow-xl p-8 mb-12 border"
-            style={{
-              backgroundColor: 'white',
-              borderColor: `${primaryColor}20`
-            }}
-          >
-            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: primaryColor }}>
-              {t.goldLoanComparison}
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr style={{ backgroundColor: `${primaryColor}10` }}>
-                    <th className="p-4 text-left font-bold" style={{ color: darkColor }}>{t.depositSchemes}</th>
-                    <th className="p-4 text-left font-bold" style={{ color: darkColor }}>{t.interestRate}</th>
-                    <th className="p-4 text-left font-bold" style={{ color: darkColor }}>{t.maxAmountLabel}</th>
-                    <th className="p-4 text-left font-bold" style={{ color: darkColor }}>{t.tenureLabel}</th>
-                    <th className="p-4 text-left font-bold" style={{ color: darkColor }}>{t.keyFeatureLabel}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {goldLoanSchemes.map((scheme, index) => (
-                    <tr 
-                      key={scheme.id}
-                      className={`border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
-                      style={{ borderColor: `${primaryColor}10` }}
-                    >
-                      <td className="p-4 font-medium" style={{ color: darkColor }}>
-                        {scheme.title}
-                      </td>
-                      <td className="p-4">
-                        <span className="font-bold" style={{ color: primaryColor }}>
-                          {scheme.interestRate}
-                        </span>
-                      </td>
-                      <td className="p-4 font-medium" style={{ color: darkColor }}>
-                        {scheme.maxAmount}
-                      </td>
-                      <td className="p-4" style={{ color: darkColor }}>
-                        {scheme.tenure}
-                      </td>
-                      <td className="p-4 text-sm" style={{ color: darkColor }}>
-                        {scheme.features[0]}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
 
         {/* Deposit Scheme Benefits */}
-        {activeCategory === 'deposit' && (
-          <div 
-            className="rounded-2xl shadow-xl p-8 mb-12 border"
-            style={{
-              backgroundColor: `${primaryColor}05`,
-              borderColor: `${primaryColor}20`
-            }}
-          >
-            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: primaryColor }}>
-              {t.whyChooseDeposits}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {[
-                {
-                  icon: <FaShieldAlt />,
-                  title: t.safeSecure,
-                  description: t.safeSecureDesc
-                },
-                {
-                  icon: <FaChartLine />,
-                  title: t.highReturns,
-                  description: t.highReturnsDesc
-                },
-                {
-                  icon: <FaCalendarAlt />,
-                  title: t.flexibleTenure,
-                  description: t.flexibleTenureDesc
-                },
-                {
-                  icon: <FaRupeeSign />,
-                  title: t.easyWithdrawal,
-                  description: t.easyWithdrawalDesc
-                }
-              ].map((benefit, index) => (
+        <div 
+          className="rounded-2xl shadow-xl p-8 mb-12 border"
+          style={{
+            backgroundColor: `${primaryColor}05`,
+            borderColor: `${primaryColor}20`
+          }}
+        >
+          <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: primaryColor }}>
+            {t.whyChooseDeposits}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              {
+                icon: <FaShieldAlt />,
+                title: t.safeSecure,
+                description: t.safeSecureDesc
+              },
+              {
+                icon: <FaChartLine />,
+                title: t.highReturns,
+                description: t.highReturnsDesc
+              },
+              {
+                icon: <FaCalendarAlt />,
+                title: t.flexibleTenure,
+                description: t.flexibleTenureDesc
+              },
+              {
+                icon: <FaRupeeSign />,
+                title: t.easyWithdrawal,
+                description: t.easyWithdrawalDesc
+              }
+            ].map((benefit, index) => (
+              <div 
+                key={index}
+                className="bg-white p-6 rounded-xl border text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+                style={{ borderColor: `${primaryColor}20` }}
+              >
                 <div 
-                  key={index}
-                  className="bg-white p-6 rounded-xl border text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
-                  style={{ borderColor: `${primaryColor}20` }}
+                  className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl"
+                  style={{
+                    backgroundColor: `${primaryColor}15`,
+                    color: primaryColor
+                  }}
                 >
-                  <div 
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl"
-                    style={{
-                      backgroundColor: `${primaryColor}15`,
-                      color: primaryColor
-                    }}
-                  >
-                    {benefit.icon}
-                  </div>
-                  <h4 className="font-bold mb-2" style={{ color: darkColor }}>
-                    {benefit.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm">
-                    {benefit.description}
-                  </p>
+                  {benefit.icon}
                 </div>
-              ))}
-            </div>
+                <h4 className="font-bold mb-2" style={{ color: darkColor }}>
+                  {benefit.title}
+                </h4>
+                <p className="text-gray-600 text-sm">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
           </div>
-        )}
+        </div>
 
         {/* Contact CTA */}
         <div 

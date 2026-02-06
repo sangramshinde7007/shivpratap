@@ -153,27 +153,27 @@ const Branch = () => {
       customerSupport: 'ग्राहक सपोर्ट',
       branchNames: {
         'Main Office (Vita - Main Office)': 'मुख्य कार्यालय (विटा - मुख्य कार्यालय)',
-        'Choundeshwari Temple Branch, Vita': 'चौंदेश्वरी मंदिर शाखा, विटा',
+        'Choundeshwari Temple Branch, Vita': 'चौंडेश्वरी मंदिर शाखा, विटा',
         'Sangli Branch': 'सांगली शाखा',
         'Khanapur Branch': 'खानापूर शाखा',
-        'Tasgaon Branch': 'तसगाव शाखा',
-        'Atpadi Branch': 'आटपडी शाखा',
-        'Mayani Branch': 'मयणी शाखा',
-        'Jat Branch': 'जात शाखा',
-        'Kavathe Mahankal Branch': 'कवठे महांकाळ शाखा',
+        'Tasgaon Branch': 'तासगाव शाखा',
+        'Atpadi Branch': 'आटपाडी शाखा',
+        'Mayani Branch': 'मायणी शाखा',
+        'Jat Branch': 'जत शाखा',
+        'Kavathe Mahankal Branch': 'कवठेमहांकाळ शाखा',
         'Miraj Branch': 'मिरज शाखा',
         'Karad Branch': 'कराड शाखा',
         'Islampur Branch': 'इस्लामपूर शाखा',
         'Ichalkaranji Branch': 'इचलकरंजी शाखा',
-        'Athani Branch': 'अठणी शाखा',
+        'Athani Branch': 'अथणी शाखा',
         'Bhalvani Branch': 'भालवणी शाखा',
         'Shirala Branch': 'शिराळा शाखा',
         'Peth Vadgaon Branch': 'पेठ वडगाव शाखा',
         'Ashta Branch': 'आष्टा शाखा',
         'Akluj Branch': 'अकलूज शाखा',
         'Vashi Branch': 'वाशी शाखा',
-        'Koparkhairane Branch': 'कोपरखैराने शाखा',
-        'Kalamboli Branch': 'कलंबोली शाखा',
+        'Koparkhairane Branch': 'कोपरखैरणे शाखा',
+        'Kalamboli Branch': 'कळंबोली शाखा',
         'Vishrantwadi, Pune Branch': 'विश्रांतवाडी, पुणे शाखा'
       }
     }
@@ -1008,53 +1008,7 @@ const Branch = () => {
           </section>
         )}
 
-        {/* 6. Call-to-Action Section */}
-        <section className="mt-12">
-          <div 
-            className="relative overflow-hidden rounded-2xl shadow-2xl"
-            style={{
-              background: 'linear-gradient(135deg, #b03462 0%, #d63384 50%, #e83e8c 100%)'
-            }}
-          >
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-              }}></div>
-            </div>
 
-            <div className="relative p-12 text-center text-white z-10">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  {currentContent.visitNearest} <span className="bg-gradient-to-r from-rose-200 to-white bg-clip-text text-transparent">{currentContent.shivpratapBank}</span> {currentContent.branchToday}
-                </h2>
-                <p className="text-xl text-rose-100 mb-10 max-w-2xl mx-auto">
-                  {currentContent.experienceBanking} {branches.length} {currentContent.convenientlyLocated}
-                </p>
-                
-                <div className="mt-10 pt-8 border-t border-rose-300">
-                  <div className="flex flex-wrap justify-center gap-8">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-rose-200">{branches.length}</div>
-                      <div className="text-rose-100">{currentContent.branches}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-rose-200">{cities.length - 1}</div>
-                      <div className="text-rose-100">{currentContent.cities}</div>
-                    </div>
-                    {/* <div className="text-center">
-                      <div className="text-3xl font-bold text-rose-200">50+</div>
-                      <div className="text-rose-100">ATMs</div>
-                    </div> */}
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-rose-200">24/7</div>
-                      <div className="text-rose-100">{currentContent.customerSupport}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   );

@@ -4,9 +4,7 @@ import {
   FaUserTie, 
   FaChartLine, 
   FaUsers, 
-  FaCogs, 
   FaShieldAlt, 
-  FaLightbulb,
   FaHandshake,
   FaBullseye,
   FaClock,
@@ -14,9 +12,7 @@ import {
   FaCrown,
   FaBalanceScale,
   FaRegCheckCircle,
-  FaArrowRight
 } from 'react-icons/fa';
-import { GiTeamIdea } from 'react-icons/gi';
 import executiveDirectorImage from '../Assets/Executive Directors.jpeg';
 
 const ExecutiveDirector = () => {
@@ -29,7 +25,7 @@ const ExecutiveDirector = () => {
     en: {
       name: "Shri. Vithalrao Salunkhe",
       designation: "Executive Director",
-      organization: "Shivpratap Multistate Urban Cooperative Credit Society Ltd.",
+      organization: "Shivpratap Multistate Nagari Co-operative Credit Society Ltd. Vita",
       experience: "22+ years of experience in cooperative sector",
       qualifications: "Expertise in banking, management and legal fields",
       
@@ -125,7 +121,7 @@ Based on the trinity of staff dedication, strong management and members' trust, 
     mr: {
       name: "श्री. विठ्ठलराव साळुंखे",
       designation: "कार्यकारी संचालक",
-      organization: "शिवप्रताप मल्टीस्टेट नागरी सहकारी पतसंस्था लि.",
+      organization: "शिवप्रताप मल्टीस्टेट नागरी सहकारी पतसंस्था लिमिटेड विटा",
       experience: "२२+ वर्षे सहकार क्षेत्रातील अनुभव",
       qualifications: "बँकिंग, व्यवस्थापन आणि कायदा क्षेत्रातील विशेष ज्ञान",
       
@@ -228,7 +224,7 @@ Based on the trinity of staff dedication, strong management and members' trust, 
       backgroundImage: 'linear-gradient(135deg, rgba(176, 52, 98, 0.03) 0%, rgba(248, 249, 250, 1) 100%)'
     }}>
       {/* Animated Background Pattern */}
-      <div className="fixed inset-0 opacity-5">
+      <div className="fixed inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0" style={{
           backgroundImage: `repeating-linear-gradient(45deg, ${primaryColor} 0, ${primaryColor} 1px, transparent 1px, transparent 15px)`,
           backgroundSize: '20px 20px'
@@ -306,39 +302,10 @@ Based on the trinity of staff dedication, strong management and members' trust, 
                 </div>
 
                 {/* Experience & Qualifications */}
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl">
-                    <FaChartLine className="text-blue-600 text-xl mt-1" />
-                    <div>
-                      <h4 className="font-bold text-gray-800">{t.experienceTitle}</h4>
-                      <p className="text-gray-600 text-sm">{t.experience}</p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl">
-                    <FaLightbulb className="text-purple-600 text-xl mt-1" />
-                    <div>
-                      <h4 className="font-bold text-gray-800">{t.qualificationsTitle}</h4>
-                      <p className="text-gray-600 text-sm">{t.qualifications}</p>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Key Responsibilities */}
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
-                    <GiTeamIdea className="text-indigo-600 mr-2" />
-                    {t.keyResponsibilities}
-                  </h3>
-                  <ul className="space-y-3">
-                    {t.responsibilities.map((responsibility, index) => (
-                      <li key={index} className="flex items-center">
-                        <div className="w-2 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mr-3"></div>
-                        <span className="text-gray-700">{responsibility}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+
               </div>
             </div>
 
@@ -414,83 +381,13 @@ Based on the trinity of staff dedication, strong management and members' trust, 
               </div>
             </div>
 
-            {/* Focus Areas Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t.focusAreas.map((area, index) => (
-                <div 
-                  key={index} 
-                  className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 border border-gray-200 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-                >
-                  <div className="flex items-start space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FaCogs className="text-white text-xl" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800">{area.title}</h3>
-                      <p className="text-gray-600">{area.description}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    {area.achievements.map((achievement, idx) => (
-                      <div key={idx} className="flex items-center">
-                        <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mr-3"></div>
-                        <span className="text-gray-700 text-sm">{achievement}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
 
-            {/* Achievements Stats */}
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl shadow-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-8 text-center">{t.notableAchievements}</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {t.achievements.map((achievement, index) => {
-                  const Icon = achievement.icon;
-                  return (
-                    <div 
-                      key={index} 
-                      className="text-center transform transition-all duration-300 hover:scale-110"
-                    >
-                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Icon className="text-white text-2xl" />
-                      </div>
-                      <div className="text-3xl font-bold mb-2">{achievement.metric}</div>
-                      <div className="text-indigo-100 text-sm">{achievement.label}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+
+
           </div>
         </div>
 
-        {/* Commitment Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-900 to-indigo-900 rounded-3xl shadow-2xl p-10 text-white text-center">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-6">{t.ourCommitment}</h3>
-            <p className="text-xl mb-8 text-blue-100">
-              {t.commitmentText}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <button 
-                onClick={() => window.location.href = '/about'}
-                className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full hover:from-amber-600 hover:to-orange-600 transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2"
-              >
-                <span>{t.institutionInfo}</span>
-                <FaArrowRight />
-              </button>
-              <button 
-                onClick={() => window.location.href = '/contact'}
-                className="px-8 py-3 bg-white text-blue-900 rounded-full hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                {t.contactUs}
-              </button>
-            </div>
-          </div>
-        </div>
+
 
         {/* Image Modal */}
         {isModalOpen && (

@@ -245,13 +245,13 @@ const Footer = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
                   alt="Get it on Google Play"
                   className="h-5 sm:h-6 cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => window.open('https://play.google.com/store/apps/details?id=com.shivpratapbank', '_blank')}
+                  onClick={() => window.open('https://play.google.com/store/apps/details?id=com.netwin.mobilebanking.shivp', '_blank')}
                 />
                 <img 
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
                   alt="Download on the App Store"
                   className="h-5 sm:h-6 cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => window.open('https://apps.apple.com/in/app/shivpratap-bank/id123456789', '_blank')}
+                  onClick={() => window.open('https://play.google.com/store/apps/details?id=com.netwin.mobilebanking.shivp', '_blank')}
                 />
               </div>
             </div>

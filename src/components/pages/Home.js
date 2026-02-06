@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaFacebook,
-  FaCalculator, FaPiggyBank, FaHandHoldingUsd, FaChartLine,
-  FaBuilding, FaUsers, FaShieldAlt, FaMobileAlt,
-   FaRupeeSign, FaPercent, FaCalendarAlt,
-  FaCamera, FaHandshake,
-  FaHome, FaCar, FaGraduationCap, FaBriefcase,
-  FaArrowRight, FaPlus, FaTimes,
-  FaStar, FaAward, FaUserCheck, FaLightbulb,
-  FaCreditCard, FaHandHoldingHeart, FaUniversity, FaFilter,
-  FaPiggyBank as FaPiggyBankSolid, FaUser, FaRing, FaCrown, FaMapMarkerAlt, FaExternalLinkAlt
+ FaChartLine,
+  FaBuilding, FaUsers, FaTimes,
+  FaUserCheck, FaMapMarkerAlt, FaExternalLinkAlt,
+  FaHistory, FaTrophy, FaClock, FaPhone, FaEnvelope
 } from 'react-icons/fa';
 import { 
   database, 
@@ -20,7 +15,7 @@ import {
 } from '../../firebase';
 
 import slider1 from '../Assets/slider1.png';
-import slider111 from '../Assets/slider111.jpg';
+import slider111 from '../Assets/slider111.png';
 import slider2 from '../Assets/slider2.png';
 import slider3 from '../Assets/slider3.png';
 import slider4 from '../Assets/slider4.png';
@@ -33,7 +28,6 @@ import slider10 from '../Assets/slider10.png';
 import popupImage from '../Assets/All.jpeg';
 
 const Home = () => {
-  const navigate = useNavigate();
   const { language } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -54,8 +48,6 @@ const Home = () => {
   // Color constants
   const primaryColor = '#b03462';
   const secondaryColor = '#ffd166';
-  const accentColor = '#06d6a0';
-  const darkColor = '#1a1a2e';
 
   // Translations
   const translations = {
@@ -63,7 +55,7 @@ const Home = () => {
       aboutOrg: "About the Organization",
       orgName: "Shivpratap Multistate Bank",
       whyChooseUs: "Why Choose Us",
-      whyChooseUsSub: "We combine traditional banking values with modern technology to serve you better",
+      whyChooseUsSub: "",
       popularSchemes: "Our Popular Schemes",
       schemesSub: "Tailored financial solutions designed to meet your specific needs and aspirations",
       modernBanking: "Perfect Modern Banking for All Needs",
@@ -98,7 +90,7 @@ const Home = () => {
       statsSubtitle: "Trusted by millions, serving communities with excellence",
       satisfiedCustomers: "Satisfied Customers",
       branches: "Branches",
-      villageService: "Village Service Centers",
+      villageService: "Customer Service Centers",
       employee: "Employees",
       businessVolume: "Business Volume",
       // About section content
@@ -224,30 +216,30 @@ const Home = () => {
       slider2Subtitle: "Bank anytime, anywhere with our mobile app",
       slider3Title: "Business Loans",
       slider3Subtitle: "Fuel your business growth with our MSME schemes",
-      slider4Title: "Deposit Mortgage Scheme",
-      slider4Subtitle: "Secure your property with our flexible deposit mortgage options",
+      slider4Title: "Online payment facility",
+      slider4Subtitle: "Instant and secure transactions via QR code",
       slider5Title: "Women Empowerment",
       slider5Subtitle: "Special banking services for women entrepreneurs",
-      slider6Title: "Education Loans",
-      slider6Subtitle: "Invest in your future with our education schemes",
+      slider6Title: "Guaranteed financial savings",
+      slider6Subtitle: "Regular savings – a strong foundation for a bright future",
       slider7Title: "Agriculture Loans",
-      slider7Subtitle: "Supporting our farmers with flexible financing",
+      slider7Subtitle: "Low interest loan facility for farmers",
       slider8Title: "Personal Loan",
       slider8Subtitle: "Quick personal loans for all your immediate financial needs",
-      slider9Title: "Car Loans",
-      slider9Subtitle: "Drive your dream car with our affordable car loans",
+      slider9Title: "Mobile Banking Services",
+      slider9Subtitle: "Your transactions are now safe and easy on your mobile.",
       slider10Title: "Gold Loans",
-      slider10Subtitle: "Instant loans against your gold assets",
+      slider10Subtitle: "Instant loan on your gold jewellery",
       slider11Title: "Senior Citizen Plans",
       slider11Subtitle: "Special schemes for our respected seniors",
       slider12Title: "Investment Plans",
       slider12Subtitle: "Grow your wealth with smart investment options",
     },
     mr: {
-      aboutOrg: "संस्थेबद्दल",
+      aboutOrg: "संस्थेविषयी ",
       orgName: "शिवप्रताप मल्टीस्टेट बँक",
       whyChooseUs: "आम्हाला का निवडावे",
-      whyChooseUsSub: "आम्ही तुम्हाला चांगली सेवा देण्यासाठी पारंपरिक बँकिंग मूल्ये आणि आधुनिक तंत्रज्ञान एकत्र करतो",
+      whyChooseUsSub: "",
       popularSchemes: "आमच्या लोकप्रिय योजना",
       schemesSub: "तुमच्या विशिष्ट गरजा आणि आकांक्षा पूर्ण करण्यासाठी डिझाइन केलेले वित्तीय उपाय",
       modernBanking: "सर्व गरजांसाठी परिपूर्ण आधुनिक बँकिंग",
@@ -282,7 +274,7 @@ const Home = () => {
       statsSubtitle: "लाखो ग्राहकांचा विश्वास, उत्कृष्ट सेवेसह",
       satisfiedCustomers: "समाधानी ग्राहक",
       branches: "शाखा",
-      villageService: "गाव सेवा केंद्र",
+      villageService: "ग्राहक सेवा केंद्र",
       employee: "कर्मचारी",
       businessVolume: "कोटी व्यवसाय",
       // About section content
@@ -408,116 +400,229 @@ const Home = () => {
       slider2Subtitle: "आमच्या मोबाईल अॅपसह कुठूनही, कधीही बँकिंग करा",
       slider3Title: "व्यवसाय कर्ज",
       slider3Subtitle: "आमच्या MSME योजनांसह आपल्या व्यवसायाची वाढ करा",
-      slider4Title: "डिपॉजिट गृहकर्ज योजना",
-      slider4Subtitle: "आमच्या लवचिक डिपॉजिट गृहकर्ज पर्यायांसह आपली मालमत्ता सुरक्षित करा",
+      slider4Title: "ऑनलाईन पेमेंट सुविधा",
+      slider4Subtitle: "QR कोडद्वारे तत्काळ आणि सुरक्षित व्यवहार",
       slider5Title: "महिला सक्षमीकरण",
       slider5Subtitle: "महिला उद्योजकांसाठी विशेष बँकिंग सेवा",
-      slider6Title: "शिक्षण कर्ज",
-      slider6Subtitle: "आमच्या शिक्षण योजनांसह आपल्या भविष्यात गुंतवणूक करा",
+      slider6Title: "आर्थिक बचतीची खात्री",
+      slider6Subtitle: "नियमित बचत – उज्ज्वल भविष्यासाठी मजबूत आधार",
       slider7Title: "शेती कर्ज",
-      slider7Subtitle: "लवचिक वित्तपुरवठ्यासह आपल्या शेतकऱ्यांना समर्थन द्या",
+      slider7Subtitle: "शेतकरी बांधवांसाठी कमी व्याजदरात कर्ज सुविधा",
       slider8Title: "वैयक्तिक कर्ज",
       slider8Subtitle: "आपल्या तातडीच्या आर्थिक गरजांसाठी जलद वैयक्तिक कर्ज",
-      slider9Title: "कार लोन",
-      slider9Subtitle: "आमच्या स्वस्त कार लोनसह आपले स्वप्नाचे कार चालवा",
+      slider9Title: "मोबाईल बँकिंग सेवा",
+      slider9Subtitle: "आपले व्यवहार आता सुरक्षित आणि सोप्या पद्धतीने मोबाईलवर",
       slider10Title: "सोने कर्ज",
-      slider10Subtitle: "आपल्या सोन्याच्या मालमत्तेवर त्वरित कर्ज"
+      slider10Subtitle: "आपल्या सोन्याच्या दागिन्यांवर त्वरित कर्ज"
+    }
+  };
+  
+  // Merge AboutUs translations
+  const aboutTranslations = {
+    en: {
+      pageTitle: 'About Us',
+      subtitle: 'Shivpratap Multistate Nagari Co-Op Credit Society Ltd.',
+      badges: {
+        multistate: 'Multistate Institution',
+        secureBanking: 'Secure Banking',
+        yearsService: '22+ Years of Service'
+      },
+      stats: [
+        { label: 'Established Year', suffix: '' },
+        { label: 'Multistate Status', suffix: '' },
+        { label: 'Customers', suffix: 'Lakh+' },
+        { label: 'Years of Service', suffix: '+' }
+      ],
+      foundingTitle: 'Foundation and Beginning',
+      foundingText1: 'In 2002, the Galai businessmen in our area came together and presented the idea of establishing a cooperative credit society to Late Pratapsheth (Dada) Salunkhe. At that time, the cooperative sector was going through extremely difficult circumstances—many institutions had collapsed, some were on the verge of collapse, and there was tremendous instability among depositors.',
+      foundingText2: 'Starting a new institution in such challenging circumstances was truly a courageous step. Late Pratapsheth (Dada) Salunkhe and Adv. Vitthalrao Salunkhe, who had in-depth knowledge of the banking sector, conducted an extensive study of the situation and decided to run the institution efficiently based on proper management, transparent transactions, and responsible lending.',
+      establishmentDate: 'Establishment',
+      establishmentDateValue: 'June 26, 2002',
+      motto: '"Service and Security"',
+      inaugurationTitle: 'Inauguration Ceremony',
+      inaugurationText: 'After this, the institution was established on June 26, 2002, and the grand inauguration of the institution took place on July 11, 2002, at the hands of Late Dr. Patangrao Kadam, Hon. Jayantrao Patil, and Hon. Harshvardhan Patil, the then dignitaries.',
+      inaugurationCards: [
+        { title: 'Special Ceremony', desc: 'Many former and current MLAs present' },
+        { title: 'Important Decision', desc: 'Stay away from political interference' },
+        { title: 'Growth Beginning', desc: 'Business community joined the institution' }
+      ],
+      expansionTitle: 'Expansion and Multistate Status',
+      expansionText1: 'The growth of the institution has been remarkable from the beginning. The machinery, vegetable, poultry, grape, and other business communities in our area were connected to the institution, and the institution started providing loans to all sectors.',
+      expansionHighlight: '2012: Achieved Multistate status, the first Multistate cooperative credit society in Western Maharashtra',
+      expansionText2: 'Since the Galai brothers of the institution are spread across the country, there was a demand that the institution should expand its operations from various states. Considering this demand positively, the institution achieved Multistate status in 2012 and gained recognition as the first cooperative credit society to become Multistate in Western Maharashtra.',
+      technologyTitle: 'Modern Technology and Services',
+      technologyCards: [
+        { title: 'Pioneer in Technology', desc: 'First local institution to computerize circulation and pigmy collection' },
+        { title: 'Core Banking System', desc: 'CBS, online transactions, mobile banking, NEFT/RTGS/IMPS facilities' },
+        { title: 'Service and Security', desc: 'Staff that considers customer satisfaction as true service is the main strength of the institution' },
+        { title: 'Advanced Accounting', desc: 'Digitization and IT-based accurate accounting, all these services are continuously improved' }
+      ],
+      facilitiesTitle: 'Facilities and Services',
+      facilitiesCards: [
+        { title: 'Modern Offices', desc: 'Modern facilities in all branches' },
+        { title: 'Trained Staff', desc: 'Experienced and helpful staff' },
+        { title: 'Control System', desc: 'Excellent internal control system' },
+        { title: 'Timely Service', desc: 'Services available to customers on time' }
+      ],
+      financialServicesTitle: 'Financial Services',
+        financialServices: [
+        'Savings Account',
+        'Fixed Deposit',
+        'Recurring Deposit',
+        'Women\'s Scheme',
+        'Senior Citizen Scheme',
+        'Gold Loan',
+        'Personal Loan',
+        'Business Loan',
+        'Various Facilities'
+      ],
+      socialCommitmentTitle: 'Social Commitment',
+      socialCommitmentText: 'The institution has maintained social commitment along with financial services. The institution honestly focuses on financial literacy, women empowerment, encouraging small entrepreneurs in rural areas, guidance for students, and implementing various welfare programs for society.',
+      socialCommitmentBadge: 'Dedicated to Social Development',
+      todayTitle: 'Today\'s Institution',
+      todayText: 'Today, Shivpratap Multistate is an institution standing on a strong financial foundation and is continuously progressing with the strength of members\' trust, management\'s vision, transparency, and employees\' dedication.',
+      todayMotto: '"Following the values of cooperation, taking everyone along, providing safe and reliable banking services"',
+      todayCommitment: 'Our commitment is to keep the flag of the institution\'s progress flying with more brightness.',
+      contactTitle: 'Contact Us',
+      contactSubtitle: 'Contact us for more information about our services and products',
+      contactAddress: 'Address',
+      contactPhone: 'Phone',
+      contactEmail: 'Email'
+    },
+    mr: {
+      pageTitle: 'संस्थेविषयी',
+      subtitle: 'Shivpratap Multistate Nagari Co-Op Credit Society Ltd.',
+      badges: {
+        multistate: 'मल्टीस्टेट संस्था',
+        secureBanking: 'सुरक्षित बँकिंग',
+        yearsService: '२२+ वर्षे सेवा'
+      },
+      stats: [
+        { label: 'स्थापना वर्ष', suffix: '' },
+        { label: 'मल्टीस्टेट दर्जा', suffix: '' },
+        { label: 'ग्राहक', suffix: 'लाख+' },
+        { label: 'वर्षे सेवेचा अनुभव', suffix: '+' }
+      ],
+      foundingTitle: 'स्थापना आणि प्रारंभ',
+      foundingText1: 'सन २००२ साली आमच्या भागातील गलाई व्यवसायिकांनी एकत्र येऊन स्व. प्रतापशेठ (दादा) साळुंखे यांच्याकडे सहकारी पतसंस्था स्थापनेची कल्पना मांडली. त्या काळात सहकार क्षेत्र अत्यंत कठीण परिस्थितीतून जात होते—अनेक संस्था बुडालेल्या, काही बुडण्याच्या मार्गावर, आणि ठेवीदारांमध्ये प्रचंड अस्थिरता निर्माण झाली होती. अशा आव्हानात्मक परिस्थितीत नवी संस्था सुरू करणे हे खरोखर धाडसी पाऊल होते.',
+      foundingText2: 'स्व. प्रतापशेठ (दादा) साळुंखे व बँकिंग  क्षेत्राची सखोल माहिती असणारे अ‍ॅड. विठ्ठलराव साळुंखे यांनी परिस्थितीचा विस्तृत अभ्यास करून, योग्य व्यवस्थापन, पारदर्शक व्यवहार आणि जबाबदार कर्जपुरवठा यांच्या आधारे संस्था सक्षमपणे चालवण्याचा निर्णय घेतला. इतर संस्थांनी केलेल्या चुका टाळून, कमी व्याजदरात व सुरक्षित तारण घेऊन कर्जपुरवठा करणे ही संस्थेची धोरणात्मक दिशा निश्चित करण्यात आली.',
+      establishmentDate: 'स्थापना',
+      establishmentDateValue: '२६ जून २००२',
+      motto: '"सेवा आणि सुरक्षा"',
+      inaugurationTitle: 'उद्घाटन सोहळा',
+      inaugurationText: 'यानंतर २६ जून २००२ रोजी संस्थेची स्थापना झाली आणि ११ जुलै २००२ रोजी संस्थेचे भव्य उद्घाटन स्व.डॉ. पतंगराव कदम, मा. जयंतराव पाटील, व मा. हर्षवर्धन पाटील या तत्कालीन मान्यवरांच्या हस्ते पार पडले. अनेक आजी–माजी आमदार उपस्थित असलेला हा सोहळा विशेष ठरला, आणि तेव्हाच राजकीय हस्तक्षेपापासून संस्था कायम दूर राहील, असा ठोस निर्णय घेण्यात आला.',
+      inaugurationCards: [
+        { title: 'विशेष सोहळा', desc: 'अनेक आजी–माजी आमदार उपस्थित' },
+        { title: 'महत्वपूर्ण निर्णय', desc: 'राजकीय हस्तक्षेपापासून दूर राहणे' },
+        { title: 'वाढीचा प्रारंभ', desc: 'व्यापारी वर्ग संस्थेशी जोडला गेला' }
+      ],
+      expansionTitle: 'विस्तार आणि मल्टीस्टेट दर्जा',
+      expansionText1: 'संस्थेची वाढ सुरुवातीपासूनच उल्लेखनीय राहिली. आपल्या परिसरातील यंत्रमाग, भाजीपाला, पोल्ट्री, द्राक्ष तसेच अन्य व्यापारी वर्ग संस्थेशी जोडत गेले आणि संस्था सर्व क्षेत्रांसाठी कर्जपुरवठा करू लागली. आधुनिकतेचा स्वीकार हा संस्थेच्या कामकाजाचा कायमस्वरूपी भाग राहिला आहे. चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था म्हणून शिवप्रताप मल्टीस्टेटची ओळख निर्माण झाली. त्यानंतर Core Banking System (CBS), ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा, डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा संस्था सातत्याने उन्नत करत गेली.',
+      expansionHighlight: '२०१२: मल्टीस्टेट दर्जा मिळवला, पश्चिम महाराष्ट्रातील पहिली मल्टीस्टेट सहकारी पतसंस्था',
+      expansionText2: 'आधुनिकतेचा स्वीकार हा संस्थेच्या कामकाजाचा कायमस्वरूपी भाग राहिला आहे. चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था म्हणून शिवप्रताप मल्टीस्टेटची ओळख निर्माण झाली. त्यानंतर Core Banking System (CBS), ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा, डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा संस्था सातत्याने उन्नत करत गेली.',
+      technologyTitle: 'आधुनिक तंत्रज्ञान आणि सेवा',
+      technologyCards: [
+        { title: 'तंत्रज्ञानातील अग्रेसर', desc: 'चलन करणे आणि पिग्मी गोळा करणे ही कामे संगणकीकृत पद्धतीने करणारी पहिली स्थानिक संस्था' },
+        { title: 'Core Banking System', desc: 'CBS, ऑनलाइन व्यवहार, मोबाइल बँकिंग, NEFT/RTGS/IMPS सुविधा' },
+        { title: 'सेवा आणि सुरक्षा', desc: 'ग्राहकांचे समाधान हीच खरी सेवा मानणारा कर्मचारी वर्ग संस्थेची मुख्य ताकद' },
+        { title: 'उन्नत लेखापद्धती', desc: 'डिजिटलीकरण आणि IT-आधारित अचूक लेखापद्धती या सर्व सेवा सातत्याने उन्नत' }
+      ],
+      facilitiesTitle: 'सुविधा आणि सेवा',
+      facilitiesCards: [
+        { title: 'सुबक कार्यालये', desc: 'सर्व शाखांमध्ये आधुनिक सुविधा' },
+        { title: 'प्रशिक्षित कर्मचारी', desc: 'अनुभवी आणि सहाय्यक कर्मचारीवर्ग' },
+        { title: 'नियंत्रण व्यवस्था', desc: 'उत्तम अंतर्गत नियंत्रण व्यवस्था' },
+        { title: 'वेळेवर सेवा', desc: 'ग्राहकांना वेळेवर उपलब्ध सेवा' }
+      ],
+      financialServicesTitle: 'आर्थिक सेवा',
+      financialServices: [
+        'बचत खाते',
+        'मुदत ठेव',
+        'आवर्ती ठेव',
+        'महिला योजना',
+        'ज्येष्ठ नागरिक योजना',
+        'गोल्ड लोन',
+        'वैयक्तिक कर्ज',
+        'व्यवसाय कर्ज',
+        'विविध सोयी'
+      ],
+      serviceSafetyPrinciple: "“सेवा आणि सुरक्षा” हे तत्त्व संस्थेने सुरुवातीपासूनच जपले असून ग्राहकांचे समाधान हीच खरी सेवा मानणारा कर्मचारी वर्ग संस्थेची मुख्य ताकद आहे.",
+      facilitiesAndServicesNarrative: "संस्थेच्या सर्व शाखांमध्ये सुबक कार्यालये, प्रशिक्षित कर्मचारी, उत्तम अंतर्गत नियंत्रण व्यवस्था आणि ग्राहकांना वेळेवर उपलब्ध होणाऱ्या आर्थिक सेवांमुळे संस्थेची विश्वासार्हता दिवसेंदिवस वाढत गेली आहे. बचत खाते, मुदत ठेव, आवर्ती ठेव, महिला व ज्येष्ठ नागरिकांसाठी विशेष योजना, तसेच गोल्ड लोन, वैयक्तिक कर्ज, व्यवसाय कर्ज अशा विविध सोयी देऊन संस्था सभासदांच्या छोट्या-मोठ्या आर्थिक गरजांना समर्थपणे हाताळत आहे.",
+      socialCommitmentTitle: 'सामाजिक बांधिलकी',
+      socialCommitmentText: 'संस्थेचे गलाई बांधव देशभर पसरलेले असल्यामुळे विविध राज्यांतून संस्थेने आपले कामकाज वाढवावे, अशी मागणी होत होती. या मागणीचा सकारात्मक विचार करून संस्थेने २०१२ साली मल्टीस्टेट दर्जा मिळवला, आणि पश्चिम महाराष्ट्रातील मल्टीस्टेट होणारी पहिली सहकारी पतसंस्था म्हणून मान्यता मिळवली.',
+      socialCommitmentBadge: 'समाज विकासासाठी समर्पित',
+      todayTitle: 'आजची संस्था',
+      todayText: 'आज शिवप्रताप मल्टीस्टेट ही संस्था मजबूत आर्थिक पायावर उभी असून सभासदांचा विश्वास, व्यवस्थापनाची दूरदृष्टी, पारदर्शकता आणि कर्मचार्‍यांचे समर्पण यांच्या बळावर सातत्याने प्रगती करत आहे. सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे आणि संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे. सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे आणि संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे.',
+      todayMotto: '"सहकाराच्या मूल्यांना अनुसरून सर्वांना सोबत घेऊन, सुरक्षित व विश्वासार्ह बँकिंग सेवा देणे"',
+      todayCommitment: 'संस्थेच्या प्रगतीची पताका अधिक तेजाने फडकवत ठेवणे हीच आमची बांधिलकी आहे.',
+      contactTitle: 'आमच्याशी संपर्क साधा',
+      contactSubtitle: 'आमच्या सेवा आणि उत्पादनांबद्दल अधिक माहितीसाठी संपर्क करा',
+      contactAddress: 'पत्ता',
+      contactPhone: 'फोन',
+      contactEmail: 'ईमेल'
     }
   };
 
+
+
   const t = translations[language];
+  const tAbout = aboutTranslations[language];
 
   // State management
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeTab, setActiveTab] = useState('savings');
-  const [goldWeight, setGoldWeight] = useState('');
-  const [goldPurity, setGoldPurity] = useState('24');
-  const [selectedTenure, setSelectedTenure] = useState('12');
-  const [goldRate, setGoldRate] = useState('6250');
-  const [loanAmount, setLoanAmount] = useState('');
-  const [monthlyEMI, setMonthlyEMI] = useState('');
+
   const [galleryImages, setGalleryImages] = useState([]);
   const [galleryLoading, setGalleryLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [showPopup, setShowPopup] = useState(true); // Popup state - starts as true to show on page load
 
   // Counter states
-  const [counters, setCounters] = useState({
-    customers: 0,
-    branches: 0,
-    villageService: 0,
-    employees: 0,
-    businessVolume: 0
-  });
-  const [countersVisible, setCountersVisible] = useState(false);
 
-  // Counter animation effect using React state
+
+  // About stats state
+  const isMarathi = language === 'mr';
+  const [aboutStats, setAboutStats] = useState([
+    { value: 0, target: 2002, suffix: '', label: aboutTranslations[language].stats[0].label, icon: FaHistory, color: 'blue' },
+    { value: 0, target: 2012, suffix: '', label: aboutTranslations[language].stats[1].label, icon: FaTrophy, color: 'green' },
+    { value: 0, target: 1, suffix: aboutTranslations[language].stats[2].suffix, label: aboutTranslations[language].stats[2].label, icon: FaUsers, color: 'amber' },
+    { value: 0, target: 22, suffix: aboutTranslations[language].stats[3].suffix, label: aboutTranslations[language].stats[3].label, icon: FaClock, color: 'purple' }
+  ]);
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
+
   useEffect(() => {
-    if (!countersVisible) return;
+    const timer = setTimeout(() => setIsAboutVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
-    const targetValues = {
-      customers: 50,
-      branches: 23,
-      villageService: 6,
-      employees: 200,
-      businessVolume: 1000
-    };
-
-    const duration = 2000; // 2 seconds
-    const steps = 60; // 60fps
-    const interval = duration / steps;
-
-    Object.keys(targetValues).forEach((key, index) => {
-      const target = targetValues[key];
-      const increment = target / steps;
-      let current = 0;
-      let step = 0;
-
-      const timer = setTimeout(() => {
-        const counterInterval = setInterval(() => {
-          step++;
-          current += increment;
-          
-          if (step >= steps) {
-            current = target;
-            clearInterval(counterInterval);
-          }
-          
-          setCounters(prev => ({
-            ...prev,
-            [key]: Math.floor(current)
-          }));
-        }, interval);
-      }, index * 200); // Staggered start
-
-      return () => clearTimeout(timer);
-    });
-  }, [countersVisible]);
-
-  // Intersection Observer for counters
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !countersVisible) {
-            setCountersVisible(true);
+    const interval = setInterval(() => {
+      setAboutStats(prevStats => 
+        prevStats.map(stat => {
+          if (stat.value < stat.target) {
+            const increment = Math.ceil((stat.target - stat.value) / 20);
+            return { ...stat, value: Math.min(stat.value + increment, stat.target) };
           }
-        });
-      },
-      { threshold: 0.1 }
-    );
+          return stat;
+        })
+      );
+    }, 100);
 
-    const statsSection = document.getElementById('stats-section');
-    if (statsSection) {
-      observer.observe(statsSection);
-    }
+    return () => clearInterval(interval);
+  }, []);
 
-    return () => {
-      if (statsSection) {
-        observer.unobserve(statsSection);
-      }
-    };
-  }, [countersVisible]);
+  // Update about stats when language changes
+  useEffect(() => {
+    setAboutStats([
+      { value: 2002, target: 2002, suffix: '', label: aboutTranslations[language].stats[0].label, icon: FaHistory, color: 'blue' },
+      { value: 2012, target: 2012, suffix: '', label: aboutTranslations[language].stats[1].label, icon: FaTrophy, color: 'green' },
+      { value: 1, target: 1, suffix: aboutTranslations[language].stats[2].suffix, label: aboutTranslations[language].stats[2].label, icon: FaUsers, color: 'amber' },
+      { value: 22, target: 22, suffix: aboutTranslations[language].stats[3].suffix, label: aboutTranslations[language].stats[3].label, icon: FaClock, color: 'purple' }
+    ]);
+  }, [language, aboutTranslations]);
+
+
+
+
 
   // const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
@@ -598,158 +703,9 @@ const Home = () => {
     }
   ];
 
-  // Information Cards Data
-  const infoCards = [
-    {
-      icon: <FaShieldAlt />,
-      title: t.safeSecure,
-      description: t.safeSecureDesc,
-      gradient: "from-purple-600 to-blue-600"
-    },
-    {
-      icon: <FaHandHoldingUsd />,
-      title: t.customerFirst,
-      description: t.customerFirstDesc,
-      gradient: "from-pink-600 to-rose-600"
-    },
-    {
-      icon: <FaChartLine />,
-      title: t.growthFocused,
-      description: t.growthFocusedDesc,
-      gradient: "from-orange-500 to-yellow-500"
-    }
-  ];
 
-  // Schemes Data - First 4 from Plan.js deposit schemes
-  const schemes = [
-    {
-      id: 'pension',
-      name: t.pensionScheme,
-      description: t.pensionDesc,
-      icon: <FaUser />,
-      features: t.pensionFeatures,
-      tagline: t.pensionTagline
-    },
-    {
-      id: 'recurring',
-      name: t.recurringScheme,
-      description: t.recurringDesc,
-      icon: <FaPiggyBank />,
-      features: t.recurringFeatures,
-      tagline: t.recurringTagline
-    },
-    {
-      id: 'half-price',
-      name: t.halfPriceScheme,
-      description: t.halfPriceDesc,
-      icon: <FaStar />,
-      features: t.halfPriceFeatures,
-      tagline: t.halfPriceTagline
-    },
-    {
-      id: 'subhmangal',
-      name: t.subhmangalScheme,
-      description: t.subhmangalDesc,
-      icon: <FaRing />,
-      features: t.subhmangalFeatures,
-      tagline: t.subhmangalTagline
-    }
-  ];
 
-  // Banking Services Data
-  const bankingServices = {
-    savings: [
-      { name: t.regularSavings, icon: <FaPiggyBankSolid /> },
-      { name: t.salaryAccount, icon: <FaRupeeSign /> },
-      { name: t.womensSavings, icon: <FaHandHoldingHeart /> },
-      { name: t.minorSavings, icon: <FaUniversity /> },
-      { name: t.seniorAccount, icon: <FaUserCheck /> }
-    ],
-    current: [
-      { name: t.currentAccount, icon: <FaBriefcase /> },
-      { name: t.premiumCurrent, icon: <FaStar /> },
-      { name: t.startupCurrent, icon: <FaLightbulb /> },
-      { name: t.tradeCurrent, icon: <FaChartLine /> }
-    ],
-    loans: [
-      { name: t.homeLoan, icon: <FaHome /> },
-      { name: t.personalLoan, icon: <FaCreditCard /> },
-      { name: t.carLoan, icon: <FaCar /> },
-      { name: t.educationLoan, icon: <FaGraduationCap /> },
-      { name: t.goldLoanService, icon: <FaAward /> },
-      { name: t.businessLoan, icon: <FaBuilding /> }
-    ],
-    deposits: [
-      { name: t.fixedDeposit, icon: <FaCalendarAlt /> },
-      { name: t.recurringScheme, icon: <FaPiggyBank /> },
-      { name: t.taxSaverFD, icon: <FaPercent /> },
-      { name: t.flexiDeposit, icon: <FaFilter /> },
-      { name: t.cumulativeDeposit, icon: <FaChartLine /> }
-    ]
-  };
 
-  // Accounts Data for Cards Section
-  const accountsData = [
-    {
-      id: 'savings',
-      title: t.savingsAccount,
-      description: t.savingsAccountDesc,
-      icon: <FaPiggyBank />,
-      features: [t.freeFacilities, t.neftRtgsImps, t.mobileBanking, t.internetBanking, t.smsBanking],
-      color: 'from-blue-600 to-blue-800',
-      link: '/savings-account'
-    },
-    {
-      id: 'premium-savings',
-      title: t.premiumSavingsAccount,
-      description: t.premiumSavingsAccountDesc,
-      icon: <FaCrown />,
-      features: [t.interestRateFeature, t.freeFacilities, t.neftRtgsImps, t.mobileBanking, t.internetBanking, t.smsBanking],
-      color: 'from-amber-600 to-yellow-600',
-      link: '/premium-savings-account'
-    },
-    {
-      id: 'current',
-      title: t.currentAccount,
-      description: t.currentAccountDesc,
-      icon: <FaBuilding />,
-      features: [t.unlimitedTransactions, t.neftRtgsImps, t.mobileBanking, t.internetBanking, t.aadharBankingFeature, t.freeFacilities],
-      color: 'from-emerald-600 to-green-700',
-      link: '/current-account'
-    }
-  ];
-
-  // Modern Banking Cards Data
-  const modernBankingCards = [
-    {
-      id: 'aadhar-banking',
-      title: t.aadharBanking,
-      description: t.aadharBankingDesc,
-      icon: <FaUniversity />,
-      color: 'from-blue-600 to-purple-600'
-    },
-    {
-      id: 'debit-card',
-      title: t.debitCard,
-      description: t.debitCardDesc,
-      icon: <FaCreditCard />,
-      color: 'from-emerald-600 to-teal-600'
-    },
-    {
-      id: 'qr-code',
-      title: t.qrCode,
-      description: t.qrCodeDesc,
-      icon: <FaMobileAlt />,
-      color: 'from-orange-600 to-red-600'
-    },
-    {
-      id: 'digital-banking',
-      title: t.digitalBanking,
-      description: t.digitalBankingDesc,
-      icon: <FaMobileAlt />,
-      color: 'from-green-600 to-lime-600'
-    }
-  ];
 
   // Load gallery images from Firebase
   useEffect(() => {
@@ -842,57 +798,7 @@ const Home = () => {
 
 
 
-  // Static gold price (same as Calculator.js)
-  const staticGoldPrice = 6250;
 
-  // Handle weight input change
-  const handleWeightChange = (e) => {
-    const value = e.target.value;
-    setGoldWeight(value);
-  };
-
-  // Set static gold price on component mount
-  useEffect(() => {
-    setGoldRate(staticGoldPrice.toString());
-  }, []);
-
-  // Handle Gold Loan Calculation (matching Calculator.js logic)
-  const calculateGoldLoan = () => {
-    if (!goldWeight || !goldRate) {
-      alert('Please enter gold weight');
-      return;
-    }
-    
-    const weight = parseFloat(goldWeight);
-    const rate = parseFloat(goldRate);
-    
-    // Purity factors (same as Calculator.js)
-    const purityFactor = {
-      24: 1,
-      22: 0.916,
-      18: 0.75,
-      14: 0.585,
-      12: 0.5,
-    };
-    
-    // Calculate gold value based on purity (same as Calculator.js)
-    const pricePerGram = rate * purityFactor[goldPurity];
-    const totalPrice = weight * pricePerGram;
-    const eligibleAmount = (totalPrice * 0.75).toFixed(2); // 75% LTV
-    setLoanAmount(eligibleAmount);
-    
-    // Calculate EMI (same as Calculator.js - 10% annual interest rate)
-    const principal = parseFloat(eligibleAmount);
-    const monthlyInterestRate = 0.10 / 12;
-    const tenureMonths = parseInt(selectedTenure);
-    
-    const emi = principal && tenureMonths
-      ? (principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, tenureMonths)) /
-        (Math.pow(1 + monthlyInterestRate, tenureMonths) - 1)
-      : 0;
-    
-    setMonthlyEMI(emi.toFixed(2));
-  };
 
   // Show loading state during language transition
   if (isLoading) {
@@ -1093,81 +999,7 @@ const Home = () => {
   </div>
 </section>
 
-      {/* Modern Banking Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-4"
-              style={{
-                background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              {t.modernBanking}
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              {t.exploreServices}
-            </p>
-          </div>
 
-          {/* Horizontal Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {modernBankingCards.map((card, index) => (
-              <div 
-                key={index}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer bg-white"
-                style={{ border: `1px solid ${primaryColor}20` }}
-              >
-                {/* Card Header with Icon */}
-                <div className={`relative p-8 bg-gradient-to-br ${card.color} overflow-hidden`}>
-                  {/* Icon */}
-                  <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-lg mx-auto transition-all duration-500 group-hover:-translate-y-8 group-hover:scale-110">
-                    <div 
-                      className="text-2xl transition-transform duration-500 group-hover:rotate-12"
-                      style={{ color: primaryColor }}
-                    >
-                      {card.icon}
-                    </div>
-                  </div>
-                  
-                  {/* Decorative elements that appear on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-2 left-2 w-4 h-4 bg-white bg-opacity-20 rounded-full"></div>
-                    <div className="absolute top-2 right-2 w-4 h-4 bg-white bg-opacity-20 rounded-full"></div>
-                    <div className="absolute bottom-2 left-2 w-3 h-3 bg-white bg-opacity-15 rounded-full"></div>
-                    <div className="absolute bottom-2 right-2 w-3 h-3 bg-white bg-opacity-15 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div className="p-6">
-                  <h3 
-                    className="text-xl font-bold mb-3 text-center"
-                    style={{ color: primaryColor }}
-                  >
-                    {card.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed text-center">
-                    {card.description}
-                  </p>
-                </div>
-
-                {/* Hover Effect Border */}
-                <div 
-                  className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
-                  style={{
-                    background: `linear-gradient(90deg, ${primaryColor}, ${secondaryColor})`
-                  }}
-                ></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* About Organization Section */}
       <section className="py-16 md:py-24 relative overflow-hidden">
@@ -1264,135 +1096,54 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Enhanced About Content */}
-            <div className="space-y-8">
-              {/* Organization Name Card */}
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center mb-6">
-                    <div 
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4"
-                      style={{ backgroundColor: `${primaryColor}15` }}
-                    >
-                      <FaBuilding className="text-2xl" style={{ color: primaryColor }} />
+            {/* Left: Enhanced About Content - Statistics Grid */}
+            <div className="bg-white rounded-3xl shadow-xl p-6 border border-gray-100 h-full">
+               <div className="grid grid-cols-2 gap-4 h-full content-center">
+                  {/* Satisfied Customers */}
+                  <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-4 border border-pink-100 flex flex-col items-center justify-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-md col-span-2 sm:col-span-1">
+                    <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-3">
+                      <FaUserCheck className="text-2xl text-pink-600" />
                     </div>
-                    <div>
-                      <h3 className="text-3xl md:text-4xl font-bold" style={{ color: primaryColor }}>
-                        {t.orgName}
-                      </h3>
-                      <p className="text-gray-500 text-sm mt-1">Established 2002</p>
-                    </div>
+                    <h4 className="text-2xl font-bold text-gray-800">50L+</h4>
+                    <p className="text-sm text-gray-600 font-medium">{t.satisfiedCustomers}</p>
                   </div>
-                </div>
-              </div>
 
-              {/* Journey Timeline Cards */}
-              <div className="space-y-6">
-                {/* Year 2002 Card */}
-                <div className="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <div className="flex items-start">
-                    <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: `${primaryColor}15` }}
-                    >
-                      <FaCalendarAlt className="text-xl" style={{ color: primaryColor }} />
+                  {/* Branches */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-4 border border-blue-100 flex flex-col items-center justify-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-md col-span-2 sm:col-span-1">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                      <FaBuilding className="text-2xl text-blue-600" />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <span 
-                          className="inline-block px-3 py-1 rounded-full text-sm font-semibold mr-3"
-                          style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}
-                        >
-                          {t.aboutYear2002}
-                        </span>
-                        <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-200 to-transparent"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed">
-                        {t.aboutParagraph1}
-                      </p>
-                    </div>
+                    <h4 className="text-2xl font-bold text-gray-800">23</h4>
+                    <p className="text-sm text-gray-600 font-medium">{t.branches}</p>
                   </div>
-                </div>
 
-                {/* Vitthal Salunkhe Card */}
-                <div className="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <div className="flex items-start">
-                    <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: `${primaryColor}15` }}
-                    >
-                      <FaChartLine className="text-xl" style={{ color: primaryColor }} />
+                  {/* Customer Service Centers */}
+                  <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-4 border border-amber-100 flex flex-col items-center justify-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-md col-span-2 sm:col-span-1">
+                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-3">
+                      <FaMapMarkerAlt className="text-2xl text-amber-600" />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <span 
-                          className="inline-block px-3 py-1 rounded-full text-sm font-semibold mr-3"
-                          style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}
-                        >
-                          {t.aboutVitthalSalunkhe}
-                        </span>
-                        <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-200 to-transparent"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed">
-                        {t.aboutParagraph2}
-                      </p>
-                    </div>
+                    <h4 className="text-2xl font-bold text-gray-800">6</h4>
+                    <p className="text-sm text-gray-600 font-medium">{t.villageService}</p>
                   </div>
-                </div>
 
-                {/* July 11 Card */}
-                <div className="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <div className="flex items-start">
-                    <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: `${primaryColor}15` }}
-                    >
-                      <FaHandshake className="text-xl" style={{ color: primaryColor }} />
+                  {/* Employees */}
+                  <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-4 border border-emerald-100 flex flex-col items-center justify-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-md col-span-2 sm:col-span-1">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-3">
+                      <FaUsers className="text-2xl text-emerald-600" />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <span 
-                          className="inline-block px-3 py-1 rounded-full text-sm font-semibold mr-3"
-                          style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}
-                        >
-                          {t.aboutJuly11}
-                        </span>
-                        <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-200 to-transparent"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed">
-                        {t.aboutParagraph3}
-                      </p>
-                    </div>
+                    <h4 className="text-2xl font-bold text-gray-800">200+</h4>
+                    <p className="text-sm text-gray-600 font-medium">{t.employee}</p>
                   </div>
-                </div>
-              </div>
 
-              {/* Enhanced CTA Button */}
-              <div className="pt-4">
-                <button 
-                  onClick={() => navigate('/about')}
-                  className="group relative overflow-hidden px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl w-full md:w-auto"
-                  style={{
-                    background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                    color: 'white'
-                  }}
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    {t.readMore}
-                    <FaArrowRight className="ml-3 group-hover:translate-x-2 transition-transform duration-300" />
-                  </span>
-                  
-                  {/* Button shine effect */}
-                  <div 
-                    className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)'
-                    }}
-                  ></div>
-                </button>
-              </div>
+                  {/* Business Volume */}
+                  <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-4 border border-purple-100 flex flex-col items-center justify-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-md col-span-2">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                      <FaChartLine className="text-2xl text-purple-600" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-800">1000+</h4>
+                    <p className="text-sm text-gray-600 font-medium">{t.businessVolume}</p>
+                  </div>
+               </div>
             </div>
 
             {/* Right: Enhanced Social Media Section */}
@@ -1431,9 +1182,9 @@ const Home = () => {
                 <div className="p-6">
                   <div className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
                     <iframe
-                      src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/shivpratapmultistatenagari&tabs=timeline&width=500&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&lazy=true"
+                      src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/shivpratapmultistatenagari&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&lazy=true"
                       width="100%"
-                      height="800"
+                      height="500"
                       style={{ border: "none", overflow: "scroll" }}
                       scrolling="yes"
                       frameBorder="0"
@@ -1461,943 +1212,324 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Quick Info Cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-xl p-4 border border-gray-200 text-center hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-lg mx-auto mb-2 flex items-center justify-center"
-                    style={{ backgroundColor: `${primaryColor}15` }}
-                  >
-                    <FaUsers className="text-xl" style={{ color: primaryColor }} />
-                  </div>
-                  <div className="text-2xl font-bold" style={{ color: primaryColor }}>50L+</div>
-                  <div className="text-gray-600 text-sm">Customers</div>
-                </div>
-                <div className="bg-white rounded-xl p-4 border border-gray-200 text-center hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-lg mx-auto mb-2 flex items-center justify-center"
-                    style={{ backgroundColor: `${primaryColor}15` }}
-                  >
-                    <FaMapMarkerAlt className="text-xl" style={{ color: primaryColor }} />
-                  </div>
-                  <div className="text-2xl font-bold" style={{ color: primaryColor }}>23+</div>
-                  <div className="text-gray-600 text-sm">Branches</div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Information Cards Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        {/* Animated Background for Info Cards */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/30 via-transparent to-purple-50/30 animate-pulse"></div>
-        </div>
-        
-        {/* Floating elements for background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div 
-            className="absolute top-20 right-20 w-48 h-48 rounded-full opacity-10 animate-bounce"
-            style={{
-              background: `radial-gradient(circle, ${primaryColor} 0%, transparent 70%)`,
-              animation: 'float 10s ease-in-out infinite'
-            }}
-          ></div>
-          <div 
-            className="absolute bottom-20 left-20 w-64 h-64 rounded-full opacity-10 animate-bounce"
-            style={{
-              background: `radial-gradient(circle, ${secondaryColor} 0%, transparent 70%)`,
-              animation: 'float 12s ease-in-out infinite reverse'
-            }}
-          ></div>
-        </div>
+      {/* About Us Content replacing section after Facebook */}
+      <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 pb-20">
+        {/* Enhanced Header Section - About Us style */}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-4"
-              style={{
-                background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              {t.aboutOrg}
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              {t.whyChooseUsSub}
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {infoCards.map((card, index) => (
-              <div 
-                key={index}
-                className="group relative bg-white rounded-3xl shadow-2xl p-8 transform transition-all duration-700 hover:-translate-y-6 hover:shadow-3xl border-2 overflow-hidden"
-                style={{ 
-                  borderColor: `${primaryColor}20`,
-                  background: 'linear-gradient(135deg, #ffffff 0%, #fafbff 100%)'
-                }}
-              >
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div 
-                    className="absolute inset-0"
-                    style={{
-                      background: `radial-gradient(circle at 50% 50%, ${primaryColor}5 0%, transparent 70%)`,
-                      animation: 'pulse 3s ease-in-out infinite'
-                    }}
-                  ></div>
-                </div>
-                
-                {/* Corner decorative elements */}
-                <div className="absolute top-0 right-0 w-24 h-24 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-12 -translate-y-12">
-                  <div 
-                    className="w-full h-full rounded-full"
-                    style={{
-                      background: `conic-gradient(from 0deg, ${primaryColor}20, ${secondaryColor}20, ${primaryColor}20)`,
-                      animation: 'spin 8s linear infinite'
-                    }}
-                  ></div>
-                </div>
-                
-                <div className="absolute bottom-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-8 translate-y-8">
-                  <div 
-                    className="w-full h-full rounded-full"
-                    style={{
-                      background: `conic-gradient(from 180deg, ${secondaryColor}20, ${primaryColor}20, ${secondaryColor}20)`,
-                      animation: 'spin 6s linear infinite reverse'
-                    }}
-                  ></div>
-                </div>
-
-                {/* Icon Container with enhanced effects */}
-                <div className="relative mb-8">
-                  <div 
-                    className="w-20 h-20 rounded-3xl flex items-center justify-center mx-auto relative z-10 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
-                    style={{
-                      background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                      boxShadow: `0 12px 32px ${primaryColor}40, 0 8px 16px ${primaryColor}20`
-                    }}
-                  >
-                    <div className="text-white text-3xl transform transition-transform duration-500 group-hover:scale-110">
-                      {card.icon}
-                    </div>
-                    
-                    {/* Icon glow effect */}
-                    <div 
-                      className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 blur-xl"
-                      style={{ backgroundColor: primaryColor }}
-                    ></div>
-                  </div>
-                  
-                  {/* Floating particles around icon */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-0 left-1/2 w-2 h-2 bg-blue-400 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-500 transform -translate-x-1/2 -translate-y-2 group-hover:-translate-y-4 animate-ping"></div>
-                    <div className="absolute bottom-0 right-1/2 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-0 group-hover:opacity-60 transition-all duration-500 transform translate-x-1/2 translate-y-2 group-hover:translate-y-4 animate-ping" style={{ animationDelay: '0.5s' }}></div>
-                  </div>
-                </div>
-                
-                {/* Content with enhanced typography */}
-                <div className="relative z-10">
-                  <h3 
-                    className="text-2xl font-bold mb-4 text-center transition-all duration-500 group-hover:text-transparent group-hover:bg-clip-text"
-                    style={{ 
-                      color: primaryColor,
-                      background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
-                    }}
-                  >
-                    {card.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-8 text-center leading-relaxed transition-all duration-500 group-hover:text-gray-700">
-                    {card.description}
-                  </p>
-                  
-                  {/* Enhanced bottom indicator */}
-                  <div className="flex items-center justify-center space-x-2">
-                    <div 
-                      className="h-1 rounded-full transition-all duration-500 group-hover:w-16"
-                      style={{
-                        width: '2rem',
-                        background: `linear-gradient(90deg, ${primaryColor}, ${secondaryColor})`
-                      }}
-                    ></div>
-                    <div 
-                      className="w-2 h-2 rounded-full transition-all duration-500 group-hover:scale-150"
-                      style={{ backgroundColor: primaryColor }}
-                    ></div>
-                    <div 
-                      className="h-1 rounded-full transition-all duration-500 group-hover:w-16"
-                      style={{
-                        width: '2rem',
-                        background: `linear-gradient(90deg, ${secondaryColor}, ${primaryColor})`
-                      }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Hover overlay effect */}
+        {/* Enhanced Main Content */}
+        <div className="max-w-7xl mx-auto px-4 py-16 -mt-10 relative z-10">
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {aboutStats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: `linear-gradient(135deg, ${primaryColor}5 0%, ${secondaryColor}5 100%)`,
-                  }}
-                ></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Accounts Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        {/* Animated Background for Accounts */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-          <div className="absolute inset-0 bg-gradient-to-tr from-green-100/20 via-transparent to-blue-100/20 animate-pulse"></div>
-        </div>
-        
-        {/* Floating elements for background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Large floating circles */}
-          <div 
-            className="absolute top-32 left-16 w-56 h-56 rounded-full opacity-15 animate-bounce"
-            style={{
-              background: `radial-gradient(circle, ${primaryColor} 0%, transparent 70%)`,
-              animation: 'float 9s ease-in-out infinite'
-            }}
-          ></div>
-          
-          <div 
-            className="absolute bottom-20 right-20 w-72 h-72 rounded-full opacity-15 animate-bounce"
-            style={{
-              background: `radial-gradient(circle, ${secondaryColor} 0%, transparent 70%)`,
-              animation: 'float 11s ease-in-out infinite reverse'
-            }}
-          ></div>
-          
-          <div 
-            className="absolute top-1/3 right-1/4 w-48 h-48 rounded-full opacity-10 animate-bounce"
-            style={{
-              background: `radial-gradient(circle, #06d6a0 0%, transparent 70%)`,
-              animation: 'float 13s ease-in-out infinite 1s'
-            }}
-          ></div>
-          
-          {/* Small floating particles */}
-          <div 
-            className="absolute top-16 right-1/3 w-6 h-6 rounded-full opacity-25 animate-ping"
-            style={{ backgroundColor: primaryColor }}
-          ></div>
-          
-          <div 
-            className="absolute bottom-32 left-1/4 w-8 h-8 rounded-full opacity-25 animate-ping"
-            style={{ backgroundColor: secondaryColor, animationDelay: '1.5s' }}
-          ></div>
-          
-          <div 
-            className="absolute top-1/2 right-16 w-5 h-5 rounded-full opacity-25 animate-ping"
-            style={{ backgroundColor: '#06d6a0', animationDelay: '3s' }}
-          ></div>
-          
-          {/* Animated gradient overlays */}
-          <div 
-            className="absolute inset-0 opacity-25"
-            style={{
-              background: `linear-gradient(60deg, ${primaryColor}10 0%, transparent 20%, ${secondaryColor}10 40%, transparent 60%, ${primaryColor}10 80%, transparent 100%)`,
-              backgroundSize: '300% 300%',
-              animation: 'gradientShift 15s ease infinite'
-            }}
-          ></div>
-          
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              background: `linear-gradient(-60deg, ${secondaryColor}10 0%, transparent 25%, ${primaryColor}10 50%, transparent 75%, ${secondaryColor}10 100%)`,
-              backgroundSize: '250% 250%',
-              animation: 'gradientShift 18s ease infinite reverse'
-            }}
-          ></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6"
-              style={{ backgroundColor: `${primaryColor}15` }}
-            >
-              <FaUniversity className="text-3xl" style={{ color: primaryColor }} />
-            </div>
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-4"
-              style={{
-                background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              {t.accountsSection}
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              {t.accountsSub}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {accountsData.map((account, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden border transform transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group"
-                style={{ borderColor: `${primaryColor}20` }}
-              >
-                {/* Card Header with Icon */}
-                <div className={`bg-gradient-to-r ${account.color} p-6 relative overflow-hidden`}>
-                  <div className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10 transform translate-x-16 -translate-y-16">
-                    <div className="w-full h-full rounded-full border-4 border-white"></div>
-                  </div>
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm flex items-center justify-center mb-4">
-                      <div className="text-white text-2xl">
-                        {account.icon}
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {account.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6">
-                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-                    {account.description}
-                  </p>
-
-                  {/* Key Features */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
-                      <FaStar className="text-yellow-500 mr-2 text-sm" />
-                      {t.features}
-                    </h4>
-                    <div className="space-y-2">
-                      {account.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></div>
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <button 
-                    onClick={() => navigate(account.link)}
-                    className="w-full py-3 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group-hover:shadow-xl"
-                    style={{
-                      background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                      color: 'white'
-                    }}
-                  >
-                    {t.learnMore}
-                    <FaArrowRight className="inline ml-2 text-sm" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Schemes Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-16"
-              style={{
-                background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              {t.popularSchemes}
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              {t.schemesSub}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {schemes.map((scheme, index) => (
-              <div 
-                key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl overflow-hidden border transform transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group p-6"
-                style={{ borderColor: `${primaryColor}20` }}
-              >
-                <h3 
-                  className="text-xl font-bold mb-3"
-                  style={{ color: primaryColor }}
+                  key={index}
+                  className={`bg-white p-6 rounded-2xl shadow-lg border-t-4 border-${stat.color}-500 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl ${isAboutVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  {scheme.name}
-                </h3>
-                
-                <p className="text-gray-600 mb-6">
-                  {scheme.description}
-                </p>
-                
-                {/* Features tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {scheme.features.map((feature, idx) => (
-                    <span 
-                      key={idx}
-                      className="text-xs font-medium px-3 py-1 rounded-full"
-                      style={{
-                        backgroundColor: `${primaryColor}15`,
-                        color: primaryColor
-                      }}
-                    >
-                      {feature}
-                    </span>
-                  ))}
+                  <div className={`text-3xl mb-3 text-${stat.color}-600 flex justify-center`}>
+                    <Icon />
+                  </div>
+                  <div className={`text-3xl font-bold text-${stat.color}-600 text-center mb-2`}>
+                    {stat.value}{stat.suffix}
+                  </div>
+                  <div className="text-gray-600 text-center text-sm">{stat.label}</div>
                 </div>
-                
-                <button 
-                  onClick={() => navigate(`/plan#${scheme.id}`)}
-                  className="w-full py-3 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group-hover:shadow-xl"
-                  style={{
-                    background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                    color: 'white'
-                  }}
-                >
-                  {t.viewDetails}
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
-      </section>
-
-      {/* 5. Modern Banking & Calculator Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        {/* Gold-themed gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
-          <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/30 via-transparent to-amber-100/30"></div>
-          {/* Animated gold particles */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-300 rounded-full opacity-20 animate-pulse"></div>
-            <div className="absolute top-40 right-20 w-40 h-40 bg-amber-300 rounded-full opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute bottom-20 left-1/3 w-36 h-36 bg-yellow-200 rounded-full opacity-25 animate-pulse" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute bottom-40 right-1/4 w-28 h-28 bg-amber-200 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '3s' }}></div>
-          </div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-16"
-            style={{
-              background: `linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%)`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-          >
-            {t.modernBanking}
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left: Banking Services */}
-            <div 
-              className="rounded-2xl shadow-xl p-8 border relative overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,220,0.9) 100%)',
-                borderColor: '#d4af3730',
-                backdropFilter: 'blur(10px)'
-              }}
-            >
-              <div 
-                className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-15"
-                style={{ background: 'linear-gradient(135deg, #ffd700 0%, #d4af37 100%)' }}
-              ></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center mb-8">
-                  <div 
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mr-4"
-                    style={{
-                      background: 'linear-gradient(135deg, #d4af37 0%, #ffd700 100%)',
-                      boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
-                    }}
-                  >
-                    <FaBuilding className="text-white text-2xl" />
+          {/* Enhanced Founder Section */}
+          <div className={`bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-12 transform transition-all duration-1000 hover:shadow-3xl ${isAboutVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-2/3">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                    <FaHistory className="text-white text-xl" />
                   </div>
-                  <div>
-                    <h3 
-                      className="text-2xl font-bold"
-                      style={{ color: '#b8860b' }}
-                    >
-                      {t.bankingServices}
-                    </h3>
-                    <p className="text-gray-600">{t.exploreServices}</p>
-                  </div>
+                  <h3 className="text-3xl font-bold text-gray-800">
+                    {tAbout.foundingTitle}
+                  </h3>
                 </div>
-
-                {/* Service Tabs */}
-                <div className="flex space-x-4 mb-8 overflow-x-auto pb-4">
-                  {['savings', 'current', 'loans', 'deposits'].map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`px-6 py-3 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 ${
-                        activeTab === tab
-                          ? 'shadow-lg transform scale-105'
-                          : 'hover:bg-gray-100'
-                      }`}
-                      style={{
-                        background: activeTab === tab 
-                          ? `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`
-                          : 'white',
-                        color: activeTab === tab ? 'white' : primaryColor,
-                        border: `2px solid ${activeTab === tab ? 'transparent' : `${primaryColor}30`}`
-                      }}
-                    >
-                      {t[tab]}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Service List */}
-                <div className="space-y-4">
-                  {bankingServices[activeTab].map((service, index) => (
-                    <div 
-                      key={index}
-                      className="flex items-center p-4 rounded-xl border hover:shadow-lg transition-all duration-300 cursor-pointer group"
-                      style={{
-                        borderColor: `${primaryColor}20`,
-                        backgroundColor: 'white'
-                      }}
-                    >
-                      <div 
-                        className="w-10 h-10 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300"
-                        style={{
-                          backgroundColor: `${primaryColor}15`,
-                          color: primaryColor
-                        }}
-                      >
-                        {service.icon}
-                      </div>
-                      <span className="text-gray-800 font-medium flex-1">{service.name}</span>
-                      <FaArrowRight className="text-gray-400 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Gold Loan Calculator */}
-            <div 
-              className="rounded-2xl shadow-xl p-8 border relative overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,248,220,0.95) 0%, rgba(255,236,179,0.9) 100%)',
-                borderColor: '#d4af3730',
-                backdropFilter: 'blur(10px)'
-              }}
-            >
-              <div 
-                className="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-15"
-                style={{ background: 'linear-gradient(135deg, #ffd700 0%, #d4af37 100%)' }}
-              ></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center mb-8">
-                  <div 
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mr-4"
-                    style={{
-                      background: 'linear-gradient(135deg, #d4af37 0%, #ffd700 100%)',
-                      boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
-                    }}
-                  >
-                    <FaCalculator className="text-white text-2xl" />
-                  </div>
-                  <div>
-                    <h3 
-                      className="text-2xl font-bold"
-                      style={{ color: '#b8860b' }}
-                    >
-                      {t.goldLoanCalc}
-                    </h3>
-                    <p className="text-gray-600">{t.calcSubtitle}</p>
-                  </div>
-                </div>
-
                 <div className="space-y-6">
-                  <div>
-                    <label className="block text-gray-700 mb-3 font-medium">
-                      {t.goldWeight}
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="number"
-                        value={goldWeight}
-                        onChange={handleWeightChange}
-                        className="w-full px-4 py-4 rounded-xl border focus:ring-4 outline-none transition-all pr-12"
-                        style={{
-                          borderColor: '#e2e8f0',
-                          backgroundColor: 'white',
-                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
-                        }}
-                        placeholder={t.enterWeight}
-                      />
-                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                        {t.grams}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 mb-3 font-medium">
-                      {t.goldPurity}
-                    </label>
-                    <select
-                      value={goldPurity}
-                      onChange={(e) => setGoldPurity(e.target.value)}
-                      className="w-full px-4 py-4 rounded-xl border focus:ring-4 outline-none transition-all"
-                      style={{
-                        borderColor: '#e2e8f0',
-                        backgroundColor: 'white',
-                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
-                      }}
-                    >
-                      <option value="24">{t.purity24K}</option>
-                      <option value="22">{t.purity22K}</option>
-                      <option value="18">{t.purity18K}</option>
-                      <option value="14">{t.purity14K}</option>
-                      <option value="12">{t.purity12K}</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 mb-3 font-medium">
-                      {t.selectTenure}
-                    </label>
-                    <select
-                      value={selectedTenure}
-                      onChange={(e) => setSelectedTenure(e.target.value)}
-                      className="w-full px-4 py-4 rounded-xl border focus:ring-4 outline-none transition-all"
-                      style={{
-                        borderColor: '#e2e8f0',
-                        backgroundColor: 'white',
-                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
-                      }}
-                    >
-                      <option value="6">{t.sixMonths}</option>
-                      <option value="12">{t.twelveMonths}</option>
-                      <option value="18">{t.eighteenMonths}</option>
-                      <option value="24">{t.twentyFourMonths}</option>
-                      <option value="30">{t.thirtyMonths}</option>
-                      <option value="36">{t.thirtySixMonths}</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 mb-3 font-medium">
-                      {t.goldRate}
-                    </label>
-                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                      <p className="text-sm text-gray-600">24K {t.goldRate}</p>
-                      <p className="text-2xl font-bold text-gray-800">
-                        ₹{staticGoldPrice.toLocaleString("en-IN")} / gram
-                      </p>
-                      <p className="text-sm mt-2 text-gray-600">
-                        {goldPurity}K {t.goldRate}: ₹{(staticGoldPrice * {
-                          24: 1,
-                          22: 0.916,
-                          18: 0.75,
-                          14: 0.585,
-                          12: 0.5,
-                        }[goldPurity]).toFixed(2)} / gram
-                      </p>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={calculateGoldLoan}
-                    className="w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl active:scale-95"
-                    style={{
-                      background: `linear-gradient(135deg, ${secondaryColor} 0%, #ffc233 100%)`,
-                      color: darkColor
-                    }}
-                  >
-                    {t.calculateLoan}
-                  </button>
-
-                  {loanAmount && (
-                    <div 
-                      className="rounded-xl p-6 border animate-fade-in mb-4"
-                      style={{
-                        backgroundColor: `${accentColor}15`,
-                        borderColor: `${accentColor}30`
-                      }}
-                    >
-                      <div className="text-center">
-                        <p className="text-green-700 font-semibold mb-2">
-                          कर्जासाठी तुम्ही पात्र आहात ✅
-                        </p>
-                        <div className="text-4xl font-bold mb-3" style={{ color: accentColor }}>
-                          {t.loanAmountText} ₹{parseFloat(loanAmount).toLocaleString('en-IN')}
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          {t.basedOnLTV}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {monthlyEMI && (
-                    <div 
-                      className="rounded-xl p-6 border animate-fade-in"
-                      style={{
-                        backgroundColor: `${primaryColor}15`,
-                        borderColor: `${primaryColor}30`
-                      }}
-                    >
-                      <div className="text-center">
-                        <p className="text-gray-600 mb-3">{t.monthlyEMI}</p>
-                        <div className="text-3xl font-bold mb-3 text-amber-600" style={{ color: primaryColor }}>
-                          ₹{parseFloat(monthlyEMI).toLocaleString('en-IN')}
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          {selectedTenure} {language === 'mr' ? 'महिने' : 'months'} • 10% {language === 'mr' ? 'वार्षिक व्याज' : 'annual interest'}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  <div 
-                    className="text-sm pt-4 border-t"
-                    style={{ borderColor: `${primaryColor}20` }}
-                  >
-                    <p className="flex items-start gap-2 text-gray-600">
-                      <span className="text-lg">💡</span>
-                      <span><strong>{t.note}:</strong> {t.noteText}</span>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    {tAbout.foundingText1}
+                  </p>
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border-l-4 border-blue-600">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      {tAbout.foundingText2}
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Statistics Counter Section */}
-      <section id="stats-section" className="py-12 md:py-16 text-white relative overflow-hidden" style={{
-        background: `linear-gradient(135deg, #b03462 0%, #8a2b4d 50%, #b03462 100%)`
-      }}>
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/10 animate-pulse"></div>
-          <div className="absolute -bottom-20 -left-20 w-48 h-48 rounded-full bg-white/5 animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/4 w-32 h-32 rounded-full bg-white/5 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3" style={{
-              textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-            }}>
-              {t.statsTitle}
-            </h2>
-            <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto">
-              {t.statsSubtitle}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
-            {/* Satisfied Customers */}
-            <div className="text-center group">
-              <div className="relative mb-3 sm:mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110 shadow-2xl border-2 border-white/30">
-                  <FaUsers className="text-2xl sm:text-3xl text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20"></div>
-              </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.customers.toLocaleString('en-IN')}{language === 'en' ? ' Lakh+' : ' लाख+'}
-
-              </div>
-              <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
-                {t.satisfiedCustomers}
-              </div>
-            </div>
-
-            {/* Branches */}
-            <div className="text-center group">
-              <div className="relative mb-3 sm:mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110 shadow-2xl border-2 border-white/30">
-                  <FaBuilding className="text-2xl sm:text-3xl text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20" style={{ animationDelay: '0.2s' }}></div>
-              </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.branches.toLocaleString('en-IN')}
-              </div>
-              <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
-                {t.branches}
-              </div>
-            </div>
-
-            {/* Village Service Centers */}
-            <div className="text-center group">
-              <div className="relative mb-3 sm:mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110 shadow-2xl border-2 border-white/30">
-                  <FaHome className="text-2xl sm:text-3xl text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20" style={{ animationDelay: '0.4s' }}></div>
-              </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.villageService.toLocaleString('en-IN')}
-              </div>
-              <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
-                {t.villageService}
-              </div>
-            </div>
-
-            {/* Customers */}
-            <div className="text-center group">
-              <div className="relative mb-3 sm:mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110 shadow-2xl border-2 border-white/30">
-                  <FaUserCheck className="text-2xl sm:text-3xl text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20" style={{ animationDelay: '0.6s' }}></div>
-              </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.employees.toLocaleString('en-IN')}+
-              </div>
-              <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
-                {t.employee}
-              </div>
-            </div>
-
-            {/* Business Volume */}
-            <div className="text-center group">
-              <div className="relative mb-3 sm:mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110 shadow-2xl border-2 border-white/30">
-                  <FaChartLine className="text-2xl sm:text-3xl text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-full bg-white/10 animate-ping opacity-20" style={{ animationDelay: '0.8s' }}></div>
-              </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-                {counters.businessVolume.toLocaleString('en-IN')}{language === 'en' ? ' Cr+' : '+'}
-
-              </div>
-              <div className="text-white/90 text-xs sm:text-sm md:text-base font-medium leading-tight">
-                {t.businessVolume}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      {/* 8. Media Gallery Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-16 gap-6">
-            <div>
-              <h2 
-                className="text-4xl md:text-5xl font-bold"
-                style={{
-                  background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                {t.mediaGallery}
-              </h2>
-              <p className="text-gray-600 text-lg mt-3">{t.gallerySub}</p>
-            </div>
-            <button 
-              onClick={() => navigate('/gallery')}
-              className="px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center gap-3"
-              style={{
-                background: `linear-gradient(135deg, ${primaryColor} 0%, #d15679 100%)`,
-                color: 'white'
-              }}
-            >
-              <FaCamera />
-              {t.viewAllGallery}
-            </button>
-          </div>
-
-          {/* Gallery Grid */}
-          {galleryLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(6)].map((_, index) => (
-                <div key={index} className="relative rounded-2xl overflow-hidden shadow-lg">
-                  <div 
-                    className="h-64 relative overflow-hidden animate-pulse"
-                    style={{
-                      background: `linear-gradient(135deg, ${primaryColor} 0%, #9c2956 100%)`
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/30"></div>
+              <div className="lg:w-1/3 flex justify-center">
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-2xl shadow-2xl text-white text-center transform transition-all duration-500 hover:scale-105">
+                  <div className="text-6xl mb-4">🏛️</div>
+                  <h4 className="text-2xl font-bold mb-2">{tAbout.establishmentDate}</h4>
+                  <p className="text-xl font-semibold mb-4">{tAbout.establishmentDateValue}</p>
+                  <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                    <p className="text-lg font-semibold">{tAbout.motto}</p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Inauguration Section */}
+          <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl shadow-xl p-6 md:p-8 mb-10 border-l-8 border-amber-500">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+              <span className="bg-amber-500 text-white px-4 py-2 rounded-lg">
+                {tAbout.inaugurationTitle}
+              </span>
+            </h3>
+            <p className="text-gray-700 text-lg leading-relaxed mb-6 text-center">
+              {tAbout.inaugurationText}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              {tAbout.inaugurationCards.map((card, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-md text-center transform transition-all duration-300 hover:scale-105">
+                  <div className="text-4xl mb-3">{['👥', '🎯', '📈'][index]}</div>
+                  <h4 className="font-bold text-gray-800">{card.title}</h4>
+                  <p className="text-gray-600 mt-2">{card.desc}</p>
                 </div>
               ))}
             </div>
-          ) : galleryImages.length === 0 ? (
-            <div className="text-center py-20">
-              <FaCamera className="mx-auto text-6xl text-gray-300 mb-5" />
-              <h3 className="text-2xl font-semibold text-gray-700 mb-3">{t.noImagesFound}</h3>
-              <p className="text-gray-500">{t.checkBackLater}</p>
+          </div>
+
+          {/* Growth & Multistate Section */}
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-10 overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-amber-100 rounded-full -ml-12 -mb-12"></div>
+            
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 relative z-10">
+              <span className="border-b-4 border-blue-600 pb-2">{tAbout.expansionTitle}</span>
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+              <div>
+                <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  {tAbout.expansionText1}
+                </p>
+                <div className="bg-blue-50 p-5 rounded-xl mt-6 border border-blue-200">
+                  <h4 className="font-bold text-blue-800 text-lg mb-2">🏆 {!isMarathi ? 'Historic Achievement' : 'ऐतिहासिक विक्रम'}</h4>
+                  <p className="text-blue-700">
+                    {tAbout.expansionHighlight}
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  {tAbout.expansionText2}
+                </p>
+              </div>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {galleryImages.slice(0, 6).map((image, index) => (
-                <div 
-                  key={image.id}
-                  onClick={() => setSelectedImage(image.url)}
-                  className="relative rounded-2xl overflow-hidden shadow-lg transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl cursor-pointer group"
-                >
-                  <div className="h-64 relative overflow-hidden">
-                    <img
-                      src={image.url}
-                      alt={image.originalName || t.bankEvent}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/30"></div>
-                    <div 
-                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{
-                        background: `radial-gradient(circle, ${primaryColor}40 0%, transparent 70%)`
-                      }}
-                    >
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-sm">
-                        <FaPlus className="text-white text-2xl" />
+          </div>
+
+          {/* Technology & Services Section */}
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl shadow-xl p-6 md:p-8 mb-10">
+            <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+              <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg">
+                {tAbout.technologyTitle}
+              </span>
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                {tAbout.technologyCards.slice(0, 2).map((card, index) => (
+                  <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+                    <div className="flex items-start">
+                      <div className="text-3xl mr-4">{['💻', '🏦'][index]}</div>
+                      <div>
+                        <h4 className="font-bold text-gray-800 text-lg mb-2">{card.title}</h4>
+                        <p className="text-gray-700">
+                          {card.desc}
+                        </p>
                       </div>
                     </div>
                   </div>
-
-                  <div 
-                    className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
-                    style={{
-                      backgroundColor: `${secondaryColor}20`,
-                      color: darkColor,
-                      backdropFilter: 'blur(10px)'
-                    }}
-                  >
-                    {t.photo}
+                ))}
+              </div>
+              
+              <div className="space-y-6">
+                {tAbout.technologyCards.slice(2, 4).map((card, index) => (
+                  <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+                    <div className="flex items-start">
+                      <div className="text-3xl mr-4">{['🔒', '⚡'][index]}</div>
+                      <div>
+                        <h4 className="font-bold text-gray-800 text-lg mb-2">{card.title}</h4>
+                        <p className="text-gray-700">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+          </div>
+
+          {isMarathi ? (
+            <div className="bg-white rounded-2xl shadow-xl p-8 mb-10 border-l-8 border-pink-600">
+               <p className="text-gray-700 text-lg leading-relaxed mb-6 font-medium">
+                {tAbout.serviceSafetyPrinciple}
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                {tAbout.facilitiesAndServicesNarrative}
+              </p>
+            </div>
+          ) : (
+            <>
+              {/* Infrastructure & Services Grid */}
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <span className="inline-block border-b-4 border-blue-600 pb-2">
+                    {tAbout.facilitiesTitle}
+                  </span>
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {tAbout.facilitiesCards.map((item, index) => (
+                    <div 
+                      key={index} 
+                      className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl shadow-md border border-blue-100 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
+                    >
+                      <div className="text-4xl mb-4 text-center">{['🏢', '👨‍💼', '📊', '⏰'][index]}</div>
+                      <h4 className="font-bold text-gray-800 text-lg mb-2 text-center">{item.title}</h4>
+                      <p className="text-gray-600 text-center">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Financial Services */}
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl shadow-xl p-6 md:p-8 mb-10">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                  {tAbout.financialServicesTitle}
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {tAbout.financialServices.map((service, index) => (
+                    <div 
+                      key={index}
+                      className="bg-white p-4 rounded-lg shadow-sm border border-green-200 flex items-center justify-center hover:bg-green-50 transition-colors duration-300"
+                    >
+                      <span className="text-green-700 font-medium">{service}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
           )}
+
+          {/* Social Commitment */}
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl shadow-xl p-6 md:p-8 mb-10">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  {tAbout.socialCommitmentTitle}
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  {tAbout.socialCommitmentText}
+                </p>
+              </div>
+              <div className="md:w-1/3 flex justify-center mt-6 md:mt-0">
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 p-6 rounded-xl shadow-lg">
+                  <div className="text-6xl mb-4 text-center">🤝</div>
+                  <p className="text-purple-800 font-semibold text-center">{tAbout.socialCommitmentBadge}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Conclusion Section */}
+          <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-12 text-center">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">{tAbout.todayTitle}</h3>
+            
+            <div className="max-w-4xl mx-auto px-2 sm:px-4">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-6 text-blue-100">
+                {tAbout.todayText}
+              </p>
+              
+              <div className="bg-gradient-to-r from-amber-500 to-yellow-500 inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full shadow-lg mt-3 sm:mt-4">
+                <p className="text-sm sm:text-base md:text-xl font-bold">
+                  {tAbout.todayMotto}
+                </p>
+              </div>
+            </div>
+            
+            <div className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 border-t border-blue-400">
+              <p className="text-blue-200 text-sm sm:text-base md:text-lg">
+                {tAbout.todayCommitment}
+              </p>
+            </div>
+          </div>
+
+          {/* Enhanced Contact Section */}
+          <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl shadow-2xl p-8 md:p-12 text-white">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold mb-4">{tAbout.contactTitle}</h3>
+              <p className="text-blue-100 text-lg">{tAbout.contactSubtitle}</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaMapMarkerAlt className="text-2xl" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">{tAbout.contactAddress}</h4>
+                <p className="text-blue-100"> Shiv Pratap Gold Tower, Vita Ta. Khanapur, Dist. Sangli (Maharashtra)</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaPhone className="text-2xl" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">{tAbout.contactPhone}</h4>
+                <p className="text-blue-100">+91 9582837032</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaEnvelope className="text-2xl" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">{tAbout.contactEmail}</h4>
+                <p className="text-blue-100">customercare@shivpratapmultistate.com</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Section */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-blue-500">
+              <div className="text-3xl font-bold text-blue-600">{!isMarathi ? '2002' : '२००२'}</div>
+              <div className="text-gray-600 mt-2">{tAbout.stats[0].label}</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-green-500">
+              <div className="text-3xl font-bold text-green-600">{!isMarathi ? '2012' : '२०१२'}</div>
+              <div className="text-gray-600 mt-2">{tAbout.stats[1].label}</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-amber-500">
+              <div className="text-3xl font-bold text-amber-600">{!isMarathi ? 'First' : 'पहिली'}</div>
+              <div className="text-gray-600 mt-2">{!isMarathi ? 'Multistate Institution in Western Maharashtra' : 'पश्चिम महाराष्ट्रातील मल्टीस्टेट संस्था'}</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-purple-500">
+              <div className="text-3xl font-bold text-purple-600">{!isMarathi ? '22+' : '२२+'}</div>
+              <div className="text-gray-600 mt-2">{tAbout.stats[3].label}</div>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+
+      
+
 
       {/* Lightbox Modal */}
       {selectedImage && (

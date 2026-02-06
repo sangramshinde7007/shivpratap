@@ -19,7 +19,7 @@ Understanding the financial needs of various groups in rural and urban areas—f
 Through transparent transactions, disciplined financial management, and strict adherence to rules, the institution has earned the strong trust of its members in a short period. Working for the economic empowerment of society through cooperation and leading the institution towards long-term stability and progress is our role and commitment."`,
       chairmanName: "Shri. Pratapseth (Dada) Salunkhe",
       designation: "President",
-      organization: "Shivpratap Multistate Urban Cooperative Credit Society Ltd.",
+      organization: "Shivpratap Multistate Nagari Co-operative Credit Society Ltd. Vita",
       yearsOfService: "Founding President (Established 2002)",
       achievements: [
         "22+ years of experience in cooperative sector",
@@ -57,7 +57,7 @@ Through transparent transactions, disciplined financial management, and strict a
 पारदर्शक व्यवहार, शिस्तबद्ध आर्थिक व्यवस्थापन आणि नियमांचे काटेकोर पालन यामुळे संस्थेने अल्पावधीतच सभासदांचा दृढ विश्वास संपादन केला आहे. सहकाराच्या माध्यमातून समाजाच्या आर्थिक सक्षमीकरणासाठी कार्य करत राहणे आणि संस्थेला दीर्घकालीन स्थैर्य व प्रगतीच्या दिशेने नेणे, हीच आमची भूमिका आणि बांधिलकी आहे."`,
       chairmanName: "श्री. प्रतापशेठ (दादा) साळुंखे",
       designation: "अध्यक्ष",
-      organization: "शिवप्रताप मल्टीस्टेट नागरी सहकारी पतसंस्था लि.",
+      organization: "शिवप्रताप मल्टीस्टेट नागरी सहकारी पतसंस्था लिमिटेड विटा",
       yearsOfService: "संस्थापक अध्यक्ष (स्थापना २००२)",
       achievements: [
         "२२+ वर्षे सहकार क्षेत्रातील अनुभव",
@@ -96,7 +96,7 @@ Through transparent transactions, disciplined financial management, and strict a
       backgroundImage: 'linear-gradient(135deg, rgba(176, 52, 98, 0.03) 0%, rgba(248, 249, 250, 1) 100%)'
     }}>
       {/* Animated Background Pattern */}
-      <div className="fixed inset-0 opacity-5">
+      <div className="fixed inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0" style={{
           backgroundImage: `repeating-linear-gradient(45deg, ${primaryColor} 0, ${primaryColor} 1px, transparent 1px, transparent 15px)`,
           backgroundSize: '20px 20px'
