@@ -64,7 +64,7 @@ const Career = () => {
 
   // WhatsApp integration function
   const handleApply = (jobTitle) => {
-    const phoneNumber = '919156602715';
+    const phoneNumber = '918308303159';
     const message = language === 'en' 
       ? `Hello, I am interested in applying for the position of ${jobTitle} at Shivpratap Multistate Bank. Please provide me with more details about the application process.`
       : `नमस्कार, मी शिवप्रताप मल्टीस्टेट बँकेत ${jobTitle} या पदासाठी अर्ज करण्यात स्वारस्य आहे. कृपया मला अर्ज प्रक्रियेबद्दल अधिक तपशील द्या.`;
